@@ -15,17 +15,24 @@
   <body>
     <div class="wrapper">
       <header>
-        <h1>Emergya</h1>
+        <h1>OpenStack (Emergya)</h1>
         <p>Curso OpenStack (Emergya) Enero 2016</p>
+        {% for m in site.data.menu %}
+          {% if page.menu contains {{m.nombre}} %}
+            <h3 class="header">{{m.nombre}}</h3>
+            <ul class="otherlinks clearfix">
+              {% for me in m.items %}
+                <li><a title="" href="{{me.url}}" rel="external">{{me.name}}</a></li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        {% endfor %}
+        
 
         <p class="view"><a href="https://github.com/iesgn/emergya">View the Project on GitHub <small>iesgn/emergya</small></a></p>
 
 
-        <ul>
-          <li><a href="https://github.com/iesgn/emergya/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/iesgn/emergya/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/iesgn/emergya">View On <strong>GitHub</strong></a></li>
-        </ul>
+        
       </header>
       <section>
        <h1>{{page.tittle}}</h1> 
