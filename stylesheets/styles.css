@@ -13,7 +13,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p, ul, ol, table, pre, dl {
-  margin:0 0 20px;
+  #margin:0 0 20px;
 }
 
 h1, h2, h3 {
@@ -113,7 +113,7 @@ header ul {
   list-style:none;
 # height:40px;
   padding:0;
-  background: #f4f4f4;
+# background: #f4f4f4;
   border-radius:5px;
 # border:1px solid #e0e0e0;
   width:270px;
@@ -121,9 +121,9 @@ header ul {
 
 header li {
   width:89px;
-  float:left;
-  border-right:1px solid #e0e0e0;
-  height:40px;
+#  float:left;
+#  border-right:1px solid #e0e0e0;
+#  height:40px;
 }
 
 header li:first-child a {
@@ -136,12 +136,12 @@ header li:last-child a {
 
 header ul a {
   line-height:1;
-  font-size:11px;
-  color:#999;
-  display:block;
-  text-align:center;
-  padding-top:6px;
-  height:34px;
+#  font-size:11px;
+#  color:#999;
+#  display:block;
+#  text-align:center;
+#  padding-top:6px;
+#  height:34px;
 }
 
 header ul a:hover {
