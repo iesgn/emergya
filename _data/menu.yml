@@ -1,67 +1,10 @@
-#- nombre: Unidad 1
-#  items:
-#   - name: Cloud Computing
-#     url: /cloud2/curso/u1
-#   - name: OpenStack
-#     url: /cloud2/curso/u1/openstack
-#   - name: Cirrusflex
-#     url: /cloud2/curso/u1/stackops#
-#
-
-#- nombre: Unidad 2
-#  items:
-#   - name: Inicio
-#     url: /cloud2/curso/u2
-#   - name: Práctica Linux
-#     url: /cloud2/curso/u2/practica_linux
-#   - name: Práctica Windows
-#     url: /cloud2/curso/u2/practica_windows
-#   - name: Tarea
-#     url: /cloud2/curso/u2/tarea#
-
-#- nombre: Unidad 3
-#  items:
-#   - name: Inicio
-#     url: /cloud2/curso/u3
-#   - name: Práctica Instancia
-#     url: /cloud2/curso/u3/practica_instancia
-#   - name: Práctica Volumen
-#     url: /cloud2/curso/u3/practica_volumen
-#   - name: Tarea
-#     url: /cloud2/curso/u3/tarea
-#- nombre: Unidad 4
-#  items:
-#   - name: Inicio
-#     url: /cloud2/curso/u4
-#   - name: Prácticas
-#     url: /cloud2/curso/u4/practica
-#   - name: Tarea
-#     url: /cloud2/curso/u4/tarea#
-
-#- nombre: Unidad 5
-#  items:
-#  - name: Inicio
-#    url: /cloud2/curso/u5
-#  - name: Prácticas
-#    url: /cloud2/curso/u5/practicas
-#  - name: Tarea
-#    url: /cloud2/curso/u5/tarea
-#- nombre: Unidad 6
-#  items:
-#  - name: Inicio
-#    url: index
-#  - name: Instalación
-#    url: entornos
-#  - name: Tareas
-#    url: tareas
-
 - nombre: Unidades
   items:
    - name: Inicio
      url: /emergya
    - name: 1.-Introducción Cloud Computing
      url: /emergya/curso/u1
-   - name: 2.-Instalción OpenStack
+   - name: 2.-Instalación OpenStack
      url: /emergya/curso/u2
    - name: 3.-Glance y Nova
      url: /emergya/curso/u3
