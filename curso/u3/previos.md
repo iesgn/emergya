@@ -84,10 +84,73 @@ al puerto 22:
 ![ssh](img/previos/04.png)
 
 
-Procedemos de igual forma para permitir todo el tráfico ICMP
+Procedemos de igual forma para permitir todo el tráfico ICMP.
+
+## Configuración inicial de red
+
+Si comprobamos el esquema por defecto que tenemos en nuestro proyecto podemos observar que sólo tenemos definido la red externa (ext-net) que es común para todos los proyectos. Si accedemos a la opción **Topología de Red** dentro del apartado de **Red**, podemos ver el siguiente esquema:
+
+![red](img/previos/red1.png)
+
+El esquema de red que debe tener nuestro proyecto esta definido por un router conectado a la red externa, y una red interna donde se conectan las instancias. Para ello seguimos los siguientes pasos:
+
+* Creamos un router: Para ello elegimos: **Red**->**Routers**->**Crear router**:
+
+![red](img/previos/red2.png)
+
+* Creamos una nueva red, con una subred asociada, para ello elegimos **Red**->**Redes**->**Crear red**:
+
+![red](img/previos/red3.png)
+
+![red](img/previos/red4.png)
+
+![red](img/previos/red5.png)
 
 
-## IPs flotantes / IPs públicas
+
+
+
+
+
+![red](img/red1.png)
+
+Si accedemos a la opción **Administrador de redes**, en el apartados **Redes** vemos lo siguiente:
+
+![red](img/previo1.png)
+
+Podemos observar que en nuestro proyecto tenemos definida una red, que tiene asociada una subred con el direccionamiento 10.0.15.64/26, del conjunto de direcciones podemos asignar a nuestra instancias desde la 10.0.15.66 hasta la 10.0.15.126. También observamos que nuestra red está conectada al router de nuestro proyecto en mi caso se llama *00000061-ext-router*.
+
+Ahora podemos ver los routers definidos en mi proyecto:
+
+![red](img/previo2.png)
+
+Podemos comprobar que el router está conectado a la red externa.
+
+Por último podemos ver los puertos relacionados a nuestra red:
+
+![red](img/previo3.png)
+
+En nuestro escenario tenemos los siguientes dispositivos conectados a nuestra red:
+
+* Nuestro router está conectado a nuestra red con la dirección IP 10.0.15.65, por lo tanto la puerta de enlace de las instancias será está ip.
+* Las IP fijas de nuestra instancias se asignan por un servidor dhcp, en nuestra red por defecto tenemos dos dispositivos servidores dhcp (en mi caso el 10.0.15.66 y el 10.0.15.67). Es una medida que adopta cirrusflex es para asegurar que la asignación va a tener éxito (alta disponibilidad) aunque realmente no es necesario tener dos servicios dhcp.
+* Por último observamos que tenemos una instancia conectadas a una red que ha tomado la ip fija 10.0.15.68.
+
+Por lo tanto cómo veíamos en la primera pantalla tenemos 57 direcciones ip libres.
+
+Efectivamente en la siguiente imagen podemos ver la instancia que tenemos conectada a la red:
+
+![red](img/previo4.png)
+
+A dicha instancia le hemos asignado una ip flotante (185.45.73.232). Esa operación está creando las reglas de cortafuegos tipo NAT necesarias para que la instancia salga al exterior con la IP flotante asociada (SNAT) y para que podamos acceder a la instancia a través de los puertos abiertos en nuestro **grupo de seguridad** (DNAT).
+
+
+
+
+
+
+
+## IPs flotantes 	
 
 Cuando se crea una instancia se le asigna por DHCP una dirección IP que es la
 misma durante toda la vida de la instancia, por lo que paradójicamente recibe el
