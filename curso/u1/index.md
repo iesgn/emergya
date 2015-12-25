@@ -1,6 +1,6 @@
 ---
 layout: blog
-tittle: Introducción al Cloud Computing con OpenStack y OpenShift
+tittle: Curso OpenStack (Emergya)
 menu:
   - Unidades
 ---
