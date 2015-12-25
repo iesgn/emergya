@@ -1,9 +1,11 @@
 ---
 layout: blog
-tittle: Pasos previos
+tittle: Curso OpenStack (Emergya)
 menu:
   - Unidades
 ---
+
+##Pasos previos
 
 ## Pares de claves ssh
 
@@ -30,14 +32,15 @@ opción es muy sencilla y puede ser aceptable para pruebas o entornos donde la
 seguridad no es un aspecto fundamental como en el caso que nos ocupa en el 
 que simplemente queremos aprender a utilizar este entorno.
 
-Para crear nuestro par de claves vamos a la sección **Administrador de
-Seguridad** -> **LLaves** -> **Crear nuevo par de claves**:
+Para crear nuestro par de claves vamos a la sección **Acceso y Seguridad** -> **Pares de Claves** -> **Crear par de claves**:
 
 Al crearse el par de claves, el sistema almacena la clave pública del usuario y
 envía al usuario la clave privada.
 	
 
-![ssh](img/demo2_1.png)
+![ssh](img/previos/01.png)
+
+![ssh](img/previos/02.png)
 
 
 Nos descargamos la clave privada, almacenándola localmente (normalmente en el
@@ -45,8 +48,8 @@ directorio ~/.ssh) y le asignamos los permisos adecuados para que ningún otro
 usuario pueda leerla (son válidos los modos 0400 o 0600):
 
 <pre>
-$ mv Descargas/mi_clave.pem ~/.ssh
-$ chmod 0600 ~/.ssh/mi_clave.pem
+$ mv Descargas/clave_demo.pem ~/.ssh
+$ chmod 0600 ~/.ssh/clave_demo.pem
 </pre>
 
 ## Grupos de Seguridad o Cortafuegos de la instancia
@@ -66,20 +69,19 @@ ella para su gestión.
 
 ### Creación de un grupo de seguridad
 
-Para acceder al cortafuegos, elegimos la pantalla **Administrador de seguridad**
-y la opción **Cortafuegos**. Creamos un nuevo grupo de seguridad al que llamamos
+Para acceder al cortafuegos, elegimos la pantalla **Acceso y Seguridad**
+y la opción **Grupos de Seguridad**. Creamos un nuevo grupo de seguridad al que llamamos
 "ssh_y_ping":
 
 
-![ssh](img/ssh_y_ping.png)
+![ssh](img/previos/03.png)
 
 
-Seleccionamos el nuevo grupo de seguridad creado y elegimos **Añadir nueva
-regla**. Para permitir el tráfico ssh, abrimos el tráfico tcp desde el puerto 22
+Seleccionamos el nuevo grupo de seguridad creado y elegimos **Administrar reglas**. Para permitir el tráfico ssh, abrimos el tráfico tcp desde el puerto 22
 al puerto 22:
 
 
-![ssh](img/cortafuegos_ssh.png)
+![ssh](img/previos/04.png)
 
 
 Procedemos de igual forma para permitir todo el tráfico ICMP
@@ -92,16 +94,12 @@ misma durante toda la vida de la instancia, por lo que paradójicamente recibe e
 nombre de IP fija. Esta dirección IP permite que la instancia pueda conectarse a
 otros equipos de su propia red o incluso de otras redes internas del cloud, pero
 si queremos acceder a la instancia desde el exterior es necesario asociar a la
-instancia lo que se denomina una IP flotante, o en el caso de Cirrusflex, una IP
-pública. Esta IP flotante o pública permite mediante el mecanismo de Destination
-NAT o DNAT acceder desde Internet a la instancia ubicada en una red interna del
+instancia lo que se denomina una IP flotante. Esta IP flotante permite mediante el mecanismo de **Destination
+NAT o DNAT** acceder desde Internet a la instancia ubicada en una red interna del
 cloud.
 
 ### Reservar una IP flotante
 
-Elegimos la opción **IP públicas** en el apartado **Administrador de seguridad**
+Elegimos la opción **IP flotantes** en el apartado **Acceso y Seguridad**
 y asignamos una nueva IP que podremos observar que está en el rango de
-direcciones IPv4 públicas. Es importante destacar que las direcciones IPv4
-tienen un coste de uso mientras estén reservadas, incluso aunque no estén
-asociadas a una instancia, por eso sería conveniente liberar la IP pública si no
-se va a utilizar.
+direcciones IPv4 de nuestra red local. Posteriormente las IP flotantes que hemos reservado se le pueden asociar a las instancias para acceder a ellas.
