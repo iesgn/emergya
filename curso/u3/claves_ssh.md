@@ -1,9 +1,11 @@
 ---
 layout: blog
-tittle: Trabajo con claves ssh
+tittle: Curso OpenStack (Emergya)
 menu:
   - Unidades
 ---
+
+##Trabajo con claves ssh
 
 Este apartado es **opcional** y recomendado para aquellos participantes del curso
 que no estén habituados a trabajar con pares de claves RSA en conexiones ssh.
