@@ -70,17 +70,17 @@ privada correspondiente a la clave pública que se ha inyectado en la
 instancia:
 
 
-    $ ssh -i clave_demo.pem debian@172.22.204.143
-    The authenticity of host '172.22.204.143 (172.22.204.143)' can't be established.
-    ECDSA key fingerprint is 0d:65:b9:fc:33:1d:68:32:71:47:8a:fb:8a:ba:39:63.
-    Are you sure you want to continue connecting (yes/no)? yes
-    Warning: Permanently added '172.22.204.143' (ECDSA) to the list of known hosts.
+      $ ssh -i clave_demo.pem debian@172.22.204.143
+      The authenticity of host '172.22.204.143 (172.22.204.143)' can't be established.
+      ECDSA key fingerprint is 0d:65:b9:fc:33:1d:68:32:71:47:8a:fb:8a:ba:39:63.  
+      Are you sure you want to continue connecting (yes/no)? yes
+      Warning: Permanently added '172.22.204.143' (ECDSA) to the list of known hosts.     
 
-    The programs included with the Debian GNU/Linux system are free software;
-    the exact distribution terms for each program are described in the
-    individual files in /usr/share/doc/*/copyright.
+      The programs included with the Debian GNU/Linux system are free software;
+      the exact distribution terms for each program are described in the
+      individual files in /usr/share/doc/*/copyright.     
 
-    Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
-    permitted by applicable law.
-    debian@primera:~$ 
+      Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+      permitted by applicable law.
+      debian@primera:~$ 
 
