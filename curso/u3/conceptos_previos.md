@@ -1,9 +1,11 @@
 ---
 layout: blog
-tittle: Conceptos previos
+tittle: Curso OpenStack (Emergya)
 menu:
   - Unidades
 ---
+
+#Conceptos previos
 
 ## Imagen
 
@@ -12,7 +14,7 @@ fichero que contiene un disco virtual con un sistema operativo con la
 configuración mínima para poder operar adecuadamente dentro de una
 nube de infraestructura.
 
-## Instancia (Servidor)
+## Instancia 
 
 Una instancia es un servidor virtual que se ejecuta dentro de la nube
 de infraestructura y que se basa en una imagen, de hecho una instancia
@@ -34,7 +36,7 @@ la creación de la instancia. La dirección IP fija se utiliza para la
 comunicación interna de la instancia y su valor no varía durante la
 vida de la instancia, de ahí que reciba el nombre de IP fija.
 
-## IP flotante (IP pública)
+## IP flotante 
 
 Dirección IP que se asigna a una instancia después de crearla y que se
 utiliza para la comunicación desde el exterior. No todas las
