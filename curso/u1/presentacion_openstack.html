@@ -1,0 +1,274 @@
+---
+layout: presentacion
+title: Introducción a OpenStack
+tema: white
+---
+<section data-background="img/presentacion_openstack/openstack.png">
+  <h2>Introducción a OpenStack</h2>
+  <p>
+    <a href="http://albertomolina.wordpress.com">Alberto Molina Coballes</a> y
+    <a href="http://www.josedomingo.org">José Domingo Muñoz Rodríguez</a>
+  </p>
+  <p>
+    <a href="http://creativecommons.org/licenses/by-sa/3.0/">
+      <img src="img/presentacion_openstack/cc_by_sa.png" width="100px" border="0"/></a>
+  </p>
+  <p><small>Theme by: <a href="http://lab.hakim.se/reveal-js/#/">reveal.js</a></small></p>
+</section>
+<section data-background="img/presentacion_openstack/openstack.png">
+  <h3>OpenStack</h3>
+  <p><em>&ldquo;Plataforma de cloud computing hecha con
+      software libre para desplegar nubes públicas y privadas,
+      desarrollada con la idea de ser sencilla de implementar,
+      masivamente escalable y con muchas prestaciones&rdquo;</em></p>
+  <img src="img/presentacion_openstack/openstack-software-diagram.png" alt="openstack-diagram"/>
+</section>
+<section data-background="img/presentacion_openstack/openstack.png">
+  <h2>¿Por qué OpenStack?</h2>
+  <ul>
+    <li>Queremos instalar nuestro propio software para
+      proporcionar IaaS</li>
+    <li>Tenemos necesidad de infraestructura variable</li>
+    <li>Software libre</li>
+    <li>Proyecto estable, con muchos apoyos y muy
+      buenas perspectivas de futuro</li>
+    <li>Tiene muchas funcionalidades</li>
+    <li>Se está convirtiendo en el SO cloud ¿o era el kérnel?</li>
+    <li>Podemos utilizar hardware convencional</li>
+    <li>Cada vez es más fácil de instalar</li>
+  </ul>
+</section>
+<section data-background="img/presentacion_openstack/openstack.png">
+  <h2>Otras alternativas</h2>
+  <ul>
+    <li><a href="http://opennebula.org/">OpenNebula</a>, <a href="http://cloudstack.apache.org/">CloudStack</a> y <a href="https://www.eucalyptus.com/"><strike>Eucalyptus</strike></a>
+      <ul>
+        <li>Software libre</li>
+        <li>Proyectos más pequeños (ventajas e inconvenientes)</li>
+	<li>Menos funcionalidad</li>
+        <li>Probablemente más sencillas de instalar</li>
+        <li>Algunos componentes más maduros</li>
+	<li>¿Comparables a OpenStack Nova?</li>
+    </ul></li>
+    <li>VMware Vcloud
+      <ul>
+        <li>Software privativo</li>
+        <li>Optimizado para vSphere</li>
+        <li>No compite en IaaS pública</li>
+	<li><a href="http://www.vmware.com/products/openstack">VmWare Integrated OpenStack</a></li>
+      </ul>
+  </ul>
+</section>
+<section data-background="img/presentacion_openstack/openstack.png">
+  <section data-background="img/presentacion_openstack/openstack.png">
+    <h2>Inicios de OpenStack</h2>
+    <table>
+      <col style="width: 25%" />
+      <col style="width: 75%"/>
+      <tr>
+	<td style="text-align: center; vertical-align:middle;">
+	  <img src="img/presentacion_openstack/rackspace.png" alt="rackspace" width="120"/></td>
+	<td>
+          <ul>
+            <li>Cloud propio desde 2005
+	      <ul>
+		<li>Cloud servers (IaaS)</li>
+		<li>Cloud files (StaaS)</li>
+	    </ul></li>
+            <li>Cambia a licencia libre en Abril 2010</li>
+          </ul>
+	</td>
+      </tr>
+      <tr>
+	<td style="text-align: center; vertical-align:middle;">
+	  <img src="img/presentacion_openstack/nasa.png" alt="nasa" width="120"/></td>
+	<td>
+          <ul>
+            <li>Comienza a utilizar Eucalyptus, pero lo deja por
+	      ser ''open core''</li>
+            <li>Crea el software para IaaS Nebula</li>
+            <li>Cambia a licencia libre en Mayo 2010</li>
+          </ul>
+	</td>
+      </tr>
+      <tr>
+	<td style="text-align: center; vertical-align:middle;">
+	  <img src="img/presentacion_openstack/openstack.jpg" alt="openstack"  width="120"/></td>
+	<td>
+          <ul>
+            <li>Ambas lo inician en Junio de 2010</li>
+            <li>OpenStack Nova &#8678; Nebula</li>
+            <li>OpenStack Swift &#8678; Cloud Files</li>
+          </ul>
+	</td>
+      </tr>
+    </table>
+  </section>
+  <section data-background="img/presentacion_openstack/openstack.png">
+    <h2>Principios fundacionales</h2>
+    <p>En Septiembre de 2012 se cede el control del proyecto a
+      la <a href="http://www.openstack.org/foundation/">OpenStack
+	Foundation</a>
+      <ul>
+        <li><a href="http://www.apache.org/licenses/LICENSE-2.0.html">Licencia
+            Apache 2.0</a>, no existe versión "enterprise"</li>
+        <li>Proceso de <a href="https://blueprints.launchpad.net/openstack">diseño abierto</a></li>
+        <li><a href="https://github.com/openstack/">Repositorios públicos de código fuente</a></li>
+        <li>Todos los procesos de desarrollo deben estar documentados y
+	  ser transparentes</li>
+        <li>Orientado para adoptar estándares abiertos</li>
+        <li>Diseño modular flexible mediante <a href="http://api.openstack.org/">APIs web</a></li>
+	<li><a href="http://www.openstack.org/foundation/companies/">Empresas
+	participantes en la OpenStack Foundation</a></li>
+      </ul>
+  </section>
+  <section data-background="img/presentacion_openstack/openstack.png">
+    <h2>Versiones de OpenStack</h2>
+    <p>Se publica una nueva cada 6 meses:</p>
+    <table>
+      <col style="width: 18%" />
+      <col style="width: 32%" />
+      <col style="width: 18%" />
+      <col style="width: 32%" />
+      <tr>
+	<th>Versión</th>
+	<th>Fecha</th>
+	<th>Versión</th>
+	<th>Fecha</th>
+      </tr>
+      <tr>
+	<td><a href="https://wiki.openstack.org/wiki/ReleaseNotes/Austin">Austin</a></td>
+	<td>Oct 2010</td>
+	<td>...</td>
+	<td></td>
+      </tr>
+      <tr>
+	<td><a href="https://wiki.openstack.org/wiki/ReleaseNotes/Grizzly">Grizzly</a></td>
+	<td>Abr 2013</td>
+	<td><a href="https://wiki.openstack.org/wiki/ReleaseNotes/Havana">Havana</a></td>
+	<td>Oct 2013</td>
+      </tr>
+      <tr>
+	<td><a href="https://wiki.openstack.org/wiki/ReleaseNotes/Icehouse">Icehouse</a></td>
+	<td>Abr 2014</td>
+	<td><a href="https://wiki.openstack.org/wiki/ReleaseNotes/Juno">Juno</a></td>
+	<td>Oct 2014</td>
+      </tr>
+      <tr>
+	<td><a href="https://wiki.openstack.org/wiki/ReleaseNotes/Kilo">Kilo</a></td>
+	<td>Abr 2015</td>
+	<td><a href="https://wiki.openstack.org/wiki/ReleaseNotes/Liberty">Liberty</a></td>
+	<td>Oct 2015</td>
+      </tr>
+      <tr>
+	<td>Mitaka</a></td>
+	<td>Abr 2016</td>
+      </tr>
+    </table>
+<p><small><a href="http://blog.bitergia.com/2015/04/30/kilo-the-new-openstack-release/">Kilo:
+      the new OpenStack release</a></small></p> 
+    <p><small><a href="http://activity.openstack.org/dash/browser/">OpenStack activity dashboard</a></small></p>
+  </section>
+</section>
+<section data-background="img/presentacion_openstack/openstack.png">
+  <h2>OpenStack y docker</h2>
+  <ul>
+    <li>Objetivos diferentes</li>
+    <li>OpenStack es agnóstico respecto al uso</li>
+    <li>¿Existe integración?
+      <ul>
+	<li><a href="https://github.com/stackforge/nova-docker">nova-docker</a></li>
+	<li><a href="https://wiki.openstack.org/wiki/Magnum">Proyecto Magnum</a></li>
+	<li>¿Utilizamos algo de más alto nivel? OpenShift v3</li></ul></li>
+  </ul>
+  <p><a href="https://openwebinars.net/openstack-o-docker/">¿OpenStack o docker?</a></p>
+  <p><a href="https://www.openstack.org/assets/pdf-downloads/Containers-and-OpenStack.pdf">Exploring Opportunities: Containers and OpenStack</a></p>    
+</section>
+<section data-background="img/presentacion_openstack/openstack.png">
+  <section>
+    <h2>Componentes de OpenStack</h2>
+  </section>
+  <section>
+    <ul>
+      <li>Módulos independientes</li>
+      <li>Escritos en Python</li>
+      <li>Oslo: OpenStack common libraries</li>
+      <li>Base de datos por componente</li>
+      <li>Comunicación vía API web</li>
+      <li>AMQP</li>
+      <li>Desde liberty ciclo de publicación independiente</li>
+    </ul>
+  </section>
+  <section>
+    <a href="img/presentacion_openstack/openstack-components.jpg"><img src="img/presentacion_openstack/openstack-components.jpg" alt="openstack components" /></a>
+    <p><small><a href="http://www.cloudscaling.com/blog/openstack/vanilla-openstack-doesnt-exist-and-never-will/">Randy Bias - 'Vanilla OpenStack' Doesn’t Exist and Never Will</a></small></p>
+  </section>
+  <section data-background="img/presentacion_openstack/openstack.png">
+    <table>
+      <col style="width: 20%" />
+      <col style="width: 30%" />
+      <col style="width: 20%" />
+      <col style="width: 30%" />
+      <tr>
+	<th>Nombre</th>
+	<th>Función</th>
+	<th>Nombre</th>
+	<th>Función</th>
+      </tr>
+      <tr>
+	<td><a href="https://wiki.openstack.org/wiki/Nova">Nova</a></td>
+	<td>Compute</td>
+	<td><a href="https://wiki.openstack.org/wiki/Swift">Swift</a></td>
+	<td>Object Storage</td>
+      </tr>
+      <tr>
+	<td><a href="https://wiki.openstack.org/wiki/Keystone">Keystone</a></td>
+	<td>Identity</td>
+	<td><a href="https://wiki.openstack.org/wiki/Glance">Glance</a></td>
+	<td>Image</td>
+      </tr>
+      <tr>
+	<td><a href="https://wiki.openstack.org/wiki/Horizon">Horizon</a></td>
+	<td>Dashboard</td>
+	<td><a href="https://wiki.openstack.org/wiki/Cinder">Cinder</a></td>
+	<td>Block Storage</td>
+      </tr>
+      <tr>
+	<td><a href="https://wiki.openstack.org/wiki/Neutron">Neutron</a></td>
+	<td>Networking</td>
+	<td><a href="https://wiki.openstack.org/wiki/Heat">Heat</a></td>
+	<td>Orchestration</td>
+      </tr>
+      <tr>
+	<td><a href="https://wiki.openstack.org/wiki/Ceilometer">Ceilometer</a></td>
+	<td>Telemetry</td>
+	<td><a href="https://wiki.openstack.org/wiki/Ironic">Ironic</a></td>
+	<td>Bare metal</td>
+      </tr>
+      <tr>
+	<td><a href="https://wiki.openstack.org/wiki/Sahara">Sahara</a></td>
+	<td>Hadoop, Spark</td>
+	<td><a href="https://wiki.openstack.org/wiki/Ironic">Trove</a></td>
+	<td>DBaaS</td>
+      </tr>
+      <tr>
+	<td><a href="https://wiki.openstack.org/wiki/Magnum">Magnum</a></td>
+	<td>Containers</td>
+	<td>...</td>
+	<td>...</td>
+      </tr>
+    </table>
+  </section>
+  <section>
+    <h2>¿Qué versión utilizar?</h2>
+    <ul>
+      <li>¿Qué componentes necesitamos?</li>
+      <li>No hay versión LTS</li>
+      <li>El proyecto proporciona parches de seguridad a la versión
+	estable y a las dos anteriores: 18 meses</li>
+      <li>La versión más utilizada en producción no es la última
+      publicada</li>
+      <li>Icehouse se incluye en Ubuntu 14.04 LTS y Debian Jessie</li>
+    </ul>
+  </section>
+</section>
