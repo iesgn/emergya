@@ -7,3 +7,4 @@ menu:
 
 ###Instalación de OpenStack
 
+* [Opciones de instalación de OpenStack](opciones_instalacion_openstack.html)
