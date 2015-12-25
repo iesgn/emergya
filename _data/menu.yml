@@ -59,7 +59,7 @@
   items:
    - name: Inicio
      url: /emergya
-   - name: Sesión 1
+   - name: 1.-Introducción Cloud Computing
      url: /emergya/curso/u1
    - name: Sesión 2
      url: /emergya/curso/u2
