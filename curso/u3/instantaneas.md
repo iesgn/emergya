@@ -18,7 +18,7 @@ como se verá en el siguiente tema.
 Veamos cómo se hace partiendo de una instancia Debian que se está
 ejecutando.
 
-1. Vamos a acceder a la instancia y vamos a realizar un cambio sobre
+Vamos a acceder a la instancia y vamos a realizar un cambio sobre
 ella, lo mas sencillo es crear un fichero de texto.
 
 		$ ssh -i clave_demo.pem debian@172.22.204.143			
@@ -32,7 +32,7 @@ ella, lo mas sencillo es crear un fichero de texto.
 		debian@primera:~$
 
 
-2. A continuación vamos a realizar una instantánea de la instancia,
+A continuación vamos a realizar una instantánea de la instancia,
 con lo que se nos creará una nueva imagen desde la que podremos crear
 nuevas instancias. Creamos la instantánea escogiendo la opción de **Crear instantánea**:
 
@@ -52,21 +52,19 @@ A continuación podemos crear una nueva instancia a a partir de esta
 ![snapshot](img/instantanea/03.png)
 
 
-* Y por último podemos acceder a la nueva instancia (a la que le
+Y por último podemos acceder a la nueva instancia (a la que le
 hemos asignado una nueva IP pública y a la que hemos asociado la
 clave SSH mi_clave.pem), y comprobar que tiene el fichero que
 creamos en la instancia anterior: 
 
-			$ ssh -i clave_demo.pem debian@172.22.204.144			
-
-			The programs included with the Debian GNU/Linux system are free software;
-			the exact distribution terms for each program are described in the
-			individual files in /usr/share/doc/*/copyright.			
-
-			Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
-			permitted by applicable law.
-			Last login: Fri Dec 26 21:20:54 2015 from 172.19.0.26
-			debian@primera_2:~$ ls
-			nuevo_fichero.txt
-			debian@primera_2:~$ 
+		$ ssh -i clave_demo.pem debian@172.22.204.144			
+		The programs included with the Debian GNU/Linux system are free software;
+		the exact distribution terms for each program are described in the
+		individual files in /usr/share/doc/*/copyright.			
+		Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+		permitted by applicable law.
+		Last login: Fri Dec 26 21:20:54 2015 from 172.19.0.26
+		debian@primera_2:~$ ls
+		nuevo_fichero.txt
+		debian@primera_2:~$ 
 
