@@ -57,14 +57,14 @@ hemos asignado una nueva IP pública y a la que hemos asociado la
 clave SSH mi_clave.pem), y comprobar que tiene el fichero que
 creamos en la instancia anterior: 
 
-		$ ssh -i clave_demo.pem debian@172.22.204.144			
-		The programs included with the Debian GNU/Linux system are free software;
-		the exact distribution terms for each program are described in the
-		individual files in /usr/share/doc/*/copyright.			
-		Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
-		permitted by applicable law.
-		Last login: Fri Dec 26 21:20:54 2015 from 172.19.0.26
-		debian@primera_2:~$ ls
-		nuevo_fichero.txt
-		debian@primera_2:~$ 
+	$ ssh -i clave_demo.pem debian@172.22.204.144			
+	The programs included with the Debian GNU/Linux system are free software;
+	the exact distribution terms for each program are described in the
+	individual files in /usr/share/doc/*/copyright.			
+	Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+	permitted by applicable law.
+	Last login: Fri Dec 26 21:20:54 2015 from 172.19.0.26
+	debian@primera_2:~$ ls
+	nuevo_fichero.txt
+	debian@primera_2:~$ 
 
