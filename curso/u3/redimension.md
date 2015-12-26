@@ -22,4 +22,8 @@ redimensión**.
 
 ![redimension](img/redimension/01.png)
 
+###Reconstrucción de instancia
 
+La reconstrucción de una instancia es un mecanismo que nos permite rehacer una instancia con otra imagen sin perder la ip fija y otros metadatos.
+
+![redimension](img/redimension/02.png)
