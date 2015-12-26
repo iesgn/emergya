@@ -48,6 +48,7 @@ contenidos.
     1. Otras opciones: Ceph, GlusterFS, Soluciones HW
 
 ### Calendario
+
 |Fecha|Hora|Contenido|
 |:---:|----|---------|
 |Lunes 11 de Enero|17:00-20:00|Tema 1|
