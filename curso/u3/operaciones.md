@@ -43,11 +43,11 @@ creada son las siguientes:
 
 ### Acciones de la configuración de red de la instancia
 
-* Asociar IP flotante: Nos permite asociar a la instancia una de la sIP flotantes que tengamos reservadas.
+* **Asociar IP flotante**: Nos permite asociar a la instancia una de la sIP flotantes que tengamos reservadas.
 
 ### Acciones sobre la configuración de la seguridad de la instancia
 
-* Podemos **Editar Grupos de Seguridad** de nuestra instancia, añadir o
+* **Editar Grupos de Seguridad**: Nos permite añadir o
   quitar grupos de seguridad aplicados a la instancia.
 
 ### Acciones avanzadas sobre la instancias:
