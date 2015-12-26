@@ -14,6 +14,12 @@ menu:
 * [Conceptos previos de CLI](previos_cli)
 * [Gestión de imágenes con glance CLI](imagenes_cli)
 
+###Enlaces interesantes
+
+* [Get images - Openstack](http://docs.openstack.org/image-guide/content/ch_obtaining_images.html)
+* [OpenStack Virtual Machine Image Guide](http://docs.openstack.org/image-guide/content/)
+
+
 ##Nova
 
 * [Conceptos previos](conceptos_previos)
