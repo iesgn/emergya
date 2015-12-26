@@ -1,63 +1,59 @@
 ---
 layout: blog
-tittle: Curso OpenStack (Emergya)
+tittle: Curso OpenStack
 menu:
   - Unidades
 ---
+Curso impartido por [José Domingo Muñoz](http://www.pledin.org) y
+[Alberto Molina](http://albertomolina.wordpress.com) en Enero de 2016
+en [Emergya](http://www.emergya.es/) con el siguiente índice de
+contenidos.
 ### Contenidos
 
-**Lunes 11 de Enero (17:00-20:00)**
+1. Cloud Computing
+  1. Introducción
+  1. IaaS
+  1. Software para IaaS. OpenStack
+  1. Características principales de OpenStack
+  1. El proyecto OpenStack
+1. Instalación de OpenStack
+  1. Opciones de instalación de OpenStack
+  1. Componentes "Core"
+  1. Arquitectura lógica
+  1. Otros componentes. Docker y OpenStack
+  1. Instalación paso a paso de OpenStack Kilo
+  1. Administración básica. Creación de proyectos y usuarios
+1. OpenStack Glance y Nova
+  1. Características
+  1. Uso desde horizon
+  1. Uso desde CLI
+1. OpenStack Cinder
+  1. Características
+  1. Uso desde horizon
+  1. Uso desde CLI
+1. OpenStack Neutron
+  1. Características
+  1. Uso desde horizon
+  1. Uso desde CLI
+1. OpenStack Glance y Nova por dentro
+  1. Formato de imágenes
+  1. Creación una imagen paso a paso
+  1. KVM
+  1. Proceso de instanciación paso a paso
+1. OpenStack Cinder por dentro
+  1. LVM/iSCSI
+  1. Proceso de creación de un volumen y asociación a una instancia
+  paso a paso
+  1. Otras opciones: Ceph, GlusterFS, Soluciones HW
 
-#### Introducción al Cloud Computing
-
-* Introducción
-* IaaS
-* Software para IaaS. OpenStack
-* Características principales de OpenStack
-* El proyecto OpenStack
-
-**Miércoles 13 de Enero (17:00-20:00)**
-
-####Instalación de OpenStack
-
-* Opciones de instalación de OpenStack
-* Componentes "Core"
-* Arquitectura
-* Otros componentes (con especial énfasis en la integración con docker)
-* Formas de instalar
-* Instalación de OpenStack Kilo para utilizar durante todo el curso
-* Comienzo de la instalación paso a paso, explicando la interacción entre los diferentes componentes y probando paso a paso la integración de los mismos.
-
-**Jueves 14 de Enero (16:00-20:00)**
-
-####Instalación de OpenStack
-
-* Instalación de OpenStack Kilo para utilizar durante todo el curso
-* Finalización de la instalación paso a paso
-* Administración básica: creación de usuarios y proyectos para utilizar durante el curso
-* OpenStack Glance y Nova. Elementos, uso desde horizon y uso desde CLI
-
-**Lunes 18 de Enero (17:00-20:00)**
-
-####Cinder y Nova
-
-* OpenStack Cinder. Elementos, uso desde horizon y uso desde CLI
-* OpenStack Neutron. Elementos, uso desde horizon y uso desde CLI
-
-**Miércoles 20 de Enero (17:00-20:00)**
-
-* OpenStack Neutron. Elementos, uso desde horizon y uso desde CLI 
-* OpenStack Glance y Nova por dentro.
-* KVM
-* Formato de imágenes
-* Otras opciones: VMware, Xen, Hyper-V
-
-**Jueves 21 de Enero (16:00-20:00)**
-
-* OpenStack Cinder por dentro.
-* LVM/iSCSI
-* Otras opciones: Ceph, GlusterFS, Soluciones HW
-* Miscelánea. Reservamos una hora u hora y media para aspectos que haya que dar con mayor profundidad o para algunos puntos nuevos que aparezcan durante el curso.
+### Calendario
+|Fecha|Hora|Contenido|
+|Lunes 11 de Enero|17:00-20:00|Tema 1|
+|Miércoles 13 de Enero|17:00-20:00|Tema 2/3|
+|Jueves 14 de Enero|16:00-20:00|Tema 3/4|
+|Lunes 18 de Enero|17:00-20:00|Tema 5|
+|Miércoles 20 de Enero|17:00-20:00|Tema 6|
+|Jueves 21 de Enero|16:00-20:00|Tema 7|
 
 ###Licencia
 
