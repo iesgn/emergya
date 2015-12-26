@@ -18,7 +18,7 @@ menu:
     * Servidores que utilizan los dispositivos de bloques
 * Los protocolos más utilizados son [iSCSI](http://en.wikipedia.org/wiki/ISCSI) y [Fibre Channel (FC)](http://en.wikipedia.org/wiki/Fiber_channel)
 
-![san](img/san.png)
+![san](img/conceptos_previos/san.png)
 
 ### SAN en OpenStack
 
