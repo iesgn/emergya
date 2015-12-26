@@ -30,3 +30,11 @@ menu:
 * [Instantaneas de instancias](instantaneas)
 * [Redimensión y reconstrucción de instancias](redimension)
 
+###Nova con CLI
+
+* [Gestión de instancias con nova CLI](instancia_cli)
+
+###Enlaces interesantes
+
+* [How to launch an instance on OpenStack (II): OpenStack CLI](http://albertomolina.wordpress.com/2013/11/20/how-to-launch-an-instance-on-openstack-ii-openstack-cli/)
+* [How to launch an instance on OpenStack (III) Python Novaclient library](https://albertomolina.wordpress.com/2013/11/20/how-to-launch-an-instance-on-openstack-iii-python-novaclient-library/)
