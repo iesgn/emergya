@@ -1,6 +1,6 @@
 ---
 layout: blog
-tittle: Trabajo con instantáneas y copias de seguridad
+tittle: Curso OpenStack (Emergya)
 menu:
   - Unidades
 ---
@@ -21,21 +21,28 @@ ejecutando.
 1. Vamos a acceder a la instancia y vamos a realizar un cambio sobre
 ella, lo mas sencillo es crear un fichero de texto.
 
+			$ ssh -i clave_demo.pem debian@172.22.204.143			
 
-![snapshot](img/demo3_5.png)
+			The programs included with the Debian GNU/Linux system are free software;
+			the exact distribution terms for each program are described in the
+			individual files in /usr/share/doc/*/copyright.			
+
+			Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+			permitted by applicable law.
+			Last login: Fri Dec 25 21:20:54 2015 from 172.19.0.26
+			debian@primera:~$ touch nuevo_fichero.txt
+			debian@primera:~$
 
 
 2. A continuación vamos a realizar una instantánea de la instancia,
 con lo que se nos creará una nueva imagen desde la que podremos crear
-nuevas instancias.
-
-  * Creamos la instantánea escogiendo la opción de **Instantánea**:
+nuevas instancias. Creamos la instantánea escogiendo la opción de **Crear instantánea**:
 
 
-![snapshot](img/menu_instancias.png)
+![snapshot](img/instantanea/01.png)
 
 
-![snapshot](img/snap1.png)
+
 
 
   * Y podemos observar que en **Catálogo de imágenes** encontramos una nueva
@@ -59,17 +66,3 @@ creamos en la instancia anterior:
 
 ![snapshot](img/demo3_6.png)
 
-## Copias de seguridad (*Backups*)
-
-OpenStack también ofrece la posibilidad de programar la creación de
-instantáneas, puesto que esto puede ser una opción muy interesante
-para una gestión rudimentaria de copias de seguridad (ya que sólo se
-trataría de copias completas), se le asigna el nombre de copias de
-seguridad o *backup*.
-
-
-![snapshot](img/backup.png)
-
-
-El campo **Rotación** es el número máximo de instantáneas que se van a
-almacenar, superado ese número se eliminará la instantánea más antigua.
