@@ -8,6 +8,10 @@ menu:
 ###Introducción al Cloud Computing. OpenStack 
 
 * [Presentación: Introducción al Cloud Computing](presentacion)
-* [Enlaces sobre Cloud Computing](enlaces)
 * [Presentación: Introducción a OpenStack](presentacion_openstack)
-* [Enlaces sobre OpenStack](enlaces_openstack)
+* [Presentación: El proyecto OpenStack](proyecto_openstack)
+
+###Enlaces interesantes
+
+* [www.openstack.org](http://www.openstack.org)
+* [¿Qué es eso de OpenStack y por qué debería conocerlo?](http://albertomolina.wordpress.com/2013/11/25/que-es-eso-de-openstack-y-por-que-deberia-conocerlo/)
