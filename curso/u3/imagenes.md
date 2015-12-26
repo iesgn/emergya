@@ -30,34 +30,38 @@ Para ver las imágenes que inicialmente podemos utilizar abrimos la opción de *
 
 ![Imágenes](img/imagenes/01.png)
 
+Una imagen se puede **lanzar** para crear una instancia a partir de ella. También podemos **Crear un volumen** a parir de una imagen. Las imagenes también pueden ser **borraradas**.
 
 ### Subir una imagen
 
-Podemos subir nuestras propias imágenes a través de las opciones  **Subida por
-navegador** (en el que podemos subir imágenes que tengamos almacenadas en
-nuestro ordenador) o **Subida remota** (subimos imágenes indicando la url donde
-se encuentra la imagen). Podríamos utilizar cualquier método, pero en este
-ejemplo vamos a usar la **Subida por navegador**, donde vamos a indicar los
-siguientes datos:
+Podemos subir nuestras propias imágenes a través de las opcion  **Crear imágen**:
+
+![Imágenes](img/imagenes/02.png)
+
+Indicamos los siguientes datos:
 	
-  * Nombre : Nombre que asignaremos a la nueva imagen.
-  * Fichero de Imagen : Indicamos la ruta completa al fichero donde está la imagen.
-  * Formato de disco : Seleccionamos el formato de la imagen. Los formatos
+* **Nombre**: Nombre que asignaremos a la nueva imagen.
+* **Descripción**: Texto que describa la nueva imagen que vamos a subir.
+* **Origen de la imagen**: Indicamos desde donde vamos a subir la imagen:
+  * **Ubicación de la imagen**: URL donde se encuentra la imagen.
+  * **Fichero de imagen**: fichero en el sistema de archivos local que corresponde a la imagen.
+* **Formato**: Seleccionamos el formato de la imagen. Los formatos
   soportados son : 
-    * qcow2 : Soportado por el emulador QEMU que puede expandirse de forma
+  * qcow2 : Soportado por el emulador QEMU que puede expandirse de forma
     dinámica.
-    * raw : Un formato de imagen de disco desestructurado, si se tiene un
+  * raw : Un formato de imagen de disco desestructurado, si se tiene un
     fichero sin extensión entonces probablemente se trate de un formato raw. 
-    * iso : Un formato de ficheros para datos contenidos en un disco óptico,
+  * iso : Un formato de ficheros para datos contenidos en un disco óptico,
     como por ejemplo un CD-ROM.
-    * vmdk : Formato de disco común, soportado por muchos hipervisores, en
-  * particular VMware.  
-    * aki : Una imagen kernel de Amazon EC2.
-    * ari: Una imagen de disco en RAM de Amazon EC2.
-    * ami : Una imagen de máquina Amazon, que precisa de una imagen aki y
+  * vmdk : Formato de disco común, soportado por muchos hipervisores, en particular VMware.
+  * aki : Una imagen kernel de Amazon EC2.
+  * ari: Una imagen de disco en RAM de Amazon EC2.
+  * ami : Una imagen de máquina Amazon, que precisa de una imagen aki y
     habitualmente de otra ari para poder arrancar.
-  * Imagen pública : Con este parámetro indicamos si queremos que la imagen
-  sea pública para todos los usuarios.
+* **Disco mínimo (GB)**: Requisito que nos indica el tamaño mínimo que tiene que debe tener una instancia que se cree a partir de la imagen.
+* **RAM mínima (MB)**: Requisito que nos indica el tamaño mínimo de memoria RAM que debe tener una instancia que se cree a partir de la imagen.
+* **Público**: Con este parámetro indicamos si queremos que la imagen sea pública para todos los usuarios.
+* **Protegido**: La imagen que vamos a crear no se podrá borrar por otro usuario.
 
 En este caso vamos a subir una pequeña imagen de una distribución de GNU/Linux
 conocida como CirrOS que se utiliza para pruebas en entornos de IaaS.
@@ -83,8 +87,8 @@ compat: 0.10
 En el que podemos ver que se trata de una imagen en formato qcow2 con un disco
 virtual de tan solo 39 MB.
 
-  * Subimos la imagen a Cirrusflex
-  
+![Imágenes](img/imagenes/03.png)
+   
 También es posible crear una imagen de cualquier sistema operativo creando una
 máquina virtual con una serie de requisitos, pero es un tema que va más allá de
 los objetivos de este curso de introducción al uso de IaaS, pero que un lector
