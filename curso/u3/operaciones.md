@@ -30,7 +30,7 @@ creada son las siguientes:
   estado en memoria RAM.
 * **Suspender instancia**: Paramos la ejecución de una instancia, guardando
   su estado en disco.
-* **Apagagao instancia**: Apagamos la máquina virtual, pero sigue definida,
+* **Apagado instancia**: Apagamos la máquina virtual, pero sigue definida,
   por lo que puede volver a arrancarse con las mismas características cuando sea
   necesario.
 * **Encender instancia**: Si tenemos una instancia apagada, nos permite
@@ -40,6 +40,7 @@ creada son las siguientes:
 * **Reiniciar instancia**: Ejecuta un comando *reboot* en la instancia. Tenemos dos tipos: "suave" que intenta hacer un apagado normal de la máquina y su reinicio; también podemos hacer un reinicio "duro", si tenemos algún problema en la instancia.
 * **Terminar instancia**: Destruye la instancia, liberando los recursos que
   tenía ocupados.
+* **Crear instantánea**: Nos permite crear una nueva imagen a partir del estado de la instancia.
 
 ### Acciones de la configuración de red de la instancia
 
