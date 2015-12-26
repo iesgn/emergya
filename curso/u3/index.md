@@ -16,3 +16,4 @@ menu:
 * [Pasos previos](previos)
 * [Creación de instancias a partir de una imagen](instancias1)
 * [Operaciones sobre la instancia](operaciones)
+* [Instantaneas de instancias](instantaneas)
