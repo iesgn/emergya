@@ -50,3 +50,19 @@ menu:
 
 		glance image-delete 'cirros image'
 
+### Resumen de comandos
+
+		glance help
+
+		image-create        Create a new image.
+		image-delete        Delete specified image(s).
+		image-download      Download a specific image.
+		image-list          List images you can access.
+		image-show          Describe a specific image.
+		image-update        Update a specific image.
+		member-create       Share a specific image with a tenant.
+		member-delete       Remove a shared image from a tenant.
+		member-list         Describe sharing permissions by image or tenant.
+		help                Display help about this program or one of its subcommands.
+
+
