@@ -93,10 +93,7 @@ virtual de tan solo 39 MB.
 También es posible crear una imagen de cualquier sistema operativo creando una
 máquina virtual con una serie de requisitos, pero es un tema que va más allá de
 los objetivos de este curso de introducción al uso de IaaS, pero que un lector
-interesado puede realizar siguiendo los pasos que encontrará en la documentación
-que se enlaza en la siguiente sección.
+interesado puede realizar siguiendo los pasos que encontrará en el siguiente enlace: [OpenStack Virtual Machine Image Guide](http://docs.openstack.org/image-guide/content/)
 
-### Enlaces interesantes
 
-  * [OpenStack Virtual Machine Image Guide](http://docs.openstack.org/image-guide/content/)
-
+  

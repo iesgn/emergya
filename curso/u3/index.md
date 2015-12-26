@@ -5,11 +5,16 @@ menu:
   - Unidades
 ---
 
-###Glance
+##Glance
 
 * [Administración de imágenes](imagenes)
 
-###Nova
+###Glance con CLI
+
+* [Conceptos previos de CLI](previos_cli)
+* [Gestión de imágenes con glance CLI](imagenes_cli)
+
+##Nova
 
 * [Conceptos previos](conceptos_previos)
 * [Trabajo con claves ssh](claves_ssh)
