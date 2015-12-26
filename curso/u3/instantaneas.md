@@ -21,15 +21,15 @@ ejecutando.
 Vamos a acceder a la instancia y vamos a realizar un cambio sobre
 ella, lo mas sencillo es crear un fichero de texto.
 
-		$ ssh -i clave_demo.pem debian@172.22.204.143			
-		The programs included with the Debian GNU/Linux system are free software;
-		the exact distribution terms for each program are described in the
-		individual files in /usr/share/doc/*/copyright.			
-		Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
-		permitted by applicable law.
-		Last login: Fri Dec 25 21:20:54 2015 from 172.19.0.26
-		debian@primera:~$ touch nuevo_fichero.txt
-		debian@primera:~$
+	$ ssh -i clave_demo.pem debian@172.22.204.143			
+	The programs included with the Debian GNU/Linux system are free software;
+	the exact distribution terms for each program are described in the
+	individual files in /usr/share/doc/*/copyright.			
+	Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+	permitted by applicable law.
+	Last login: Fri Dec 25 21:20:54 2015 from 172.19.0.26
+	debian@primera:~$ touch nuevo_fichero.txt
+	debian@primera:~$
 
 
 A continuación vamos a realizar una instantánea de la instancia,
