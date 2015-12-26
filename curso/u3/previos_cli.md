@@ -227,7 +227,7 @@ componentes, para acceder a ellas elegimos la opción **Acceso a la API** dentro
 
 Realmente esa información no nos va a hacer falta directamente, sino
 que va a ser mucho más sencillo utilizar esas APIs porque basta que
-pulsemos el botón **Descargar fichero RC de openstack* y nos podremos descargar a
+pulsemos el botón **Descargar fichero RC de openstack** y nos podremos descargar a
 nuestro equipo el fichero **demo-openrc.sh**. Para utilizar los clientes de
 OpenStack desde la línea de comandos tenemos que ejecutar la siguiente
 instrucción:
