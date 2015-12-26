@@ -58,6 +58,7 @@ Indicamos los siguientes datos:
   * ari: Una imagen de disco en RAM de Amazon EC2.
   * ami : Una imagen de máquina Amazon, que precisa de una imagen aki y
     habitualmente de otra ari para poder arrancar.
+* **Arquitectura**: Indicamos la arquitectura del sistema operativo de la imagen.
 * **Disco mínimo (GB)**: Requisito que nos indica el tamaño mínimo que tiene que debe tener una instancia que se cree a partir de la imagen.
 * **RAM mínima (MB)**: Requisito que nos indica el tamaño mínimo de memoria RAM que debe tener una instancia que se cree a partir de la imagen.
 * **Público**: Con este parámetro indicamos si queremos que la imagen sea pública para todos los usuarios.
