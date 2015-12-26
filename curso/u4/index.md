@@ -8,7 +8,7 @@ menu:
 #Cinder
 
 * [Conceptos previos de volúmenes](conceptos_previos)
-* Creación de volúmenes, asociación a instancias
+* [Creación de volúmenes, asociación a instancias](volumen)
 * Creación de instancia ejecutadas sobre volúmenes
 
 ###Cinder con CLI
