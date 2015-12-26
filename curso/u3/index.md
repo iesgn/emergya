@@ -11,5 +11,5 @@ menu:
 * [Trabajo con claves ssh](claves_ssh)
 * [Pasos previos](previos)
 * [Creación de instancias a partir de una imagen](instancias1)
-* [Operaciones sobre la instancia](instancias2)
+* [Operaciones sobre la instancia](operaciones)
 * [Administración de imágenes](imagenes)
