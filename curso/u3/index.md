@@ -5,7 +5,7 @@ menu:
   - Unidades
 ---
 
-##Glance
+#Glance
 
 * [Administración de imágenes](imagenes)
 
@@ -20,7 +20,7 @@ menu:
 * [OpenStack Virtual Machine Image Guide](http://docs.openstack.org/image-guide/content/)
 
 
-##Nova
+#Nova
 
 * [Conceptos previos](conceptos_previos)
 * [Trabajo con claves ssh](claves_ssh)
