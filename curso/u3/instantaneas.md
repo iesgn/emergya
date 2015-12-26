@@ -21,17 +21,15 @@ ejecutando.
 1. Vamos a acceder a la instancia y vamos a realizar un cambio sobre
 ella, lo mas sencillo es crear un fichero de texto.
 
-			$ ssh -i clave_demo.pem debian@172.22.204.143			
-
-			The programs included with the Debian GNU/Linux system are free software;
-			the exact distribution terms for each program are described in the
-			individual files in /usr/share/doc/*/copyright.			
-
-			Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
-			permitted by applicable law.
-			Last login: Fri Dec 25 21:20:54 2015 from 172.19.0.26
-			debian@primera:~$ touch nuevo_fichero.txt
-			debian@primera:~$
+		$ ssh -i clave_demo.pem debian@172.22.204.143			
+		The programs included with the Debian GNU/Linux system are free software;
+		the exact distribution terms for each program are described in the
+		individual files in /usr/share/doc/*/copyright.			
+		Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+		permitted by applicable law.
+		Last login: Fri Dec 25 21:20:54 2015 from 172.19.0.26
+		debian@primera:~$ touch nuevo_fichero.txt
+		debian@primera:~$
 
 
 2. A continuación vamos a realizar una instantánea de la instancia,
@@ -41,22 +39,17 @@ nuevas instancias. Creamos la instantánea escogiendo la opción de **Crear inst
 
 ![snapshot](img/instantanea/01.png)
 
-
-
-
-
-  * Y podemos observar que en **Catálogo de imágenes** encontramos una nueva
+Y podemos observar que en la lista de **Imágenes** encontramos una nueva
   imagen de tipo *snapshot*:
 
 
-  ![snapshot](img/snap2.png)
+![snapshot](img/instantanea/02.png)
 
-
-  * A continuación podemos crear una nueva instancia a a partir de esta
+A continuación podemos crear una nueva instancia a a partir de esta
   instantánea: 
 
 
-![snapshot](img/demo3_4.png)
+![snapshot](img/instantanea/03.png)
 
 
 * Y por último podemos acceder a la nueva instancia (a la que le
@@ -64,5 +57,16 @@ hemos asignado una nueva IP pública y a la que hemos asociado la
 clave SSH mi_clave.pem), y comprobar que tiene el fichero que
 creamos en la instancia anterior: 
 
-![snapshot](img/demo3_6.png)
+			$ ssh -i clave_demo.pem debian@172.22.204.144			
+
+			The programs included with the Debian GNU/Linux system are free software;
+			the exact distribution terms for each program are described in the
+			individual files in /usr/share/doc/*/copyright.			
+
+			Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+			permitted by applicable law.
+			Last login: Fri Dec 26 21:20:54 2015 from 172.19.0.26
+			debian@primera_2:~$ ls
+			nuevo_fichero.txt
+			debian@primera_2:~$ 
 
