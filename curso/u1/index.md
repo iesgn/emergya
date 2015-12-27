@@ -9,7 +9,6 @@ menu:
 
 * [Presentación: Introducción al Cloud Computing](presentacion)
 * [Presentación: Introducción a OpenStack](presentacion_openstack)
-* [Presentación: El proyecto OpenStack](proyecto_openstack)
 
 ###Enlaces interesantes
 
