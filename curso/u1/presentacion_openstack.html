@@ -122,10 +122,10 @@ tema: white
   <section data-background="img/presentacion_openstack/openstack.png">
     <h2>Versiones de OpenStack</h2>
     <table>
-      <col style="width: 30%" />
-      <col style="width: 20%" />
-      <col style="width: 30%" />
-      <col style="width: 20%" />
+      <col style="width: 31%" />
+      <col style="width: 19%" />
+      <col style="width: 31%" />
+      <col style="width: 19%" />
       <tr>
 	<th>Versión</th>
 	<th>Fecha</th>
@@ -200,32 +200,71 @@ tema: white
   <section>
     <h2>OpenStack Foundation. Organización</h2>
     <ul>
-      <li>Comité Técnico. Formado por 13 miembros elegidos entre las personas que contribuyen activamente al proyecto</li>
-      <li>Junta directiva: Organización y financiación del proyecto. 8 miembros platinum, 8 miembros gold y 8 individuales elegidos por votación.</li>
-      <li>Comité de usuarios. 3 miembros encargados de la comunicación con las diferentes comunidades de usuarios</li>
+      <li><a href="https://www.openstack.org/foundation/tech-committee/">Comité Técnico</a>. Formado por 13 miembros elegidos entre las personas que contribuyen activamente al proyecto</li>
+      <li><a href="https://www.openstack.org/foundation/board-of-directors/">Junta directiva</a>: Organización y financiación del proyecto. 8 miembros platinum, 8 miembros gold y 8 individuales elegidos por votación.</li>
+      <li><a href="https://www.openstack.org/foundation/user-committee/">Comité de usuarios</a>. 3 miembros encargados de la comunicación con las diferentes comunidades de usuarios</li>
+      <li><a href="https://www.openstack.org/foundation/staff">Personal propio</a>
     </ul>      
   </section>
 </section>
 <section data-background="img/presentacion_openstack/openstack.png">
   <section>
-    <h2>Componentes de OpenStack</h2>
+    <h2>Proyectos de OpenStack</h2>
   </section>
   <section>
+    <h2>Integrated release</h2>
+    <ul>
+      <li>Modelo de desarrollo hasta OpenStack Kilo</li>
+      <li>Proyectos oficiales</li>
+      <li>Proyectos incubados</li>
+      <li>Publicación conjunta: 201X.Y</li>
+      <li>Nivel de madurez variable</li>
+      <li>Resto de Ecosistema</li>
+     </ul>
+  </section>
+  <section>
+    <h2>Big Tent</h2>
+    <ul>
+      <li>"Refactorizando la comunidad"</li>
+      <li>Enfoque más inclusivo</li>
+      <li>Proyecto OpenStack si sus objetivos y modelo de desarrollo
+      son los de OpenStack y se someten a la supervisión del TC</li>
+      <li><a href="http://governance.openstack.org/reference/projects/">OpenStack
+      Project Teams</a></li>
+      <li><a href="http://governance.openstack.org/reference/tags/">Tags</a></li>
+    </ul>
+    <p><a href="https://www.youtube.com/watch?v=TTe_bZtEKxo">The Big
+	Tent - a look at the new OpenStack projects governance</a></p>
+    <p><a href="https://github.com/openstack/governance/blob/master/resolutions/20141202-project-structure-reform-spec.rst">OpenStack project structure reform specification</a></p>
+  </section>
+</section>
+<section>
+  <section>
+    <h2>Servicios de OpenStack</h2>
+    <a href="https://www.openstack.org/software/">OpenStack
+      Services</a>
+    <a href="https://www.openstack.org/software/project-navigator">OpenStack
+      Project Navigator</a>
+  </section>
+  <section>
+    <h2>Características generales</h2>
     <ul>
       <li>Módulos independientes</li>
-      <li>Escritos en Python</li>
+      <li>Escritos en Python y disponmibles en <a href="https://github.com/openstack/">Github</a></li>
       <li>Oslo: OpenStack common libraries</li>
       <li>Base de datos por componente</li>
       <li>Comunicación vía API web</li>
       <li>AMQP</li>
-      <li>Desde liberty ciclo de publicación independiente</li>
+      <li>Integrados con <a href="http://docs.openstack.org/developer/tempest/">tempest</a></li>
+      <li>Incluídos en <a href="http://docs.openstack.org/developer/devstack/">devstack</a></li>
     </ul>
-  </section>
+  </section>  
+  <!-- <section> -->
+  <!--   <a href="img/presentacion_openstack/openstack-components.jpg"><img src="img/presentacion_openstack/openstack-components.jpg" alt="openstack components" /></a> -->
+  <!--   <p><small><a href="http://www.cloudscaling.com/blog/openstack/vanilla-openstack-doesnt-exist-and-never-will/">Randy Bias - 'Vanilla OpenStack' Doesn’t Exist and Never Will</a></small></p> -->
+  <!-- </section> -->
   <section>
-    <a href="img/presentacion_openstack/openstack-components.jpg"><img src="img/presentacion_openstack/openstack-components.jpg" alt="openstack components" /></a>
-    <p><small><a href="http://www.cloudscaling.com/blog/openstack/vanilla-openstack-doesnt-exist-and-never-will/">Randy Bias - 'Vanilla OpenStack' Doesn’t Exist and Never Will</a></small></p>
-  </section>
-  <section data-background="img/presentacion_openstack/openstack.png">
+    <p>Integrados en Kilo</p>
     <table>
       <col style="width: 20%" />
       <col style="width: 30%" />
@@ -273,14 +312,47 @@ tema: white
 	<td><a href="https://wiki.openstack.org/wiki/Ironic">Trove</a></td>
 	<td>DBaaS</td>
       </tr>
+    </table>
+  </section>
+  <section>
+    <p>Nuevos en Big Tent:</p>
+    <table>
+      <col style="width: 20%" />
+      <col style="width: 30%" />
+      <col style="width: 20%" />
+      <col style="width: 30%" />
+      <tr>
+	<th>Nombre</th>
+	<th>Función</th>
+	<th>Nombre</th>
+	<th>Función</th>
+      </tr>
       <tr>
 	<td><a href="https://wiki.openstack.org/wiki/Magnum">Magnum</a></td>
 	<td>Containers</td>
+	<td><a href="https://wiki.openstack.org/wiki/Zaqar">Zaqar</a></td>
+	<td>Messaging Service</td>
+      </tr>
+      <tr>
+	<td><a href="https://wiki.openstack.org/wiki/Barbican">Barbican</a></td>
+	<td>Key Management</td>
+	<td><a href="https://wiki.openstack.org/wiki/Murano">Murano</a></td>
+	<td>Application Catalog</td>
+      </tr>
+      <tr>
+	<td><a href="https://wiki.openstack.org/wiki/Manila">Manila</a></td>
+	<td>Shared Filesystem</td>
+	<td><a href="https://wiki.openstack.org/wiki/Designate">Designate</a></td>
+	<td>DNSaaS</td>
+      </tr>
+      <tr>
+	<td>...</td>
+	<td>...</td>
 	<td>...</td>
 	<td>...</td>
       </tr>
     </table>
-  </section>
+  </section>  
   <section>
     <h2>¿Qué versión utilizar?</h2>
     <ul>
@@ -294,7 +366,6 @@ tema: white
     </ul>
   </section>
 </section>
-
 <section data-background="img/presentacion_openstack/openstack.png">
   <h2>OpenStack y docker</h2>
   <ul>
@@ -308,92 +379,4 @@ tema: white
   </ul>
   <p><a href="https://openwebinars.net/openstack-o-docker/">¿OpenStack o docker?</a></p>
   <p><a href="https://www.openstack.org/assets/pdf-downloads/Containers-and-OpenStack.pdf">Exploring Opportunities: Containers and OpenStack</a></p>    
-</section>
-<section data-background="img/presentacion_openstack/openstack.png">
-  <section>
-    <h2>Componentes de OpenStack</h2>
-  </section>
-  <section>
-    <ul>
-      <li>Módulos independientes</li>
-      <li>Escritos en Python</li>
-      <li>Oslo: OpenStack common libraries</li>
-      <li>Base de datos por componente</li>
-      <li>Comunicación vía API web</li>
-      <li>AMQP</li>
-      <li>Desde liberty ciclo de publicación independiente</li>
-    </ul>
-  </section>
-  <section>
-    <a href="img/presentacion_openstack/openstack-components.jpg"><img src="img/presentacion_openstack/openstack-components.jpg" alt="openstack components" /></a>
-    <p><small><a href="http://www.cloudscaling.com/blog/openstack/vanilla-openstack-doesnt-exist-and-never-will/">Randy Bias - 'Vanilla OpenStack' Doesn’t Exist and Never Will</a></small></p>
-  </section>
-  <section data-background="img/presentacion_openstack/openstack.png">
-    <table>
-      <col style="width: 20%" />
-      <col style="width: 30%" />
-      <col style="width: 20%" />
-      <col style="width: 30%" />
-      <tr>
-	<th>Nombre</th>
-	<th>Función</th>
-	<th>Nombre</th>
-	<th>Función</th>
-      </tr>
-      <tr>
-	<td><a href="https://wiki.openstack.org/wiki/Nova">Nova</a></td>
-	<td>Compute</td>
-	<td><a href="https://wiki.openstack.org/wiki/Swift">Swift</a></td>
-	<td>Object Storage</td>
-      </tr>
-      <tr>
-	<td><a href="https://wiki.openstack.org/wiki/Keystone">Keystone</a></td>
-	<td>Identity</td>
-	<td><a href="https://wiki.openstack.org/wiki/Glance">Glance</a></td>
-	<td>Image</td>
-      </tr>
-      <tr>
-	<td><a href="https://wiki.openstack.org/wiki/Horizon">Horizon</a></td>
-	<td>Dashboard</td>
-	<td><a href="https://wiki.openstack.org/wiki/Cinder">Cinder</a></td>
-	<td>Block Storage</td>
-      </tr>
-      <tr>
-	<td><a href="https://wiki.openstack.org/wiki/Neutron">Neutron</a></td>
-	<td>Networking</td>
-	<td><a href="https://wiki.openstack.org/wiki/Heat">Heat</a></td>
-	<td>Orchestration</td>
-      </tr>
-      <tr>
-	<td><a href="https://wiki.openstack.org/wiki/Ceilometer">Ceilometer</a></td>
-	<td>Telemetry</td>
-	<td><a href="https://wiki.openstack.org/wiki/Ironic">Ironic</a></td>
-	<td>Bare metal</td>
-      </tr>
-      <tr>
-	<td><a href="https://wiki.openstack.org/wiki/Sahara">Sahara</a></td>
-	<td>Hadoop, Spark</td>
-	<td><a href="https://wiki.openstack.org/wiki/Ironic">Trove</a></td>
-	<td>DBaaS</td>
-      </tr>
-      <tr>
-	<td><a href="https://wiki.openstack.org/wiki/Magnum">Magnum</a></td>
-	<td>Containers</td>
-	<td>...</td>
-	<td>...</td>
-      </tr>
-    </table>
-  </section>
-  <section>
-    <h2>¿Qué versión utilizar?</h2>
-    <ul>
-      <li>¿Qué componentes necesitamos?</li>
-      <li>No hay versión LTS</li>
-      <li>El proyecto proporciona parches de seguridad a la versión
-	estable y a las dos anteriores: 18 meses</li>
-      <li>La versión más utilizada en producción no es la última
-      publicada</li>
-      <li>Icehouse se incluye en Ubuntu 14.04 LTS y Debian Jessie</li>
-    </ul>
-  </section>
 </section>
