@@ -1,6 +1,6 @@
 ---
 layout: blog
-tittle: Curso OpenStack (Emergya)
+tittle: Curso OpenStack
 menu:
   - Unidades
 ---
