@@ -28,16 +28,14 @@ tema: white
   </ul>
 </section>
 <section>
-  <h2>Otros componentes de OpenStack</h2>
+  <h2>Características generales</h2>
   <ul>
-    <li>Horizon</li>
-    <li>Heat</li>
-    <li>Ceilometer</li>
-    <li>Trove</li>
-    <li>Sahara</li>
-    <li>Magnum</li>
-    <li>Designate</li>
-    <li>...</li>
+    <li>Escritos en Python</li>
+    <li>Utilización de AMQP</li>
+    <li>Interacción a través de APIs RESTful</li>
+    <li>Base de datos independiente</li>
+    <li>Autenticación y autorización mediante keystone</li>
+    <li>CLI independiente</li>
   </ul>
 </section>
 <section>
@@ -60,6 +58,7 @@ tema: white
     <li>Formato qcow2 &#8592; KVM</li>
     <li>Otros formatos: raw, vhd, vmdk, vdi, ... <a href="http://docs.openstack.org/developer/glance/formats.html">[1]</a></li>
     <li>Se pueden almacenar como objetos en Swift las imágenes e instantáneas</li>
+    <li>En este curso utilizaremos /var/lib/glance/</li>
   </ul>
 </section>
 <section>
@@ -104,7 +103,7 @@ tema: white
 	  nuage, OVS, ...</li>
       </ul>
     </li>
-    <li>DHCP y routers definidos en el nodo de red</li>
+    <li>DHCP y routers definidos en el nodo de red (linux network namespaces)</li>
     <li>Servicio de metadatos a cada subred en modo proxy</li>
     <li>Puede proporcionar LBaaS, VPNaaS y FWaaS</li>
   </ul>
