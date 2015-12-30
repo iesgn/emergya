@@ -114,12 +114,23 @@ href="http://docs.openstack.org/user-guide/content/install_clients.html">documen
 oficial</a>.
 
 ### Instalación fácil
-Si estás utilizando una distribución de GNU/Linux suficientemente
-moderna podrás utilizar las versiones empaquetadas de los clientes de
-OpenStack, en el caso de Ubuntu >= 14.04 o Debian >= 8, basta con
-hacer:
+Si estás utilizando una distribución de GNU/Linux que contenga los clientes de
+OpenStack de la versión de OpenStack que necesites utilizar (en este caso Kilo),
+bastará con instalarlos directamente, por ejemplo:
 
     # apt-get install python-novaclient python-neutronclient
+
+Ubuntu mantiene repositorios específicos para sus versiones LTS, en el caso de
+utilizar Ubuntu trusty (14.04), se puede añadir un repositorio de kilo mediante:
+
+    $ sudo add-apt-repository cloud-archive:kilo
+
+En el caso de Debian la cosa no es tan sencilla porque la versión que se
+mantiene en jessie (stable) es Icehouse, mientras que las versiones más modernas
+son soportadas a través de jessie-backports, pero van cambiando a medida que se
+incorporan versiones nuevas y no hay un patrón totalmente definido. Ahora mismo
+la versión de OpenStack disponible en jessie-backports es Kilo, pero se
+actualizará pronto a Liberty.
 
 En caso de utilizar Red Hat o derivadas, habrá que añadir o verificar
 los <a href="https://www.rdoproject.org/Repositories">repositorios de
@@ -129,28 +140,30 @@ Una vez instalados los dos paquetes, deberíamos verificar que las
 versiones son las correctas para utilizar nuestra versión de openstack. Las versiones
 mínimas necesarias son:
 
-|Aplicación|Versión mínima Icehouse|Versión mínima Juno|
-|----------|-----------------------|-------------------|
-|nova|2.18.1|2.20|
-|neutron|2.3.6|2.3.6|
-|cinder|1.0.8|1.0.9|
-|glance|0.12.0|0.13.1|
-|swift|2.3.1|2.3.1|
+|Aplicación|Versión en Kilo|
+|----------|-------------------|
+|nova|2.30.1|
+|neutron|3.1.0|
+|cinder|1.4.0|
+|glance|1.1.0|
+|swift|2.6.0|
 
 Que podemos verificar una vez instalados los paquetes pasándole al
 programa el modificador "--version":
 
     $ nova --version
-    2.18.1
+    2.30.1
     $ neutron --version
-    2.3.6
+    3.1.0
 
-### Instalación "menos fácil"
+### Instalación con pip
 Si la distribución de GNU/Linux que estamos utilizando es más antigua
 y no incluye los paquetes de los clientes de OpenStack o incluye
-versiones más antiguas, la mejor opción es utilizar los paquetes de
+versiones más antiguas, una buena opción es utilizar los paquetes de
 OpenStack directamente desde <a
-href="https://pypi.python.org/pypi">pypi</a>.
+href="https://pypi.python.org/pypi">pypi</a>. Además es posible que utilicemos
+diferentes entornos públicos y privados de OpenStack de diferentes versiones,
+por lo que esta opción puede ser la más adecuada en muchos casos.
 
 #### Instalación de un entorno virtual de python
 Hay que tener en cuenta que python es ampliamente utilizado por muchas
@@ -217,7 +230,7 @@ En primer lugar entramos en el entorno virtual de python:
 Una vez dentro del entorno virtual utilizamos la instrucción pip para
 instalar los paquetes python necesarios directamente desde pypi:
 
-    (Openstack)usuario@oslo:~$ pip install requests python-novaclient==2.18.1 python-neutronclient==2.3.6
+    (Openstack)usuario@oslo:~$ pip install requests python-novaclient==2.30.1 python-neutronclient==3.1.0
 
 ## OpenStack Endpoints
 OpenStack denomina *endpoint* a las URLs de las APIs de sus diferentes
@@ -236,3 +249,15 @@ instrucción:
 
 Se nos preguntará por la contraseña de nuestro usuario de openstack y
 nos quedará el entorno configurado para poder utilizarlo.
+
+## OpenStackClient (OSC)
+Cada componente de OpenStack proporciona su propio cliente de línea de comandos
+y lamentablemente no siempre la forma de utilizarlo es igual, lo que crea
+dificultad en los usuarios y provoca errores. Al ir aumentando el número de
+componentes de OpenStack este problema no hace más que acrecentarse por lo que
+el proyecto decidió desarrollar un cliente unificado que denominó
+OpenStackClient (OSC).
+
+La versión de OSC disponible en OpenStack Kilo es la 1.7.1, que puede instalarse
+directamente desde repositorio si se dispone o a través de pypi como en los
+casos anteriores.
