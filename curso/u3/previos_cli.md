@@ -261,3 +261,5 @@ OpenStackClient (OSC).
 La versión de OSC disponible en OpenStack Kilo es la 1.7.1, que puede instalarse
 directamente desde repositorio si se dispone o a través de pypi como en los
 casos anteriores.
+
+    (Openstack)usuario@oslo:~$ pip install python-openstackclient==1.7.1
