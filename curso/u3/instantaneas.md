@@ -15,22 +15,15 @@ nuevas instancias que se deseen, este proceso es diferente cuando se
 utilizan volúmenes para almacenar el sistema raíz de una instancia,
 como se verá en el siguiente tema.
 
-Veamos cómo se hace partiendo de una instancia Debian que se está
+Veamos cómo se hace partiendo de una instancia que se está
 ejecutando.
 
 Vamos a acceder a la instancia y vamos a realizar un cambio sobre
 ella, lo mas sencillo es crear un fichero de texto.
 
-	$ ssh -i clave_demo.pem debian@172.22.204.143			
-	The programs included with the Debian GNU/Linux system are free software;
-	the exact distribution terms for each program are described in the
-	individual files in /usr/share/doc/*/copyright.			
-	Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
-	permitted by applicable law.
-	Last login: Fri Dec 25 21:20:54 2015 from 172.19.0.26
-	debian@primera:~$ touch nuevo_fichero.txt
-	debian@primera:~$
-
+	$ ssh -i clave_demo.pem cirros@172.24.4.4			
+	$ touch nuevo_fichero.txt
+	
 
 A continuación vamos a realizar una instantánea de la instancia,
 con lo que se nos creará una nueva imagen desde la que podremos crear
@@ -57,14 +50,7 @@ hemos asignado una nueva IP pública y a la que hemos asociado la
 clave SSH mi_clave.pem), y comprobar que tiene el fichero que
 creamos en la instancia anterior: 
 
-	$ ssh -i clave_demo.pem debian@172.22.204.144			
-	The programs included with the Debian GNU/Linux system are free software;
-	the exact distribution terms for each program are described in the
-	individual files in /usr/share/doc/*/copyright.			
-	Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
-	permitted by applicable law.
-	Last login: Fri Dec 26 21:20:54 2015 from 172.19.0.26
-	debian@primera_2:~$ ls
+	$ ssh -i clave_demo.pem cirros@172.24.4.5			
+	$ ls
 	nuevo_fichero.txt
-	debian@primera_2:~$ 
-
+	
