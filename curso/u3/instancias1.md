@@ -48,9 +48,7 @@ nuestro servidor, es decir donde nuestro servidor virtual tendrá una IP fija.
 "Lanzar" y al cabo de unos segundos podemos ver que nuestra instancia ha
 sido creada, que tiene asignada una IP fija:
 
-
-
-
+![instancia](img/instancias1/04.png)
 
 * Por último, para poder acceder a la instancia desde el exterior tenemos que
 asignar a la instancia una IP flotante, para ello:
