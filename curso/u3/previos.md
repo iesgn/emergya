@@ -94,7 +94,7 @@ Si comprobamos el esquema por defecto que tenemos en nuestro proyecto podemos ob
 
 El esquema de red que debe tener nuestro proyecto esta definido por un router conectado a la red externa, y una red interna donde se conectan las instancias. Para ello seguimos los siguientes pasos:
 
-* Creamos un router: Para ello elegimos: **Red**->**Routers**->**Crear router**:
+* Creamos un router: Para ello elegimos: **Red**->**Routers**->**Crear router**, escogemos la red externa a la que va a estra conectado nuestro router:
 
 ![red](img/previos/red2.png)
 
@@ -106,23 +106,17 @@ El esquema de red que debe tener nuestro proyecto esta definido por un router co
 
 ![red](img/previos/red5.png)
 
-Por el momento sólo hemos indicado el direccionamiento que va a tener nuestra nueva red privada. El resto de la configuración la estudiaremos posteriormente.
-
-* Vamos a conectar nuestro router a la red externa. Para ello elegimos nuestro router y seleccionamos la opción **Establecer puerta de enlace**:
+* Por último vamos a conectar el router con la red interna. Para ello seleccionamos nuestro router y elegimos la opción **Interfaces**->**Añadir interfaz**:
 
 ![red](img/previos/red6.png)
 
-* Y por último vamos a conectar el router con la red interna. Para ello seleccionamos nuestro router y elegimos la opción **Añadir interfaz**:
+y nos queda la siguiente lista de interfaces en nuestro router:
 
 ![red](img/previos/red7.png)
 
-y nos queda la siguiente lista de interfaces en nuestro router:
-
-![red](img/previos/red8.png)
-
 Si volvemos a acceder a la opción **Topología de Red**:
 
-![red](img/previos/red9.png)
+![red](img/previos/red8.png)
 
 
 ## IPs flotantes 	
