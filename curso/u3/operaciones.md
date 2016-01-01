@@ -63,3 +63,5 @@ creada son las siguientes:
 * **Consola**: Por último, podemos acceder a una **consola VNC** para manejar nuestra
   instancia como si se tratase de una máquina virtual, aunque deberá estar
   definida previamente la contraseña del usuario.
+
+  lock y unlock
