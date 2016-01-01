@@ -13,7 +13,7 @@ menu:
 
 * [Conceptos previos de CLI](previos_cli)
 * [Gestión de imágenes con glance CLI](imagenes_cli)
-* [Gestión de imágenes con OpenStack client (OVS)](imagenes_ovs)
+* [Gestión de imágenes con OpenStack client (OSC)](imagenes_osc)
 
 ###Enlaces interesantes
 
