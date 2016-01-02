@@ -62,7 +62,7 @@ En la siguiente imagen podemos ver una representación del
 desacoplamiento entre la topología física y la lógica a nivel de toda
 la red de una organización:
 
-![midonet1](img/inrto/midonet1.PNG)
+![midonet1](img/intro/midonet1.PNG)
 
 Todo esto es bastante revolucionario y choca en muchos casos con los
 intereses de  las empresas que han dominado determinados sectores, así
