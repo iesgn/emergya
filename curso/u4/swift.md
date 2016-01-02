@@ -13,23 +13,23 @@ menu:
 
 	Para crear un nuevo contenedor accedemos a la opción **Almacén de objetos**->**Contenedores**->**Crear contenedor**:
 
-	![swift](img/swifit/01.png)
+	![swift](img/swift/01.png)
 
 	Indicamos el nombre del contnedor y el ACL (Utilizada para gestionar los permisos que otros usuarios pueden tener sobre cada contenedor, no sobre cada objeto) de lectura: Pública o Privada. 
 
 2. Podemos crear una pseudo-carpeta para agrupar los objetos
 
-	![swift](img/swifit/02.png)	
+	![swift](img/swift/02.png)	
 
 3. Subimos un objeto
 
 	Un objeto es un elemento que se almacena, suele estar relacionado con un fichero o archivo, pero además incluye una serie de metadatos.
 
-	![swift](img/swifit/03.png)		
+	![swift](img/swift/03.png)		
 
 	Y podemos ver el objeto que tenemos en nuestro contenedor:
 
-	![swift](img/swifit/04.png)	
+	![swift](img/swift/04.png)	
 
 4. Accedemos al objeto guradado
 
@@ -37,4 +37,4 @@ menu:
 
 		http://192.168.27.100:8080/v1/AUTH_e2661319dea4407cbc9370ecf995d1ca/contenedor/logo.png
 
-	![swift](img/swifit/05.png)
+	![swift](img/swift/05.png)
