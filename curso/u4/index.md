@@ -26,3 +26,8 @@ menu:
 
 * [Gestión de contenedores y objetos con Swift CLI](swift_cli)
 * [Gestión de contenedores y objetos con OpenStack client (OSC)](swift_osc)
+
+###Enlaces interesantes
+
+* [Block Storage service command-line client](http://docs.openstack.org/cli-reference/content/cinderclient_commands.html)
+* [Object Storage command-line client](http://docs.openstack.org/cli-reference/content/swiftclient_commands.html)

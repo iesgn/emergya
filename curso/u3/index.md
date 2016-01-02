@@ -20,6 +20,7 @@ menu:
 * [OpenStackclient](http://docs.openstack.org/developer/python-openstackclient/)
 * [Get images - Openstack](http://docs.openstack.org/image-guide/content/ch_obtaining_images.html)
 * [OpenStack Virtual Machine Image Guide](http://docs.openstack.org/image-guide/content/)
+* [ Image service command-line client](http://docs.openstack.org/cli-reference/content/glanceclient_commands.html)
 
 
 #Nova
@@ -42,3 +43,4 @@ menu:
 * [How to launch an instance on OpenStack (II): OpenStack CLI](http://albertomolina.wordpress.com/2013/11/20/how-to-launch-an-instance-on-openstack-ii-openstack-cli/)
 * [How to launch an instance on OpenStack (III) Python Novaclient library](https://albertomolina.wordpress.com/2013/11/20/how-to-launch-an-instance-on-openstack-iii-python-novaclient-library/)
 * [Understanding nova-conductor in OpenStack Nova](http://cloudystuffhappens.blogspot.com.es/2013/04/understanding-nova-conductor-in.html)
+* [Compute command-line client](http://docs.openstack.org/cli-reference/content/novaclient_commands.html)
