@@ -13,7 +13,7 @@ Partimos del siguiente esquema de red con el que hemos estado trabajando:
 
 En esta demostración vamos a crear una nueva red, una nueva subred y un nuevo router. El router estará conectado a la red externa y a la nueva red creada. El esquema de red sería el siguiente:
 
-
+![red](img/neutron/02.png)
 
 1. En el apartado **Redes** vamos a crear una nueva red.
 
@@ -27,7 +27,7 @@ En esta demostración vamos a crear una nueva red, una nueva subred y un nuevo r
 
 	A continuación indicamos los datos de la subred asociada:
 
-	![red](img/neutron/03.png)
+	![red](img/neutron/04.png)
 
 	* **Nombre de subred**: El usuario deberá indicar un nombre a proporcionarle a la subred.
 	* **Direcciones de red**: Se debe introducir un CIDR válido, el cual indicará un bloque de direcciones IPs.
@@ -35,7 +35,7 @@ En esta demostración vamos a crear una nueva red, una nueva subred y un nuevo r
 	* **IP de la puerta de enlace**: Dirección IP que especificamos para la puerta de enlace. Debe pertenecer a las direcciones del CIDR. Si se especifica este valor tenemos que comprobar que esta dirección no se superpone a alguna dirección del pool de direcciones. Si no se indica, se cogera la primera dirección del pool de direcciones.
 	* **Deshabilitar la puerta de enlace**: Si escogemos esta opción no se enviará gateway a las instancias que se conecten a esta red.
 
-	![red](img/neutron/04.png)	
+	![red](img/neutron/05.png)	
 
 	* **Habilitar DHCP**: Con esta opción activamos o desactivamos el servidor DHCP asociado a esta red.
 	* **Pool de direcciones**: Indica el rango de direcciones IPs que se utilizarán para asignar IPs a los servidores virtuales. Este rango debe pertenecer a las direcciones del CIDR. 	
