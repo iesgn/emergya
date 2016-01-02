@@ -123,7 +123,7 @@ nuestro sistema:
 		| adminPass                            | 2zdcUn4oCCKJ                                             |
 		| config_drive                         |                                                          |
 		| created                              | 2015-04-20T10:45:46Z                                     |
-		| flavor                               | m1.tiny (1)                                            |
+		| flavor                               | m1.tiny (1)                                              |
 		| hostId                               | 962db8c7b201499f39eeea5cb2c88d73cae9931aa8703e1d3e2c8027 |
 		| id                                   | c2b2c650-2f83-4c3e-b964-ebb916bf7e88                     |
 		| image                                | Attempt to boot from volume - no image supplied          |
