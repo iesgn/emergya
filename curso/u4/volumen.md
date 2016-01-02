@@ -37,21 +37,15 @@ caso de este curso la única zona disponible se llama *nova*.
 
 El volumen sólo se podrá eliminar cuando no esté asociado a ninguna instancia.
 
-###Operaciones sobre volúmenes
-
-![volumen](img/02.png)
-
-####Extender volumen
-
 #### Manage Attachment: Asociar un volumen a una instancia
 
 Esta función nos permite gestionar la asociación entre volúmenes e instancias. Si el volumen no está asociado a ninguna instancia podemos escoger la instancia a la que vamos a asociarlo:
 
-![volumen](img/03.png)
+![volumen](img/volumen/02.png)
 
 Si el volumen ya está asociado a una instancia, podemos desasociarlo con la misma opción:
 
-![volumen](img/04.png)
+![volumen](img/volumen/03.png)
 
 Si accedemos a la instancia y comprobamos los dispositivos de bloques que tiene conectada, obtendremos lo siguiente:
 
@@ -59,15 +53,3 @@ Si accedemos a la instancia y comprobamos los dispositivos de bloques que tiene 
 	NAME MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
 	vda  253:0    0     1G  0 disk /
 	vdb  253:16   0     1G  0 disk 
-
-
-
-####Crear instantánea
-
-####Cambiar el tipo de volumen
-
-####Subir Imagen
-
-####Crear transferencia
-
-####Eliminar volumen
