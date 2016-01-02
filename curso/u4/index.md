@@ -21,5 +21,8 @@ menu:
 
 * [Presentación Swift](presentacion_objetos)
 * [Gestión de contenedores y objetos con Horizon](swift)
+
+###Swift con CLI
+
 * [Gestión de contenedores y objetos con Swift CLI](swift_cli)
 * [Gestión de contenedores y objetos con OpenStack client (OSC)](swift_osc)
