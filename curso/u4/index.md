@@ -19,5 +19,5 @@ menu:
 
 #Swift
 
-* Presentación Swift
+* [Presentación Swift](presentacion_objetos)
 * Introducción a Swift
