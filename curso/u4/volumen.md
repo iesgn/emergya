@@ -37,37 +37,37 @@ caso de este curso la única zona disponible se llama *nova*.
 
 El volumen sólo se podrá eliminar cuando no esté asociado a ninguna instancia.
 
-### Asociar un volumen a una instancia
+###Operaciones sobre volúmenes
 
-Esta acción sirve para proporcionar almacenamiento secundario (extra) a una
-instancia. Para realizar la asociación podemos presionar del menú superior el
-botón de **Asociar**. 
-    
-A continuación se mostrará un formulario donde indicaremos la siguiente
-información:
+![volumen](img/02.png)
 
-* Selecciona instancia: Parámetro obligatorio. Se muestra una lista con las
-instancias existentes.
-* Dispositivo disponible: Muestra una lista de dispositivos de bloques
-disponibles en el sistema. 
-* Selección manual: Si queremos definir otro dispositivo asociado al volumen
-diferente a los que aparecen en la lista **Dispositivo disponible**. Al
-seleccionar esta opción se habilitará el campo de **Selecciona bajo /dev/**.
-* Selecciona bajo /dev/: En este campo indicamos la ruta que le corresponderá al
-volumen dentro del servidor virtual. Por ejemplo si introducimos vdx, nuestro
-volumen corresponderá a /dev/vdx. Aunque hay que comentar que esta
-selección manual depende de la configuración de la nube que estemos
-manejando, en muchos casos aunque se especifique un nombre de
-dispositivo concreto, se ignora este dato y se asocia el volumen al
-siguiente dispositivo de bloques libre.
+####Extender volumen
 
-Asociar un volumen de los dispositivos disponibles
+#### Manage Attachment: Asociar un volumen a una instancia
+
+Esta función nos permite gestionar la asociación entre volúmenes e instancias. Si el volumen no está asociado a ninguna instancia podemos escoger la instancia a la que vamos a asociarlo:
+
+![volumen](img/03.png)
+
+Si el volumen ya está asociado a una instancia, podemos desasociarlo con la misma opción:
+
+![volumen](img/04.png)
+
+Si accedemos a la instancia y comprobamos los dispositivos de bloques que tiene conectada, obtendremos lo siguiente:
+
+	$ lsblk
+	NAME MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+	vda  253:0    0     1G  0 disk /
+	vdb  253:16   0     1G  0 disk 
 
 
-![volumen](img/vol2.png)
 
+####Crear instantánea
 
-Asociar un volumen manualmente
+####Cambiar el tipo de volumen
 
+####Subir Imagen
 
-![volumen](img/vol3.png)
+####Crear transferencia
+
+####Eliminar volumen
