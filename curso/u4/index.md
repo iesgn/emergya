@@ -20,4 +20,4 @@ menu:
 #Swift
 
 * [Presentación Swift](presentacion_objetos)
-* Introducción a Swift
+* [Gestión de objetos con Swift CLI](swift_cli)
