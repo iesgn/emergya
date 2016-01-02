@@ -55,6 +55,10 @@ pasos:
 		+--------------------------------------+--------+--------------+------+-------------+--------------------------------------+
 
     Y podemos acceder a la instancia y comprobarlo con lsblk o fdisk.
+
+4. Para desasociar el volumen de la intancia:
+
+		nova volume-detach instancia_nova b4da8031-6748-49ee-a02a-47df9980d6b7
     
 ### Creación de una instancia con el disco raíz sobre un volumen.
 
