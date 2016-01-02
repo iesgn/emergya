@@ -187,12 +187,12 @@ nuestro sistema:
 
 4. Borramos el snapshot y el volumen creado
 
-Si intentamos borrar el volumen desde el que hemos creado la instantánea:
+	Si intentamos borrar el volumen desde el que hemos creado la instantánea:
 
 		$ openstack volume delete disco1
 		Invalid volume: Volume still has 1 dependent snapshots. (HTTP 400) (Request-ID: req-917a4f06-8874-4e59-a693-122006454d90)
 
-Debemos borrar primero el snapshot y posteriormente el volumen:
+	Debemos borrar primero el snapshot y posteriormente el volumen:
 
 		$ openstack snapshot delete copia_disco1
 		$ openstack volume delete disco1
