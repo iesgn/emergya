@@ -9,6 +9,7 @@ menu:
 
 * [Conceptos previos de volúmenes](conceptos_previos)
 * [Creación de volúmenes, asociación a instancias](volumen)
+* [Operaciones sobre volúmenes](operaciones)
 * Creación de instancia ejecutadas sobre volúmenes
 
 ###Cinder con CLI
