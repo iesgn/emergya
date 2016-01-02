@@ -32,12 +32,6 @@ pasos:
 		| volume_type         | None                                 |
 		+---------------------+--------------------------------------+
 
-    Es curioso observar que desde la aplicación web sólo se permiten crear
-	volúmenes mayores de 16 GiB, mientras que desde la línea de comandos
-	podemos elegir cualquier tamaño mayor de 1 GiB, por tanto la
-	restricción no viene impuesta por el sistema de volúmenes de
-	Cirrusflex, sino por la propia aplicación web.
-
 2. A continuación vamos a asociarlo a nuestra instancia:
 
         nova volume-attach instancia_nova \
@@ -108,7 +102,7 @@ nuestro sistema:
       
 3. Creamos una nueva instancia con este volumen
 
-        nova boot --flavor ssd.XXXS \
+        nova boot --flavor m1.tiny \
 		--boot-volume 45f71394-2699-4c86-80da-cf8490f5a6c5 \
 		--security-groups default \
 		--key-name mi_clave \
@@ -129,7 +123,7 @@ nuestro sistema:
 		| adminPass                            | 2zdcUn4oCCKJ                                             |
 		| config_drive                         |                                                          |
 		| created                              | 2015-04-20T10:45:46Z                                     |
-		| flavor                               | ssd.XXXS (20)                                            |
+		| flavor                               | m1.tiny (1)                                            |
 		| hostId                               | 962db8c7b201499f39eeea5cb2c88d73cae9931aa8703e1d3e2c8027 |
 		| id                                   | c2b2c650-2f83-4c3e-b964-ebb916bf7e88                     |
 		| image                                | Attempt to boot from volume - no image supplied          |
