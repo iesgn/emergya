@@ -35,6 +35,7 @@ menu:
 ###Nova con CLI
 
 * [Gestión de instancias con nova CLI](instancia_cli)
+* Gestión de instancia con OpenStack client (OSC)
 
 ###Enlaces interesantes
 
