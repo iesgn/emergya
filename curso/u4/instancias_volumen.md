@@ -23,12 +23,12 @@ Veamos los pasos que tenemos que realizar:
 
 3. Vamos a acceder a la instancia y vamos a realizar un cambio por ejemplo vamos a crear un fichero.
 
-	$ ssh -i clave_demo.pem cirros@172.24.4.4
-	$ touch prueba.txt
+		$ ssh -i clave_demo.pem cirros@172.24.4.4
+		$ touch prueba.txt
 
 4. Terminamos esta instancia (el volumen no se va a destruir) y creamos una nueva instancia a partir del mismo volumen (le vamos a asignar otra IP pública para que apreciemos que estamos accediendo a otra instancia). Vamos a comprobar que el fichero creando en la instancia anterior, existe:
 
-	$ ssh-i clave_demo.pem cirros@172.24.4.5
-	$ ls
-	prueba.txt
+		$ ssh-i clave_demo.pem cirros@172.24.4.5
+		$ ls
+		prueba.txt
 
