@@ -21,3 +21,8 @@ menu:
 ###Balanceador de carga
 
 * [Introducción al balanceador de carga]()
+
+###Enlaces interesantes
+
+* [Networking command-line client](http://docs.openstack.org/cli-reference/content/neutronclient_commands.html)
+* [Neutron/LBaaS/HowToRun](https://wiki.openstack.org/wiki/Neutron/LBaaS/HowToRun)
