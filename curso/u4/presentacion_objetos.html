@@ -61,45 +61,9 @@ tema: white
 	relacionado con un fichero o archivo, pero además incluye una serie de
 	metadatos.</li>
       <li><strong>ACL</strong>: Utilizada para gestionar los permisos que otros
-      usuarios pueden tener sobre cada contenedor, no sobre cada objeto. De
-      momento, las ACLs sólo pueden definirse desde la línea de comandos.</li>
+      usuarios pueden tener sobre cada contenedor, no sobre cada objeto.</li>
     </ul>
   </section>
 </section>
 
-<section>
-  <section>
-    <h2>Objetos con Swift CLI</h2>
-    <ul>
-      <li>Utilizar swift desde la línea de comandos: list, stat, download, upload</li>
-      <li>Permitir acceso anónimo a un contenedor</li>
-    </ul>
-  </section>
-  <section>
-    <h2>Objetos</h2>
-    <pre><code>
-#Listar contenedores
-$ swift list
-#Listar objetos dentro de un contenedor
-$ swift list CONTENEDOR
-# Subir un objeto
-$ swift upload CONTENEDOR NOMBRE_FICHERO
-# Bajar un objeto
-$ swift download CONTENEDOR NOMBRE_OBJETO
-# Actualizar metadatos de contenedor u objetos
-$ swift post ARGUMENTOS
-    </code></pre>
-  </section>
-  <section>
-    <h2>Permisos</h2>
-    <pre><code>
-#Hacer público un contenedor
-$ swift post -r '.r:*' CONTENEDOR
-#Permiter a otro usuario acceder a los objetos del contenedor
-$ swift post -r PROYECTO:USUARIO CONTENEDOR
-# Para permitir obtener la lista de objetos de un contenedor
-$ swift post  -r '.r:*,.rlistings' CONTENEDOR
 
-    </code></pre>
-  </section>
-</section>
