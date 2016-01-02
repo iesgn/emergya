@@ -48,9 +48,36 @@ En esta demostración vamos a crear una nueva red, una nueva subred y un nuevo r
 
 	A continuación vamos a conectar la nueva red al router que hemos creado, para ello seleccionamos el router y las opciones **Interfaces**->**Añadir Interfaz**:
 
-	![red](img/neutron/07.png)	
+	![red](img/neutron/07.png)
 
 	En el apartado **Dirección IP (opcional)** podemos indicar la dirección IP que toma esta nueva interfaz, son se especifica se cogerá la primera del pool de direcciones que hemos indicado al configurar la subred.
+
+3. Una vez creado nuestra nueva red, conectada a un nuevo router vamos a crear una instancia en la nueva red (suponemos que en nuestra primera red tenemos creada una instancia) y vamos a comprobar que se le puede asociar una ip flotante, además vamos a comprobar que no podemos hacer ping a otra instancia que está conectada a la otra red.
+
+    A la hora de crear la nueva instancia tenemos que asegurarnos que la conectamos a la nueva red.
+
+    ![red](img/neutron/08.png)
+
+    Podemos comprobar en la siguiente imagen que la nueva instancia tiene una IP fija en el rango de la nueva red (20.0.0.0/24) y que tiene asociada una ip pública.
+
+    ![red](img/neutron/09.png)
+
+    Por último podemos comprobar que las instancias no tienen conectividad. Si accedemos a una de ella, y hacemos ping a la ip fija de la otra, evidentemente, no tendremos conectividad. Evidentemente si podemos acceder de las ip flotantes:		
+
+		$ ssh -i clave_demo.pem cirros@192.168.0.5
+		$ ping 10.0.0.3
+		PING 10.0.0.3 (10.0.0.3): 56 data bytes
+		^C
+		--- 10.0.0.3 ping statistics ---
+		5 packets transmitted, 0 packets received, 100% packet loss
+		$ ping 192.168.0.3
+		PING 192.168.0.3 (192.168.0.3): 56 data bytes
+		64 bytes from 192.168.0.3: seq=0 ttl=62 time=2.946 ms
+		64 bytes from 192.168.0.3: seq=1 ttl=62 time=0.859 ms
+		^C
+		--- 192.168.0.3 ping statistics ---
+		2 packets transmitted, 2 packets received, 0% packet loss
+		round-trip min/avg/max = 0.859/1.902/2.946 ms
 
 
 
