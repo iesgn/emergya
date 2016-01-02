@@ -9,7 +9,8 @@ menu:
 
 ### Crear una nueva imagen
 
-	openstack image create --container-format=bare --disk-format=qcow2 --public --file  trusty-server-cloudimg-amd64-disk1.img ubuntu_14_04
+	openstack image create --container-format=bare --disk-format=qcow2 \
+	 --public --file  trusty-server-cloudimg-amd64-disk1.img ubuntu_14_04
 	+------------------+------------------------------------------------------+
 	| Field            | Value                                                |
 	+------------------+------------------------------------------------------+
