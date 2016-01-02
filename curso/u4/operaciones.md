@@ -49,6 +49,37 @@ Veamos un ejemplo:
 
 ####Crear instantánea
 
+Al crear una instantánea (snapshot) estoy guardando el contenido del volumen. A partir de una instantánea se pueden crear nuevos volúmenes con el mismo contenido que el original.
+Veamos un ejemplo:
+
+1. Tenemos asociado un volumen formateado y montado en una instancia. Vamos a crear un fichero de prueba:
+
+		$ cd /mnt/
+		$ sudo touch prueba.txt
+
+2. A continuación vamos a crear una instantánea del volumen. Si el volumen está asociado a una instancia, te advierte que puede haber corrupción de datos:
+
+	![volumen](img/operaciones/04.png)
+
+	Por lo tanto desasociamos el volumen y volvemos a crear la instantánea:
+
+	![volumen](img/operaciones/05.png)	
+
+3. En la pestaña **Snaphots de volumen** encontramos las instantáneas que hemos creado:
+
+	![volumen](img/operaciones/06.png)	
+
+	Con la opción **Crear volumen** podemos crear un volumen a partir de la instantánea:
+
+	![volumen](img/operaciones/07.png)	
+
+4. Si asociamos este nuevo volumen a la instancia, y lo montamos, podemos comprobar que el fichero de prueba está creado:
+
+		$ sudo mount /dev/vdc /mnt
+		$ cd /mnt/
+		$ ls
+		lost+found  prueba.txt
+
 ####Cambiar el tipo de volumen
 
 ####Subir Imagen
