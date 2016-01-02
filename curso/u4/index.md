@@ -15,6 +15,7 @@ menu:
 ###Cinder con CLI
 
 * [Gestión de volúmenes con nova y cinder CLI](volumen_cli)
+* [Gestión de volúmenes con OpenStack client (OSC)](volumen_osc)
 
 #Swift
 
