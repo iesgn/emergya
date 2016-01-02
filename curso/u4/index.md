@@ -14,7 +14,7 @@ menu:
 
 ###Cinder con CLI
 
-* Gestión de volúmenes con nova y cinder CLI
+* [Gestión de volúmenes con nova y cinder CLI](volumen_cli)
 
 #Swift
 
