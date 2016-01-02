@@ -82,8 +82,22 @@ Veamos un ejemplo:
 
 ####Cambiar el tipo de volumen
 
+Si tenemos a nuestra disposición varios tipos de Volumen (distintos backends donde podemos crear volúmenes) con esta operación podemos hacer la migración de un tipo de volumen a otro.
+
+![volumen](img/operaciones/08.png)	
+
 ####Subir Imagen
+
+Esta operación nos permite subir el contenido de un volumen como una imagen en Glance. Muy adecuada cuando el volumen contiene un sistema operativo y lo queremos guardar como imagen.
+
+![volumen](img/operaciones/09.png)	
 
 ####Crear transferencia
 
+Esta opción nos permite transferir un volumen desde una infraestructura de cloud a otra. 
+
+![volumen](img/operaciones/10.png)	
+
 ####Eliminar volumen
+
+Nos permite eliminar un volumen. Un volumen no se puede eliminar si está asociado a una instancia, o se creado una instantánea a partir de él.
