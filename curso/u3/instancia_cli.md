@@ -94,7 +94,7 @@ servidores) y redes que tenemos disponibles.
 4. Ya podemos crear nuestra instancia. Vamos a crear una instancia de
 nombre *instancia_nova* con la imagen de Ubuntu 14.04 LTS, un sabor
 m1.small, el grupo de  seguridad y las claves ssh que hemos creado
-anteriormente y conectado a la red 00000335-net (la contrabarra "\" se
+anteriormente y conectado a la red red_demo (la contrabarra "\" se
 utiliza para poder escribir una instrucción tan larga en varias
 líneas). 
 
