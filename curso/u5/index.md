@@ -16,3 +16,4 @@ menu:
 ###Neutron con CLI
 
 * [Gestión de redes con neutron CLI](neutron_cli)
+* [Ejercicio avanzado de redes con neutron CLI](avanzado)
