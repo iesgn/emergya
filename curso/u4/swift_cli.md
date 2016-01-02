@@ -26,7 +26,7 @@ Swift es el componente de OpenStack que nos permite la gestión de objetos. Un o
 		carpeta/README.md
 		index.md
 
-	Puede obtener información de un contenedor o un objeto:
+	Puedes obtener información de un contenedor o un objeto:
 
 		$ swift stat contenedor
          		Account: AUTH_1a0b324cc09c40c79286fc1bc63c5833
