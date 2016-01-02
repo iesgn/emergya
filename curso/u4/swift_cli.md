@@ -68,7 +68,7 @@ Swift es el componente de OpenStack que nos permite la gestión de objetos. Un o
 
 		$ swift upload contenedor entrada.png 
 
-	Podemos acceder desde un navegador a dicha imagen, utilizando el endpoint de swift, e indicando contenedor t objeto, en este caso sería:
+	Podemos acceder desde un navegador a dicha imagen, utilizando el endpoint de swift, e indicando contenedor y objeto, en este caso sería:
 
 		https://swift-mm1.mascloud.es/v1.0/AUTH_1a0b324cc09c40c79286fc1bc63c5833/contenedor/entrada.png
 
