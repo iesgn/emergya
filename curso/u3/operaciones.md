@@ -50,6 +50,7 @@ creada son las siguientes:
 
 * **Editar Grupos de Seguridad**: Nos permite añadir o
   quitar grupos de seguridad aplicados a la instancia.
+* **Lock/unlock instancie**: Proteje o desproteje ina instancia. Un usuario normal (no administrador) no puede ejecutar ninguna acción sobre una instancia protegida. 
 
 ### Acciones avanzadas sobre la instancias:
 
@@ -64,4 +65,3 @@ creada son las siguientes:
   instancia como si se tratase de una máquina virtual, aunque deberá estar
   definida previamente la contraseña del usuario.
 
-  lock y unlock
