@@ -41,3 +41,4 @@ menu:
 
 * [How to launch an instance on OpenStack (II): OpenStack CLI](http://albertomolina.wordpress.com/2013/11/20/how-to-launch-an-instance-on-openstack-ii-openstack-cli/)
 * [How to launch an instance on OpenStack (III) Python Novaclient library](https://albertomolina.wordpress.com/2013/11/20/how-to-launch-an-instance-on-openstack-iii-python-novaclient-library/)
+* [Understanding nova-conductor in OpenStack Nova](http://cloudystuffhappens.blogspot.com.es/2013/04/understanding-nova-conductor-in.html)
