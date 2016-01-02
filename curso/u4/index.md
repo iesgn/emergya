@@ -21,3 +21,4 @@ menu:
 
 * [Presentación Swift](presentacion_objetos)
 * [Gestión de objetos con Swift CLI](swift_cli)
+* [Gestión de objetos con OpenStack client (OSC)](swift_osc)
