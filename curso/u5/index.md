@@ -5,21 +5,6 @@ menu:
   - Unidades
 ---
 
-#Cinder
+#Neutron
 
-* [Conceptos previos de volúmenes](conceptos_previos)
-* [Creación de volúmenes, asociación a instancias](volumen)
-* [Operaciones sobre volúmenes](operaciones)
-* [Creación de instancia ejecutadas sobre volúmenes](instancias_volumen)
-
-###Cinder con CLI
-
-* [Gestión de volúmenes con nova y cinder CLI](volumen_cli)
-* [Gestión de volúmenes con OpenStack client (OSC)](volumen_osc)
-
-#Swift
-
-* [Presentación Swift](presentacion_objetos)
-* [Gestión de contenedores y objetos con Horizon](swift)
-* [Gestión de contenedores y objetos con Swift CLI](swift_cli)
-* [Gestión de contenedores y objetos con OpenStack client (OSC)](swift_osc)
+* [Introducción a la virtualización de redes](intro)
