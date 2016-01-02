@@ -1,11 +1,13 @@
 ---
 layout: blog
-tittle: Introducción a la virtualización de redes
+tittle: Curso OpenStack
 menu:
   - Unidades
 ---
 
-## Redes virtuales
+#### Introducción a la virtualización de redes
+
+### Redes virtuales
 
 Una persona que lleve varios años utilizando tecnologías de
 virtualización tendrá bastante claro lo que es una red virtual, ya que
@@ -23,7 +25,7 @@ switches, routers, redes físicas, vlans, cortafuegos, etc. En cada
 hipervisor hay definida una o varias redes virtuales y éstas son
 gestionadas de forma independiente unas de otras.
 
-## Virtualización de redes, redes definidas por software y virtualización de las funciones de red.
+### Virtualización de redes, redes definidas por software y virtualización de las funciones de red.
 
 El campo de las redes está últimamente revolucionado y se escuchan por
 todos sitios tres términos o sus equivalentes siglas en inglés:
