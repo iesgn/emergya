@@ -89,8 +89,23 @@ Para asociar un volumen a una instancia utilizamos el cliente nova:
 	| volumeId | d61284c3-4daa-48e1-9731-cd6d4361b4c6 |
 	+----------+--------------------------------------+
 
-En ese momento se crea un nuevo target iSCSI asociado a este volumen
-lógico que podemos ver con la siguiente instrucción:
+En ese momento se crea un nuevo target iSCSI asociado a este volumen cuya configuración vamos a ver a continuación. Veamos el fichero de configuración del target iscsi tgt:
+
+	cat /etc/tgt/conf.d/cinder_tgt.conf 
+	include /var/lib/cinder/volumes/*
+
+Es decir en la carpeta /var/lib/cinder/volumes, se va creando un fichero para configurar cada target correspondiente a cada volumen:
+
+	cat volume-d61284c3-4daa-48e1-9731-cd6d4361b4c6
+
+	<target iqn.2010-10.org.openstack:volume-d61284c3-4daa-48e1-9731-cd6d4361b4c6>
+	    backing-store /dev/cinder-volumes/volume-d61284c3-4daa-48e1-9731-cd6d4361b4c6
+	    lld iscsi
+        IncomingUser 3ZLkT6nW9JTWgujZ9aEH bzUDU8RAKZXKXmiPK9w5
+	</target>
+
+
+Podemos comprobar que el target se ha creado con la siguiente instrucción:
 
     # tgtadm --lld iscsi --op show --mode target
 	...
