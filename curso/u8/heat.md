@@ -40,9 +40,9 @@ Pongamos un ejemplo sencillo:
 
 * Versión del template: Aquí se indica la versión del template
   utilizado.
-** 2013-05-23: OpenStack Icehouse o superior
-** 2014-10-16: OpenStack Juno o superior
-** 2015-04-30: OpenStack Kilo
+  * 2013-05-23: OpenStack Icehouse o superior
+  * 2014-10-16: OpenStack Juno o superior
+  * 2015-04-30: OpenStack Kilo
 * Se indica la descripción del template.
 * Parámetros (parameters): En esta sección declaramos los parámetros
   de entrada para el template, que serán proporcionados al lanzar el
