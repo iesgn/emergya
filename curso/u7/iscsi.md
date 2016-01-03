@@ -37,7 +37,7 @@ Para ello vamos a configurar tgt para crear un nuevo target iSCSCI, para ello a�
 	    backing-store /dev/vg1/ejem
 	</target>
 
-Y reinicamos el servicio:
+Y reiniciamos el servicio:
 
 	systemctl restart tgt
 
@@ -199,7 +199,7 @@ Podemos ver la conexión realizada en detalle con la siguiente instrucción:
 			scsi3 Channel 00 Id 0 Lun: 1
 				Attached scsi disk sdb		State: running
 
-###Configuración de la autenticación
+###Configuración de la autentificación
 
 Para modificar el target y añadir autentificación, tendremos que modificar la configuración del fichero /etc/tgt/targets.conf de la siguiente manera:
 
@@ -225,7 +225,8 @@ Y volver a conectarnos utilizando las credenciales, para ello vamos a modificar 
 
 Y ya podemos conectar de nuevo:
 
-	iscsiadm -m node --targetname iqn.2016-01-com.example.tg1 --portal 192.168.100.1 --loginLogging in to [iface: default, target: iqn.2016-01-com.example.tg1, portal: 192.168.100.1,3260] (multiple)
+	iscsiadm -m node --targetname iqn.2016-01-com.example.tg1 --portal 192.168.100.1 --login
+	Logging in to [iface: default, target: iqn.2016-01-com.example.tg1, portal: 192.168.100.1,3260] (multiple)
 	Login to [iface: default, target: iqn.2016-01-com.example.tg1, portal: 192.168.100.1,3260] successful.
 
 Comprobamos que todo funciona viendo los log del sistema:
