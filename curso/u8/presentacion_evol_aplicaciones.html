@@ -1,0 +1,125 @@
+---
+layout: presentacion
+title: Evolución de las aplicaciones
+tema: white
+---
+<section>
+  <h2>Evolución de las aplicaciones</h2>
+  <p>
+    <a href="http://albertomolina.wordpress.com">Alberto Molina Coballes</a> y
+    <a href="http://www.josedomingo.org">José Domingo Muñoz Rodríguez</a>
+  </p>
+  <p>
+    <a href="http://creativecommons.org/licenses/by-sa/3.0/">
+      <img src="img/presentacion_evol_aplicaciones/cc_by_sa.png" width="100px" border="0"/></a>
+  </p>
+  <p><small>Theme by: <a href="http://lab.hakim.se/reveal-js/#/">reveal.js</a></small></p>
+</section>
+
+<section>
+  <section>
+  <h2>Aplicaciones nativas para la nube</h2>
+  <ul>
+    <li>La utilización de toda la funcionalidad de la nube, principalmente la
+      elasticidad, implica un cambio drástico en la arquitectura del software hacia
+      lo que se conoce como <emph>cloud applications</emph></li>
+    <li>Alternativamente se pueden aprovechar ciertas funcionalidades
+    de cloud computing para aplicaciones "clásicas"</li>
+    <li>El objetivo sería desarrollar aplicaciones que puedan adaptarse a las
+      necesidades de cada momento ejecutándose en una infraestructura
+      elástica, gestionada por la propia aplicación</li>
+  </ul>
+  </section>
+  <section>
+    <h2>Aplicaciones tradicionales</h2>
+    <h3>"legacy" applications</h3>
+    <ul>
+      <li>Número estable de máquinas virtuales grandes</li>
+      <li>Escalado vertical</li>
+      <li>Vida media de años</li>
+      <li>Aplicaciones no diseñadas para tolerar fallos. La redundancia se
+	proporciona en el nivel inferior</li>
+    </ul>
+    <br/>
+    <p>Ref: <a href="http://www.slideshare.net/KeithBasil/basil-w-0230introoverviewopenstackiaascloudsfinal">
+    K. Basil: Intro. and Overview of OpenStack for IaaS</a></p>
+  </section>
+  <section>
+    <h2>Aplicaciones nativas para la nube</h2>
+    <h3>"Cloud ready" applications</h3>
+    <ul>
+      <li>Número variable de pequeñas máquinas virtuales</li>
+      <li>Escalado horizontal</li>
+      <li>Vida media desde algunas horas a meses</li>
+      <li>Aplicaciones tolerantes a fallos</li>
+    </ul>
+    <br/>
+    <p>Ref: <a href="http://www.slideshare.net/KeithBasil/basil-w-0230introoverviewopenstackiaascloudsfinal">
+    K. Basil: Intro. and Overview of OpenStack for IaaS</a></p>
+  </section>
+  <section>
+    <p>¿Tardaremos mucho en desarrollar y utilizar aplicaciones
+    nativas de cloud o estaremos durante años utilizando la nube para
+    aplicaciones tradicionales?</p>
+  </section>
+</section>
+<section>
+  <section>
+    <img src="img/presentacion_evol_aplicaciones/legacy-apps.png" alt="Legacy Apps"/>
+    <p>Ref: <a href="http://www.slideshare.net/randybias/pets-vs-cattle-the-elastic-cloud-story">Cloudscaling. Pets vs. Cattle: The Elastic Cloud Story</a></p>
+  </section>
+  <section>
+    <img src="img/presentacion_evol_aplicaciones/cloud-apps.png" alt="Cloud Apps"/>
+    <p>Ref: <a href="http://www.slideshare.net/randybias/pets-vs-cattle-the-elastic-cloud-story">Cloudscaling. Pets vs. Cattle: The Elastic Cloud Story</a></p>
+  </section>
+</section>
+<section>
+  <h2>Pets vs Cattle</h2>
+  <img src="img/presentacion_evol_aplicaciones/vCloudOpenStackPetsandCattle1.JPG" alt="pets_vs_cattle"/>
+  <p>Ref: <a href="http://www.slideshare.net/gmccance/cern-data-centre-evolution">Gavin
+      McCance - CERN</a>
+</section>
+<section>
+  <h2>Cloud Management Platform (CMP)</h2>
+  <h3>Datacenter virtualization</h3>
+  <ul>
+    <li>Extensión de la virtualización clásica</li>
+    <li>Además de la virtualización de servidores se incluyen la virtualización
+      del almacenamiento y las redes</li>
+    <li>Más adecuada para aplicaciones clásicas</li>
+    <li>Puede llegar a utilizarse para aplicaciones "cloud"</li>
+    <li>Evolución natural de VMware: vCloud</li>
+    <li>La alternativa libre más cercana sería Opennebula</li>
+  </ul>
+  <br/>
+  <p>Ref: <a href="http://opennebula.org/eucalyptus-cloudstack-openstack-and-opennebula-a-tale-of-two-cloud-models/">Ignacio
+      M. Llorente - Eucalyptus, CloudStack, OpenStack and OpenNebula: A Tale of
+      Two Cloud Models</a></p>
+</section>
+<section>
+  <h2>Cloud Management Platform (CMP)</h2>
+  <h3>Aprovisionamiento de infraestructura</h3>
+  <ul>
+    <li>Toma como referencia AWS</li>
+    <li><strong>Open</strong>: estandarizada, licencias libres, accesible,
+    abierta</li>
+    <li>Más adecuada para aplicaciones "cloud"</li>
+    <li>Puede utilizarse también para aplicaciones clásicas</li>
+    <li>La opción más conocida es OpenStack</li>
+  </ul>
+  <br/>
+  <p>Ref: <a href="http://opennebula.org/eucalyptus-cloudstack-openstack-and-opennebula-a-tale-of-two-cloud-models/">Ignacio
+      M. Llorente - Eucalyptus, CloudStack, OpenStack and OpenNebula: A Tale of
+      Two Cloud Models</a></p>
+</section>
+
+<section>
+  <h2>Microservicios y contenedores</h2>
+  <ul>
+    <li>Arquitectura de microservicios</li>
+    <li>Alta densidad</li>
+    <li>Aplicaciones distribuidas</li>
+    <li>Necesitan de infraestructura, ¿cloud?</li>
+  </ul>
+  
+</section>
