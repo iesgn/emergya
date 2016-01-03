@@ -204,7 +204,7 @@ Podemos ver la conexión realizada en detalle con la siguiente instrucción:
 Para modificar el target y añadir autentificación, tendremos que modificar la configuración del fichero /etc/tgt/targets.conf de la siguiente manera:
 
 	<target iqn.2016-01-com.example.tg1>
-	    backing-store /dev/vg1/ejem
+		backing-store /dev/vg1/ejem
 		incominguser usuario password
 	</target>
 
