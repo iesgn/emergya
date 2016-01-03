@@ -1,9 +1,11 @@
 ---
 layout: blog
-tittle: OpenStack por dentro. Volúmenes
+tittle: Curso OpenStack
 menu:
   - Unidades
 ---
+
+###Proceso de creación de un volumen y asociación a una instancia paso a paso
 
 OpenStack soporta un buen número de tecnologías para proporcionar
 almacenamiento de bloques, en este caso vamos a explicar la
