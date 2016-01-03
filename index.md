@@ -28,7 +28,7 @@ contenidos.
     1. Características
     1. Uso desde horizon
     1. Uso desde CLI
-1. OpenStack Cinder
+1. OpenStack Cinder y Swift
     1. Características
     1. Uso desde horizon
     1. Uso desde CLI
