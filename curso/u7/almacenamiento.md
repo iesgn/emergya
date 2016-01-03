@@ -101,7 +101,7 @@ Es decir en la carpeta /var/lib/cinder/volumes, se va creando un fichero para co
 	<target iqn.2010-10.org.openstack:volume-d61284c3-4daa-48e1-9731-cd6d4361b4c6>
 	    backing-store /dev/cinder-volumes/volume-d61284c3-4daa-48e1-9731-cd6d4361b4c6
 	    lld iscsi
-        IncomingUser 3ZLkT6nW9JTWgujZ9aEH bzUDU8RAKZXKXmiPK9w5
+        IncomingUser ZQg9H5oC5b5rHBthfSFf bzUDU8RAKZXKXmiPK9w5
 	</target>
 
 
