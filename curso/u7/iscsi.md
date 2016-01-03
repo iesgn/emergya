@@ -199,3 +199,48 @@ Podemos ver la conexión realizada en detalle con la siguiente instrucción:
 			scsi3 Channel 00 Id 0 Lun: 1
 				Attached scsi disk sdb		State: running
 
+###Configuración de la autenticación
+
+Para modificar el target y añadir autentificación, tendremos que modificar la configuración del fichero /etc/tgt/targets.conf de la siguiente manera:
+
+	<target iqn.2016-01-com.example.tg1>
+	    backing-store /dev/vg1/ejem
+		incominguser usuario password
+	</target>
+
+Reinciamos el servidor:
+
+	systemctl restart tgt
+
+Ahora en el cliente tenemos que desconectarnos de la sesión actual:
+
+	iscsiadm -m node --targetname iqn.2016-01-com.example.tg1 --portal 192.168.100.1 --logout
+	Logging out of session [sid: 1, target: iqn.2016-01-com.example.tg1, portal: 192.168.100.1,3260]
+	Logout of [sid: 1, target: iqn.2016-01-com.example.tg1, portal: 192.168.100.1,3260] successful.
+
+Y volver a conectarnos utilizando las credenciales, para ello vamos a modificar la base de datos con el usuario y la contraseña:
+
+	iscsiadm -m node --targetname iqn.2016-01-com.example.tg1 -p 192.168.100.1 -o update -n node.session.auth.username -v usuario
+	iscsiadm -m node --targetname iqn.2016-01-com.example.tg1 -p 192.168.100.1 -o update -n node.session.auth.password -v password
+
+Y ya podemos conectar de nuevo:
+
+	iscsiadm -m node --targetname iqn.2016-01-com.example.tg1 --portal 192.168.100.1 --loginLogging in to [iface: default, target: iqn.2016-01-com.example.tg1, portal: 192.168.100.1,3260] (multiple)
+	Login to [iface: default, target: iqn.2016-01-com.example.tg1, portal: 192.168.100.1,3260] successful.
+
+Comprobamos que todo funciona viendo los log del sistema:
+
+	dmesg	
+
+	[ 5268.251073] scsi6 : iSCSI Initiator over TCP/IP
+	[ 5269.257242] scsi 6:0:0:0: RAID              IET      Controller       0001 PQ: 0 ANSI: 5
+	[ 5269.258750] scsi 6:0:0:0: Attached scsi generic sg1 type 12
+	[ 5269.259634] scsi 6:0:0:1: Direct-Access     IET      VIRTUAL-DISK     0001 PQ: 0 ANSI: 5
+	[ 5269.261145] sd 6:0:0:1: Attached scsi generic sg2 type 0
+	[ 5269.262710] sd 6:0:0:1: [sdb] 1048576 512-byte logical blocks: (536 MB/512 MiB)
+	[ 5269.263433] sd 6:0:0:1: [sdb] Write Protect is off
+	[ 5269.263435] sd 6:0:0:1: [sdb] Mode Sense: 69 00 00 08
+	[ 5269.263720] sd 6:0:0:1: [sdb] Write cache: enabled, read cache: enabled, doesn't support DPO or FUA
+	[ 5269.266454]  sdb: sdb1
+	[ 5269.269005] sd 6:0:0:1: [sdb] Attached SCSI disk	
+
