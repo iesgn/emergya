@@ -14,7 +14,7 @@ ninguna el hipervisor más utilizado en despliegues de OpenStack, LVM +
 iSCSI no es la combinación más extendida ya que hay múltiples opciones
 (Ceph RBD, GlusterFS, sistemas de almacenamiento de múltiples fabricantes,
 etc.), de entre todas es Ceph RBD la opción preferida de acuerdo a la
-última <a href="http://superuser.openstack.org/articles/openstack-user-survey-insights-november-2014">encuesta de uso de OpenStack</a>.
+<a href="http://superuser.openstack.org/articles/openstack-user-survey-insights-november-2014">encuesta de uso de OpenStack</a> de noviembre de 2014.
 
 ## LVM
 
