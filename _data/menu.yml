@@ -12,7 +12,11 @@
      url: /emergya/curso/u4
    - name: 5.-Neutron
      url: /emergya/curso/u5
-   - name: 6.-Conceptos avanzados
+   - name: 6.-Glance y Nova avanzado
      url: /emergya/curso/u6
+   - name: 7.-Cinder avanzado
+     url: /emergya/curso/u7
+   - name: 8.-Otros documentos
+     url: /emergya/curso/u8
 
    
