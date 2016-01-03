@@ -298,7 +298,7 @@ La forma en la que se interconectan todas estas interfaces se muestra en la sigu
  imagen y es necesario añadir un bridge linux por cada instancia por la forma de definir
 las reglas de seguridad por instancia:
 
-<div style="text-align: center;"><img src="img/openswitch/mv1.png" alt="mv1"/></div>
+<div style="text-align: center;"><img src="img/openvswitch/mv1.png" alt="mv1"/></div>
 
 	qbr: Linux bridge
 	qvo: Puerto en br-int
