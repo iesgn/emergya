@@ -12,4 +12,5 @@ menu:
 * [Otros componentes de OpenStack](otros_componentes.html)
 * [Arquitectura lógica](arquitectura_logica)
 * [Introducción a la instalación de openstack](instalacion_openstack)
+* [Conceptos previos de CLI](previos_cli)
 * [Administración básica](admin_basica)
