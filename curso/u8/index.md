@@ -11,12 +11,12 @@ menu:
 
 ###Automatización
 
-* Presentación: automatización
-* Presentación: automatización en OpenStack
-* Creación automática de un escenario de red en OpenStack
-* Introducción a ansible
-* Introducción a heat
-* Ejemplos de automatización
+* [Presentación: automatización](automatizacion)
+* [Presentación: automatización en OpenStack](automatizacion_openstack)
+* [Creación automática de un escenario de red en OpenStack](demofinal)
+* [Introducción a ansible](ansible)
+* [Introducción a heat](heat)
+* [Ejemplos de automatización](https://github.com/iesgn/automatizacion_ow1)
 
 ###Otros
 
