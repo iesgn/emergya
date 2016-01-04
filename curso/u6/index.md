@@ -8,7 +8,7 @@ menu:
 #OpenStack Glance y Nova por dentro
 
 * Formato de imágenes
+* Introducción a KVM
 * Creación una imagen paso a paso
-* KVM
-* Proceso de instalación paso a paso
+* [Proceso de instalación paso a paso](instancia)
 
