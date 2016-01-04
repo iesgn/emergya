@@ -45,7 +45,7 @@ contenidos.
     1. LVM/iSCSI
     1. Proceso de creación de un volumen y asociación a una instancia
     paso a paso
-    1. Otras opciones: Ceph, GlusterFS, Soluciones HW
+    1. Otras opciones: Ceph, Soluciones HW
 
 ### Calendario
 
