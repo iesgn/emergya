@@ -40,7 +40,7 @@ Veamos las distintas opciones que podemos encontrar en la sección **Sistema**:
     * Servicios de almacenamiento de datos: Ver los servicios de almacenamiento de datos.
     * Agentes de red: Ver los distintos servicios de red instalados.
 
- ###Apartado "Identity"
+###Apartado "Identity"
 
 En este apartado podemos gestionar los usuarios y proyectos definidos en el sistema.
 
