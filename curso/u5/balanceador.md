@@ -94,32 +94,33 @@ Posteriormente desde el apartado de IP flotantes, podemos asignar una ip flotant
 
 Para crear un pool:
 
-		neutron lb-pool-create --lb-method METODO --name NOMBRE --protocol PROTOCOLO --subnet-id ID_SUBRED
+	neutron lb-pool-create --lb-method METODO --name NOMBRE --protocol PROTOCOLO --subnet-id ID_SUBRED
 
 Más instrucciones para gestionar los pools_
 
-		# Para listar los pools 
-		neutron lb-pool-list
-		# Para obtener información de un pool
-		neutron lb-pool-show NOMBRE
-		# Para borrar un pool
-		ńeutron lb-pool-delete NOMBRE
+	# Para listar los pools 
+	neutron lb-pool-list
+	# Para obtener información de un pool
+	neutron lb-pool-show NOMBRE
+	# Para borrar un pool
+	neutron lb-pool-delete NOMBRE
 
 Para añadir un miembro al pool:
 
-		neutron lb-member-create --address IP --protocol-port PUERTO NOMBRE_POOL
+	neutron lb-member-create --address IP --protocol-port PUERTO NOMBRE_POOL
 
 Más operaciones sobre los miembros: 
 
-		neutron lb-member-list
-		neutron lb-member-delete NOMBRE
+	neutron lb-member-list
+	neutron lb-member-delete NOMBRE
 
 Para añadir un monitor:
 
-		neutron lb-healthmonitor-create --delay PERIODO --type TIPO --max-retries INTENTOS --timeout ESPERA
-		neutron lb-healthmonitor-associate MONITOR_ID NOMBRE_POOL
+	neutron lb-healthmonitor-create --delay PERIODO --type TIPO --max-retries INTENTOS --timeout ESPERA
+	neutron lb-healthmonitor-associate MONITOR_ID NOMBRE_POOL
 
 Para crear un vip:
 
-		neutron lb-vip-create --name NOMBRE --protocol-port PUERTO --protocol PROTOCOLO --subnet-id SUBRED_ID NOMBRE_POOL
-		neutron floatingip-associate ip_id port_id
+	neutron lb-vip-create --name NOMBRE --protocol-port PUERTO --protocol PROTOCOLO --subnet-id SUBRED_ID NOMBRE_POOL
+	neutron floatingip-associate ip_id port_id
+
