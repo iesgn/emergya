@@ -9,7 +9,7 @@ menu:
 
 Si accedemos como usuario administrador al dashboard horizon tenemos a nuestra disposición una serie de funciones que nos permiten una administración básica de nuestro OpenStack.
 
-###Aparatado "Sistema"
+###Apartado "Sistema"
 
 Veamos las distintas opciones que podemos encontrar en la sección **Sistema**:
 
