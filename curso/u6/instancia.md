@@ -5,7 +5,7 @@ menu:
   - Unidades
 ---
 
-## Proceso de instalación paso a paso
+## Proceso de instanciación paso a paso
 
 ## KVM
 
