@@ -7,7 +7,7 @@ menu:
 
 ###Instalación de OpenStack
 
-* [Opciones de instalación de OpenStack](opciones_instalacion_openstack.html)
+* [Opciones de instalación de OpenStack](opciones_instalacion)
 * [Componentes principales de OpenStack](componentes_core.html)
 * [Otros componentes de OpenStack](otros_componentes.html)
 * [Arquitectura lógica](arquitectura_logica)

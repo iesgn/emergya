@@ -17,7 +17,12 @@ remoto.
 iSCSI tiene una arquitectura tipo cliente servidor; las partes que la conforman son las siguientes:
 
 * **target iSCSI**: El target iSCSI es el servidor. Un target puede ofrecer uno o más recursos iSCSI por la red. En las soluciones Linux para iSCSI, no hace falta que el dispositivo a exportar sea necesariamente un disco SCSI; se pueden exportar cualquier dispositivos de bloque como por ejemplo: Particiones RAID, volúmenes LVM, discos físicos,... Para esta documentación vamos a utilizar el target iSCSI tgt.
-* *iniciador iSCSI**: El iniciador es el cliente de iSCSI. Generalmente el iniciador consta de dos partes: los módulos o drivers que proveen soporte para que el sistema operativo pueda reconocer discos de tipo iSCSI y un programa que gestiona las conexiones a dichos discos. Como iniciado vamos a utilizar open-iscsi.
+* **iniciador iSCSI**: El iniciador es el cliente de
+iSCSI. Generalmente el iniciador consta de dos partes: los módulos  o
+drivers que proveen soporte para que el sistema operativo pueda
+reconocer discos de tipo iSCSI y una aplicación de espacio de
+usuario que gestiona las conexiones a dichos discos. Como iniciador
+vamos a utilizar la aplicación open-iscsi. 
 
 ###Instalación y configuración del target iSCSI tgt
 
@@ -25,7 +30,7 @@ En debian vamos a instalar el servidor con la siguiente instrucción:
 
 	apt-get install tgt
 
-Tenemos un volumen de 512mb que vamos a exportar con iSCSI:
+Tenemos un volumen de 512MiB que vamos a exportar con iSCSI:
 
 	lvs
 	  LV   VG   Attr       LSize   Pool Origin Data%  Meta%  Move Log Cpy%Sync Convert
