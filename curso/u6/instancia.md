@@ -1,317 +1,218 @@
 ---
 layout: blog
-tittle: Curso OpenStack
+tittle: Curso de OpenStack
 menu:
   - Unidades
 ---
 
-###Proceso de instalación paso a paso
+## Proceso de instalación paso a paso
 
-El objetivo de esta demostración es la creación de una instancia
-usando el cliente nova. Partimos de un escenario donde ya tenemos
-instalado el cliente (paquete *python-novaclient*) y tenemos cargado
-el fichero de credenciales (values.sh). 
+## KVM
 
-Vamos a ver todos los pasos que necesitamos para crear una instancia: 
+<a href="http://www.linux-kvm.org/page/Main_Page">Kernel Based Virtual Machine
+(KVM)</a> es una solución de virtualización completa para linux que funciona
+sobre procesadores x86 con extensiones de virtualización por hardware. El
+componente principal de kvm es el módulo kvm.ko que fue incluido en el *kernel*
+linux 2.6.20.
 
-1. Solicitamos a nova que cree un nuevo par de claves ssh (que
-redirigimos al fichero clave-acceso.pem) y modificamos los permisos de
-la clave privada de forma adecuada:
+KVM no proporciona una solución completa de virtualización, sino que reutiliza
+muchos componentes del proyecto de emulación y virtualización <a
+href="http://wiki.qemu.org/Main_Page">qemu</a>.
 
-        keypair-add clave_acceso > ~/.ssh/clave-acceso.pem
-        chmod 400 ~/.ssh/clave-acceso.pem
+Se puede utilizar KVM directamente o a través de la API de virtualización <a
+href="http://libvirt.org/">libvirt</a>, como en el caso de OpenStack.
 
-2. Creamos un nuevo grupo seguridad (cortafuegos) y creamos una regla
-que nos permita el acceso por ssh. 
+## Lanzamiento de una instancia
 
-        nova secgroup-create gr_seguridad "Reglas de seguridad"
-        +--------------------------------------+--------------+---------------------+
-        | Id                                   | Name         | Description         |
-        +--------------------------------------+--------------+---------------------+
-        | 0840438d-573c-4392-af20-1c936f260abc | gr_seguridad | Reglas de seguridad |
-        +--------------------------------------+--------------+---------------------+
-        
-        nova secgroup-add-rule gr_seguridad tcp 22 22 0.0.0.0/0
-        +-------------+-----------+---------+-----------+--------------+
-        | IP Protocol | From Port | To Port | IP Range  | Source Group |
-        +-------------+-----------+---------+-----------+--------------+
-        | tcp         | 22        | 22      | 0.0.0.0/0 |              |
-        +-------------+-----------+---------+-----------+--------------+
+Para lanzar una instancia utilizamos una instrucción del tipo con cualquier
+usuario de OpenStack:
 
-3. Obtenemos la información de las imágenes, sabores (tipos de
-servidores) y redes que tenemos disponibles.
+    $ nova boot --image 4ddb27ab-b3cc-4a65-ac52-f4ce7894e4ed \
+	--flavor 1 \
+    --key_name miclave \
+	--nic net-id=0d43e5fe-99b9-46a8-b118-58136aa805b4 \
+	test2
 
-        nova image-list
-        +--------------------------------------+--------------------------------------------------------+--------+--------+
-        | ID                                   | Name                                                   | Status | Server |
-        +--------------------------------------+--------------------------------------------------------+--------+--------+
-        | 13e3a912-a0b6-4c6e-adeb-f05331a54e0a | CentOS 6.4 Minimal - 64 bits                           | ACTIVE |        |
-        | 85da1e36-4720-424d-a88d-1e27a423b5ab | CentOS 6.5 Minimal - 64 bits                           | ACTIVE |        |
-        | d7dead23-3b7f-4b81-8d6f-f5816a71b054 | CentOS 7.0 Minimal - 64 bits                           | ACTIVE |        |
-        | ae329732-ba7c-47e5-b083-aa4c1099bf31 | CoreOS 367.1.0 - STABLE                                | ACTIVE |        |
-        | 956294f7-1681-4583-b316-0a4f4cc13368 | Debian 7 (Wheezy) Stable - 64 bits                     | ACTIVE |        |
-        | 1ca0ee93-3481-4da3-a2d1-8538683f0a07 | Debian 8 (Jessie) Testing - 64 bits                    | ACTIVE |        |
-        | 22c6bd09-290d-4fc2-ae6e-41a190d42f73 | Fedora 19 Cloud - 64 bits                              | ACTIVE |        |
-        | 9e5220ce-1d87-4b57-aea6-b2bf85aaa665 | Fedora 20 Cloud - 64 bits                              | ACTIVE |        |
-        | daf5f9fd-a2de-4308-b9d4-8b99c8cf77bd | Fedora 21 Cloud - 64 bits                              | ACTIVE |        |
-        | 89c36ffc-94c0-4804-b7e6-27882ee5f045 | FreeBSD 10.0 Cloudimage - 64 bits                      | ACTIVE |        |
-        | 1885f10b-a71f-48c1-a2b3-72453aaf5a65 | FreeBSD 9.2 Cloudimage - 64 bits                       | ACTIVE |        |
-        | 56370234-bee0-4670-bdfb-7cff7a7e61c9 | Minecraft Server 1.8.3 based on Ubuntu 14.04 - 64bits  | ACTIVE |        |
-        | a7c757ec-214e-4370-a8ec-5869aac02eb3 | Ubuntu 10.04 LTS (Lucid Lynx) Server - 64 bits         | ACTIVE |        |
-        | ab6e596f-3349-457b-8d9c-886f3718eabe | Ubuntu 11.04 (Natty Narwhal) Server 64 bits            | ACTIVE |        |
-        | 4daa5361-5a16-44bc-8714-e990f169a826 | Ubuntu 12.04 LTS (Precise Pangolin) Server - 64 bits   | ACTIVE |        |
-        | c4d67783-10a9-428d-9e5e-1beb5ab05222 | Ubuntu 13.04 (Raring Ringtail) Server - 64 bits        | ACTIVE |        |
-        | e210bfa5-99c1-4aed-b7a1-8468bdbbe2b7 | Ubuntu 13.10 (Saucy Salamander) Server - 64 bits       | ACTIVE |        |
-        | b1c15672-a7e5-466a-b4f1-89a49a364f84 | Ubuntu 14.04 LTS (Trusty Tahr) Beta 2 Server - 64 bits | ACTIVE |        |
-        | 44288012-b805-455f-a21f-74ab36c46362 | Ubuntu 14.04 LTS - Trusty Tahr - 64 bits               | ACTIVE |        |
-        | 4273e6d3-5944-457c-9396-d87946e763f6 | Ubuntu 14.10 - Utopic Unicorn                          | ACTIVE |        |
-        | 2dde6e4b-413a-4cbe-8470-6e4c9f04ffe3 | Windows-2012R2-EVAL-64-bits                            | ACTIVE |        |
-        | 8e176f0b-b217-47ad-8af9-9d704f492680 | cirrOS                                                 | ACTIVE |        |
-        | cc5a5fdb-b5d5-40d8-a8a4-42a0205f35a8 | cirros 0.3.3 x86                                       | ACTIVE |        |
-        | ef5a7de7-91be-4935-9126-8b8b2cac553c | debian6-recovery                                       | ACTIVE |        |
-        | b6a922c1-af17-4a3b-9464-c1afdca84ff3 | turnkey-lamp                                           | ACTIVE |        |
-        | 84dc5209-11bb-47cd-9cdd-45ea1f3f1b95 | turnkey-openvpn-13.0-wheezy-amd64-initrd               | ACTIVE |        |
-        | 28ecca67-500e-4a8c-b977-d502dc629325 | turnkey-openvpn-13.0-wheezy-amd64-kernel               | ACTIVE |        |
-        | 087f91e7-be6a-40b4-aa46-7eea64b883fa | turnkey-openvpn-13.0-wheezy-amd64.img                  | ACTIVE |        |
-        | 6f7c732a-e2d4-47ec-88f2-5e5ebbdd180c | turnkey-owncloud-13.0-wheezy-amd64-initrd              | ACTIVE |        |
-        | 1023c03e-52c3-4557-88b9-8e9b10fdb3e8 | turnkey-owncloud-13.0-wheezy-amd64-kernel              | ACTIVE |        |
-        | e5f35ce4-331f-4ef9-84d3-4ba075ac0854 | turnkey-owncloud-13.0-wheezy-amd64.img                 | ACTIVE |        |
-        +--------------------------------------+--------------------------------------------------------+--------+--------+
-        
-        nova flavor-list
-        +-----+---------------+-----------+------+-----------+---------+-------+-------------+-----------+
-        | ID  | Name          | Memory_MB | Disk | Ephemeral | Swap_MB | VCPUs | RXTX_Factor | Is_Public |
-        +-----+---------------+-----------+------+-----------+---------+-------+-------------+-----------+
-        | 19  | ssd.XXXXS     | 512       | 10   | 0         |         | 1     | 1.0         | True      |
-        | 20  | ssd.XXXS      | 1024      | 16   | 0         |         | 1     | 1.0         | True      |
-        | 21  | ssd.XXS       | 2048      | 24   | 0         |         | 1     | 1.0         | True      |
-        | 211 | ssd-hp.XXS    | 2048      | 24   | 0         |         | 1     | 1.0         | True      |
-        | 22  | ssd.XS        | 4096      | 48   | 0         |         | 2     | 1.0         | True      |
-        | 221 | ssd-hp.XS     | 4096      | 48   | 0         |         | 2     | 1.0         | True      |
-        | 23  | ssd.S         | 8192      | 96   | 0         |         | 4     | 1.0         | True      |
-        | 231 | ssd-hp.S      | 8192      | 96   | 0         |         | 4     | 1.0         | True      |
-        | 24  | ssd.M         | 16384     | 192  | 0         |         | 8     | 1.0         | True      |
-        | 241 | ssd-hp.M      | 16384     | 192  | 0         |         | 8     | 1.0         | True      |
-        | 25  | ssd.L         | 32768     | 384  | 0         |         | 16    | 1.0         | True      |
-        | 251 | ssd-hp.L      | 32768     | 384  | 0         |         | 16    | 1.0         | True      |
-        | 26  | ssd.XL        | 49152     | 576  | 0         |         | 24    | 1.0         | True      |
-        | 261 | ssd-hp.XL     | 49152     | 576  | 0         |         | 24    | 1.0         | True      |
-        | 27  | ssd.XXL       | 65536     | 768  | 0         |         | 32    | 1.0         | True      |
-        | 28  | ssd.XXXL      | 98304     | 1152 | 0         |         | 48    | 1.0         | True      |
-        | 29  | ssd.XXXXL     | 131072    | 1536 | 0         |         | 64    | 1.0         | True      |
-        | 30  | remote.XXXS   | 1024      | 0    | 0         |         | 1     | 1.0         | True      |
-        | 31  | remote.XXS    | 2048      | 0    | 0         |         | 1     | 1.0         | True      |
-        | 311 | remote-hp.XXS | 2048      | 0    | 0         |         | 1     | 1.0         | True      |
-        | 32  | remote.XS     | 4096      | 0    | 0         |         | 2     | 1.0         | True      |
-        | 321 | remote-hp.XS  | 4096      | 0    | 0         |         | 2     | 1.0         | True      |
-        | 33  | remote.S      | 8192      | 0    | 0         |         | 4     | 1.0         | True      |
-        | 331 | remote-hp.S   | 8192      | 0    | 0         |         | 4     | 1.0         | True      |
-        | 34  | remote.M      | 16384     | 0    | 0         |         | 8     | 1.0         | True      |
-        | 341 | remote-hp.M   | 16384     | 0    | 0         |         | 8     | 1.0         | True      |
-        | 35  | remote.L      | 32768     | 0    | 0         |         | 16    | 1.0         | True      |
-        | 351 | remote-hp.L   | 32768     | 0    | 0         |         | 16    | 1.0         | True      |
-        | 36  | remote.XL     | 49152     | 0    | 0         |         | 24    | 1.0         | True      |
-        | 361 | remote-hp.XL  | 49152     | 0    | 0         |         | 24    | 1.0         | True      |
-        | 37  | remote.XXL    | 65536     | 0    | 0         |         | 32    | 1.0         | True      |
-        | 38  | remote.XXXL   | 98304     | 0    | 0         |         | 48    | 1.0         | True      |
-        | 39  | remote.XXXXL  | 131072    | 0    | 0         |         | 64    | 1.0         | True      |
-        +-----+---------------+-----------+------+-----------+---------+-------+-------------+-----------+  
+Si ejecutamos como administrador la instrucción:
 
-        nova net-list
-        +--------------------------------------+------------------+------+
-        | ID                                   | Label            | CIDR |
-        +--------------------------------------+------------------+------+
-        | d15e0eb6-c892-4717-8be1-b3e85795e8c9 | ext-net          | -    |
-        | fb4b596f-c603-4d95-ad4e-b68204df76ca | 00000335-net     | -    |
-        +--------------------------------------+------------------+------+
+    $ nova show f69ab4d9-ed28-406e-8a78-67f62a5e4bc2
+	+--------------------------------------+----------------------------------------------------------+
+	| Property                             | Value                                                    |
+	+--------------------------------------+----------------------------------------------------------+
+	| OS-DCF:diskConfig                    | MANUAL                                                   |
+	| OS-EXT-AZ:availability_zone          | nova                                                     |
+	| OS-EXT-SRV-ATTR:host                 | rdo2                                                     |
+	| OS-EXT-SRV-ATTR:hypervisor_hostname  | rdo2                                                     |
+	| OS-EXT-SRV-ATTR:instance_name        | instance-0000001c                                        |
+	| OS-EXT-STS:power_state               | 1                                                        |
+	| OS-EXT-STS:task_state                | -                                                        |
+	| OS-EXT-STS:vm_state                  | active                                                   |
+	| OS-SRV-USG:launched_at               | 2014-05-29T06:42:07.000000                               |
+	| OS-SRV-USG:terminated_at             | -                                                        |
+	| accessIPv4                           |                                                          |
+	| accessIPv6                           |                                                          |
+	| config_drive                         |                                                          |
+	| created                              | 2014-05-29T06:41:26Z                                     |
+	| flavor                               | m1.tiny (1)                                              |
+	| hostId                               | 4345a37408b6a85fb6a2eb6322d0edb5724aeaa2d1bcf903d67ee487 |
+	| id                                   | f69ab4d9-ed28-406e-8a78-67f62a5e4bc2                     |
+	| image                                | Cirros 0.3.2 (4ddb27ab-b3cc-4a65-ac52-f4ce7894e4ed)      |
+	| key_name                             | miclave                                                  |
+	| metadata                             | {}                                                       |
+	| name                                 | test2                                                    |
+	| os-extended-volumes:volumes_attached | []                                                       |
+	| privada network                      | 10.0.0.5                                                 |
+	| progress                             | 0                                                        |
+	| security_groups                      | default                                                  |
+	| status                               | ACTIVE                                                   |
+	| tenant_id                            | 0912c80bef254d7b9352632793cf75b9                         |
+	| updated                              | 2014-05-29T06:42:07Z                                     |
+	| user_id                              | 0f94f0bbcdee4715ba2750502bb0d63f                         |
+	+--------------------------------------+----------------------------------------------------------+
 
-4. Ya podemos crear nuestra instancia. Vamos a crear una instancia de
-nombre *instancia_nova* con la imagen de Ubuntu 14.04 LTS, un sabor
-ssd.XXXS, el grupo de  seguridad y las claves ssh que hemos creado
-anteriormente y conectado a la red 00000335-net (la contrabarra "\" se
-utiliza para poder escribir una instrucción tan larga en varias
-líneas). 
+Veremos algunas propiedades de esta instancia muy interesantes para obtener más
+información, en particular "id", OS-EXT-SRV-ATTR:host,
+OS-EXT-SRV-ATTR:hypervisor\_hostname, OS-EXT-SRV-ATTR:instance\_name.
 
-        nova boot --flavor ssd.XXXXS \
-        --image 44288012-b805-455f-a21f-74ab36c46362 \
-        --security-groups gr_seguridad \
-        --key-name clave-acceso \
-        --nic net-id=fb4b596f-c603-4d95-ad4e-b68204df76ca \
-        instancia_nova  
+Si accedemos al nodo de computación en el que se está ejecutando esta máquina
+virtual (rdo2 según la información anterior), podemos ir al directorio
+/var/lib/nova/instances y listar el contenido del mismo:
 
-        +--------------------------------------+---------------------------------------------------------------------------------+
-        | Property                             | Value                                                                           |
-        +--------------------------------------+---------------------------------------------------------------------------------+
-        | OS-DCF:diskConfig                    | MANUAL                                                                          |
-        | OS-EXT-AZ:availability_zone          | nova                                                                            |
-        | OS-EXT-STS:power_state               | 0                                                                               |
-        | OS-EXT-STS:task_state                | scheduling                                                                      |
-        | OS-EXT-STS:vm_state                  | building                                                                        |
-        | OS-SRV-USG:launched_at               | -                                                                               |
-        | OS-SRV-USG:terminated_at             | -                                                                               |
-        | accessIPv4                           |                                                                                 |
-        | accessIPv6                           |                                                                                 |
-        | adminPass                            | 7CQGQS9b63oB                                                                    |
-        | config_drive                         |                                                                                 |
-        | created                              | 2015-04-22T11:58:14Z                                                            |
-        | flavor                               | ssd.XXXXS (19)                                                                  |
-        | hostId                               |                                                                                 |
-        | id                                   | b6fc4b18-8c24-4099-b97e-8d5e799982a8                                            |
-        | image                                | Ubuntu 14.04 LTS - Trusty Tahr - 64 bits (44288012-b805-455f-a21f-74ab36c46362) |
-        | key_name                             | clave-acceso                                                                    |
-        | metadata                             | {}                                                                              |
-        | name                                 | instancia_nova                                                                  |
-        | os-extended-volumes:volumes_attached | []                                                                              |
-        | progress                             | 0                                                                               |
-        | security_groups                      | gr_seguridad                                                                    |
-        | status                               | BUILD                                                                           |
-        | tenant_id                            | 1a0b324cc09c40c79286fc1bc63c5833                                                |
-        | updated                              | 2015-04-22T11:58:14Z                                                            |
-        | user_id                              | 054c20e0a4ab427bbdaf9086db62ec31                                                |
-        +--------------------------------------+---------------------------------------------------------------------------------+
+    $ ls -l /var/lib/nova/instances/
+	drwxr-xr-x. 2 nova nova 4096 may 22 17:35 065cdd8b-fb70-45ca-b309-8aa26be8bbc0
+	drwxr-xr-x. 2 nova nova 4096 may 27 21:22 3773a78d-c5ed-417a-a5a1-3dc89f3e836b
+	drwxr-xr-x. 2 nova nova 4096 may 29 08:41 _base
+	-rw-r--r--. 1 nova nova   26 may 29 08:35 compute_nodes
+	drwxr-xr-x. 2 nova nova 4096 may 29 08:42 f69ab4d9-ed28-406e-8a78-67f62a5e4bc2
+	drwxr-xr-x. 2 nova nova 4096 may 27 21:22 locks
+	drwxr-xr-x. 2 nova nova 4096 may 27 20:16 snapshots
+	
+Donde vemos un directorio para cada una de las instancias (el nombre de cada
+directorio se corresponde al id de la misma), además de los directorios _base,
+lock y snapshots.
 
-5. Por último reservamos una nueva ip flotante del pool "ext-net" y la
-asignamos a la instancia para poder acceder a ella desde el exterior:
+Si accedemos a continuación al directorio de la instancia que acabamos de lanzar
+y listamos el contenido:
 
-        nova floating-ip-pool-list
-        +---------+
-        | name    |
-        +---------+
-        | ext-net |
-        +---------+ 
+    -rw-rw----. 1 qemu qemu   18803 may 29 08:43 console.log
+	-rw-r--r--. 1 qemu qemu 1835008 may 29 08:43 disk
+	-rw-r--r--. 1 nova nova      79 may 29 08:41 disk.info
+	-rw-r--r--. 1 nova nova    1548 may 29 08:42 libvirt.xml
 
-        nova floating-ip-create ext-net
-        +--------------+-----------+----------+---------+
-        | Ip           | Server Id | Fixed Ip | Pool    |
-        +--------------+-----------+----------+---------+
-        | 185.45.72.68 | -         | -        | ext-net |
-        +--------------+-----------+----------+---------+   
+El fichero libvirt.xml se corresponde con la definición de la máquina virtual
+utilizada por libvirt y su contenido es:
 
-        nova floating-ip-associate instancia_nova 185.45.72.68
+    <domain type="kvm">
+	  <uuid>f69ab4d9-ed28-406e-8a78-67f62a5e4bc2</uuid>
+	  <name>instance-0000001c</name>
+	  <memory>524288</memory>
+	  <vcpu>1</vcpu>
+	  <sysinfo type="smbios">
+	    <system>
+	      <entry name="manufacturer">Red Hat Inc.</entry>
+		  <entry name="product">OpenStack Nova</entry>
+		  <entry name="version">2013.2.3-1.el6</entry>
+		  <entry name="serial">e21da79e-b1eb-11de-b487-00e01884fce4</entry>
+		  <entry name="uuid">f69ab4d9-ed28-406e-8a78-67f62a5e4bc2</entry>
+		</system>
+	  </sysinfo>
+	  <os>
+	    <type>hvm</type>
+		<boot dev="hd"/>
+		<smbios mode="sysinfo"/>
+	  </os>
+	  <features>
+	    <acpi/>
+		<apic/>
+	  </features>
+	  <clock offset="utc">
+	    <timer name="pit" tickpolicy="delay"/>
+		<timer name="rtc" tickpolicy="catchup"/>
+	  </clock>
+	  <cpu mode="host-model" match="exact"/>
+	  <devices>
+	    <disk type="file" device="disk">
+		  <driver name="qemu" type="qcow2" cache="none"/>
+		  <source file="/var/lib/nova/instances/f69ab4d9-ed28-406e-8a78-67f62a5e4bc2/disk"/>
+		  <target bus="virtio" dev="vda"/>
+		</disk>
+		<interface type="bridge">
+		  <mac address="fa:16:3e:a0:07:c9"/>
+		  <model type="virtio"/>
+		  <source bridge="qbrd440070c-5a"/>
+		  <target dev="tapd440070c-5a"/>
+		</interface>
+		<serial type="file">
+		  <source path="/var/lib/nova/instances/f69ab4d9-ed28-406e-8a78-67f62a5e4bc2/console.log"/>
+		</serial>
+		<serial type="pty"/>
+		<input type="tablet" bus="usb"/>
+		<graphics type="vnc" autoport="yes" keymap="en-us" listen="192.168.0.68"/>
+	  </devices>
+	</domain>
 
-6. Ya podemos acceder a la instancia:
+En este fichero vemos todos los detalles de la máquina virtual y en particular
+el significado de los ficheros disk y console.log. El primero es un fichero de
+tipo qcow2 que se corresponde con el disco /dev/vda que verá la instancia y el
+segundo es un fichero que muestra la salida por consola:
 
-        ssh -i ~/.ssh/clave-acceso.pem ubuntu@185.45.72.68
-        Welcome to Ubuntu 14.04 LTS (GNU/Linux 3.13.0-24-generic x86_64)		  
+    ...
+    ip-route:default via 10.0.0.1 dev eth0 
+	ip-route:10.0.0.0/24 dev eth0  src 10.0.0.5 
+	=== datasource: ec2 net ===
+	instance-id: i-0000001c
+	name: N/A
+	availability-zone: nova
+	local-hostname: test2.novalocal
+	launch-index: 0
+	=== cirros: current=0.3.2 uptime=64.37 ===
+	  ____               ____  ____
+	 / __/ __ ____ ____ / __ \/ __/
+	/ /__ / // __// __// /_/ /\ \ 
+	\___//_//_/  /_/   \____/___/ 
+	   http://cirros-cloud.net
+	   
+	   
+	login as 'cirros' user. default password: 'cubswin:)'. use 'sudo' for root.
 
-        * Documentation:  https://help.ubuntu.com/		    
+Del disco podemos obtener más información con la instrucción qemu-img:
 
-        System information as of Thu Oct 23 07:37:00 UTC 2014		 
+    # qemu-img info /var/lib/nova/instances/f69ab4d9-ed28-406e-8a78-67f62a5e4bc2/disk
+	image: /var/lib/nova/instances/f69ab4d9-ed28-406e-8a78-67f62a5e4bc2/disk
+	file format: qcow2
+	virtual size: 1.0G (1073741824 bytes)
+	disk size: 1.7M
+	cluster_size: 65536
+	backing file: /var/lib/nova/instances/_base/24664fbf8133385a2743951bde673f75d7991092)
 
-        System load: 0.95              Memory usage: 5%   Processes:       69
-        Usage of /:  55.3% of 1.32GB   Swap usage:   0%   Users logged in: 0		  
+Vemos que se trata de un disco que virtualmente tiene 1 GiB pero que actualmente
+el fichero donde se encuentra solo ocupa 17 MiB. Además vemos que este fichero
+utiliza un fichero de respaldo ubicado en el directorio
+/var/lib/nova/instances/_base/. Esto es una técnica utilizada por OpenStack a
+través de qemu para utilizar el mismo disco base para todas las instancias que
+tengan una imagen de partida común.
 
-        Graph this data and manage this system at:
-        https://landscape.canonical.com/		  
+### Definición de la máquina virtual
 
-        Get cloud support with Ubuntu Advantage Cloud Guest:
-        http://www.ubuntu.com/business/services/cloud		 
+Uno de los parámetros que vimos al mostrar los detalles de la instancia era
+"OS-EXT-SRV-ATTR:instance_name" que tenía el valor instance-0000001c. Si vemos
+las máquinas virtuales definidas en el nodo de computación:
 
-        0 packages can be updated.
-        0 updates are security updates.		
-    	
-    	   
+    # virsh list --all
+	 Id    Nombre                         Estado
+	----------------------------------------------------
+	 1     instance-0000001c              ejecutando
+	 -     instance-00000016              apagado
+	 -     instance-0000001b              apagado
 
-        The programs included with the Ubuntu system are free software;
-        the exact distribution terms for each program are described in the
-        individual files in /usr/share/doc/*/copyright.		   
+Podemos comprobar que en estos momentos se está ejecutando la instancia que
+hemos arrancado recientemente y hay otras dos definidas y apagadas. Aunque el
+fichero XML que se utiliza como base para crear las instancias sobre es el
+anteriormente visto libvirt.xml, los ficheros XML que se utilizan en cada
+momento en libvirt se sitúan en el directorio /etc/libvirt/qemu:
 
-        Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
-        applicable law.		   
-
-        ubuntu@instancia-nova:~$ 
-
-### Resumen de instrucciones
-
-#### Parámetros
-
-    #Listar de imágenes
-    nova image-list		
-
-    # Listar sabores
-    nova flavor-list		
-
-    # Listar las redes que tenemos definidas
-    nova net-list		
-
-    # Listar grupos de seguridad
-    nova secgroup-list	
-
-    # Listar reglas de un grupo de seguridad
-    nova secgroup-list-rules default		
-
-    # Listar claves ssh
-    nova keypair-list
-
-#### Instancias
-
-    # Crear una instancia
-    nova boot --flavor FLAVOR_ID --image IMAGE_ID \
-    --security-groups SEC_GROUP --key-name KEY_NAME \
-    --nic net-id=NET_ID \
-    INSTANCE_NAME
-
-    # Pausar instancia
-    nova pause INSTANCE_NAME 
-    nova unpause INSTANCE_NAME 		
-
-    # Suspender/reanudar
-    nova suspend INSTANCE_NAME
-    nova resume INSTANCE_NAME		
-
-    # Reiniciar
-    nova reboot --hard SERVER		
-
-    # Terminar
-    nova delete INSTANCE_NAME		
-
-#### IPs flotantes
-
-     # Listar el pool de ip flotantes
-     nova floating-ip-pool-list		
-
-     # Listar las ip flotantes asignadas al proyecto
-     nova floating-ip-list
-
-     # Asignar una IP flotante al proyecto
-     nova floating-ip-create	
-
-     # Liberar una IP flotante
-     nova floating-ip-delete X.X.X.X
-
-     # Asociar una IP flotante a una instancia
-     nova floating-ip-associate instancia_prueba X.X.X.X
-
-     # Desasociar una IP flotante de una instancia
-     nova floating-ip-disassociate instancia_prueba X.X.X.X
-
-#### Grupos de seguridad
-
-    # Listar grupos de seguridad
-    nova secgroup-list		
-
-    # Crear un grupo de seguridad
-    nova secgroup-create cortafuegos 'Descripción'		
-
-    # Listar reglas de un grupo de seguridad
-    nova secgroup-list-rules default		
-
-    # Añadir una regla a un grupo de seguridad
-    nova secgroup-add-rule default tcp 22 22 0.0.0.0/0		
-
-#### Claves ssh
-
-    # Crear un par de claves ssh
-    nova keypair-add mi_claves > mi_claves.pem
-
-#### Instantáneas
-
-    # Crear una instantánea de una instancia
-    nova image-create --poll instancia_prueba snapshot_prueba		
-
-    # Listar instantáneas (e imágenes)
-    nova image-list		
-
-Y la instrucción *más importante de todas*:
-
-    nova help
+    # ls -l /etc/libvirt/qemu
+	total 16
+	-rw-------. 1 root root 3017 may 22 17:35 instance-00000016.xml
+	-rw-------. 1 root root 3019 may 28 16:29 instance-0000001b.xml
+	-rw-------. 1 root root 3017 may 29 08:42 instance-0000001c.xml
