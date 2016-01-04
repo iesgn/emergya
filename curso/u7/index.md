@@ -10,4 +10,4 @@ menu:
 * [Introducción a LVM](lvm)
 * [Introducción a iSCSI](iscsi)
 * [Proceso de creación de un volumen y asociación a una instancia paso a paso](almacenamiento)
-* Otras opciones: Ceph, GlusterFS, Soluciones HW
+* [Otras opciones: Ceph, Soluciones HW](otras_opciones)
