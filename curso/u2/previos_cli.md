@@ -140,21 +140,21 @@ Una vez instalados los dos paquetes, deberíamos verificar que las
 versiones son las correctas para utilizar nuestra versión de openstack. Las versiones
 mínimas necesarias son:
 
-|Aplicación|Versión en Kilo|
+|Aplicación|Versión en Kilo|Versión en Liberty|
 |----------|-------------------|
-|nova|2.30.1|
-|neutron|3.1.0|
-|cinder|1.4.0|
-|glance|1.1.0|
-|swift|2.6.0|
+|nova|2.22.0|2.30.1|
+|neutron|2.3.11|3.1.0|
+|cinder|1.1.1|1.4.0|
+|glance|0.15.0|1.1.0|
+|swift|2.3.1|2.6.0|
 
 Que podemos verificar una vez instalados los paquetes pasándole al
 programa el modificador "--version":
 
     $ nova --version
-    2.30.1
+    2.22.0
     $ neutron --version
-    3.1.0
+    2.3.11
 
 ### Instalación con pip
 Si la distribución de GNU/Linux que estamos utilizando es más antigua
@@ -230,7 +230,7 @@ En primer lugar entramos en el entorno virtual de python:
 Una vez dentro del entorno virtual utilizamos la instrucción pip para
 instalar los paquetes python necesarios directamente desde pypi:
 
-    (Openstack)usuario@oslo:~$ pip install requests python-novaclient==2.30.1 python-neutronclient==3.1.0
+    (Openstack)usuario@oslo:~$ pip install requests python-novaclient==2.22.0 python-neutronclient==2.3.11
 
 ## OpenStack Endpoints
 OpenStack denomina *endpoint* a las URLs de las APIs de sus diferentes
