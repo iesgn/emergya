@@ -10,5 +10,5 @@ menu:
 * Formato de imágenes
 * Creación una imagen paso a paso
 * KVM
-* Proceso de instanciación paso a paso
+* Proceso de instalación paso a paso
 
