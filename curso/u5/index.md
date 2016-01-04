@@ -20,7 +20,7 @@ menu:
 
 ###Balanceador de carga
 
-* [Introducción al balanceador de carga]()
+* [Introducción al balanceador de carga](balanceador)
 
 ###Enlaces interesantes
 
