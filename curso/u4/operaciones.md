@@ -94,7 +94,7 @@ Esta operación nos permite subir el contenido de un volumen como una imagen en 
 
 ####Crear transferencia
 
-Esta opción nos permite transferir un volumen desde una infraestructura de cloud a otra. 
+Esta opción nos permite transferir un volumen desde un proyecto a otro. 
 
 ![volumen](img/operaciones/10.png)	
 
