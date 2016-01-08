@@ -5,9 +5,11 @@ menu:
   - Unidades
 ---
 
-##Copias de seguridad de volumes
+##Copias de seguridad de volúmenes
 
-El cliente cinder proporciona las herramientas necesarias para crear una copia de seguridad de un volumen. Las copias de seguridad se guardar como objetos en el contenedor de objetos swift. Por defecto se utiliza swift como almacen de copias de seguridad, aunque se puede configurar otros backend para realizar las copias de seguridad, por ejemplo una coarpeta compartida por NFS.
+El cliente cinder proporciona las herramientas necesarias para crear una copia de seguridad de un volumen. Las copias de seguridad se guardar como objetos en el contenedor de objetos swift. Por defecto se utiliza swift como almacén de copias de seguridad, aunque se puede configurar otros backend para realizar las copias de seguridad, por ejemplo una carpeta compartida por NFS.
+
+Para realizar una copia de seguridad de un volumen debe estar en estado *Disponible*, es decir, no debe estar asociada a ninguna instancia.
 
 ###Crear una copia de seguridad
 
@@ -62,7 +64,7 @@ Y finalmente podemos pedir información sobre la copia de seguridad:
 	|     volume_id     | 917ef4cc-784d-4803-a19a-984b847b9f1e |
 	+-------------------+--------------------------------------+
 
-Para comprobar que la copia de seguridad se ha guardado en swifit ejecutamos la siguientes intrucciones:
+Para comprobar que la copia de seguridad se ha guardado en swifit ejecutamos la siguientes instrucciones:
 
 	$ swift list
 	volumebackups
@@ -92,7 +94,7 @@ Para comprobar que la copia de seguridad se ha guardado en swifit ejecutamos la 
 	volume_917ef4cc-784d-4803-a19a-984b847b9f1e/20160108163947/az_nova_backup_77e2430d-afda-4733-bf55-6d150555b75f_metadata
 	volume_917ef4cc-784d-4803-a19a-984b847b9f1e/20160108163947/az_nova_backup_77e2430d-afda-4733-bf55-6d150555b75f_sha256file
 
-###Resturar una copia de seguridad
+###Restaurar una copia de seguridad
 
 Para restaurar una nueva copia de seguridad a un nuevo volumen, ejecutamos la siguiente instrucción:
 
@@ -117,3 +119,5 @@ Y finalmente vemos que se ha creado un  nuevo volumen restaurado desde la copia 
 	| 917ef4cc-784d-4803-a19a-984b847b9f1e | available |                        disco1                       |  1   | lvmdriver-1 |  false   |             |
 	| ebff83f2-cec8-429d-af8a-67e9d012ef5e | available | restore_backup_77e2430d-afda-4733-bf55-6d150555b75f |  1   | lvmdriver-1 |  false   |             |
 	+--------------------------------------+-----------+-----------------------------------------------------+------+-------------+----------+-------------+
+
+Por último indicar que en la última versión de Openstack (Liberty) se ha introducido la posibilidad de hacer copias de seguridad incrementales y la posibilidad de hacer copias de seguridad aunque el volumen este asociado a una instancia. 
