@@ -47,6 +47,10 @@ contenidos.
     paso a paso
     1. Otras opciones: Ceph, Soluciones HW
 
+### Community Support
+
+[OpenStack Kilo. Appendix B. Community Support](http://docs.openstack.org/kilo/install-guide/install/apt/content/app_community_support.html)
+
 ### Calendario
 
 |Fecha|Hora|Contenido|
