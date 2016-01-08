@@ -5,8 +5,7 @@ menu:
   - Unidades
 ---
 
-
-##Realizar copias de seguridad y restaurar volumes¶
+##Copias de seguridad de volumes
 
 El cliente cinder proporciona las herramientas necesarias para crear una copia de seguridad de un volumen. Las copias de seguridad se guardar como objetos en el contenedor de objetos swift. Por defecto se utiliza swift como almacen de copias de seguridad, aunque se puede configurar otros backend para realizar las copias de seguridad, por ejemplo una coarpeta compartida por NFS.
 
@@ -93,3 +92,28 @@ Para comprobar que la copia de seguridad se ha guardado en swifit ejecutamos la 
 	volume_917ef4cc-784d-4803-a19a-984b847b9f1e/20160108163947/az_nova_backup_77e2430d-afda-4733-bf55-6d150555b75f_metadata
 	volume_917ef4cc-784d-4803-a19a-984b847b9f1e/20160108163947/az_nova_backup_77e2430d-afda-4733-bf55-6d150555b75f_sha256file
 
+###Resturar una copia de seguridad
+
+Para restaurar una nueva copia de seguridad a un nuevo volumen, ejecutamos la siguiente instrucción:
+
+	$ cinder backup-restore  77e2430d-afda-4733-bf55-6d150555b75f
+
+Podemos ver el proceso de restauración con la siguiente instrucción:
+
+	$ cinder list
+	+--------------------------------------+------------------+-----------------------------------------------------+------+-------------+----------+-------------+
+	|                  ID                  |      Status      |                         Name                        | Size | Volume Type | Bootable | Attached to |
+	+--------------------------------------+------------------+-----------------------------------------------------+------+-------------+----------+-------------+
+	| 917ef4cc-784d-4803-a19a-984b847b9f1e |    available     |                        disco1                       |  1   | lvmdriver-1 |  false   |             |
+	| ebff83f2-cec8-429d-af8a-67e9d012ef5e | restoring-backup | restore_backup_77e2430d-afda-4733-bf55-6d150555b75f |  1   | lvmdriver-1 |  false   |             |
+	+--------------------------------------+------------------+-----------------------------------------------------+------+-------------+----------+-------------+	
+
+Y finalmente vemos que se ha creado un  nuevo volumen restaurado desde la copia de seguridad:
+
+	$ cinder list
+	+--------------------------------------+-----------+-----------------------------------------------------+------+-------------+----------+-------------+
+	|                  ID                  |   Status  |                         Name                        | Size | Volume Type | Bootable | Attached to |
+	+--------------------------------------+-----------+-----------------------------------------------------+------+-------------+----------+-------------+
+	| 917ef4cc-784d-4803-a19a-984b847b9f1e | available |                        disco1                       |  1   | lvmdriver-1 |  false   |             |
+	| ebff83f2-cec8-429d-af8a-67e9d012ef5e | available | restore_backup_77e2430d-afda-4733-bf55-6d150555b75f |  1   | lvmdriver-1 |  false   |             |
+	+--------------------------------------+-----------+-----------------------------------------------------+------+-------------+----------+-------------+

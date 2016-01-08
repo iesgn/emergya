@@ -11,6 +11,7 @@ menu:
 * [Creación de volúmenes, asociación a instancias](volumen)
 * [Operaciones sobre volúmenes](operaciones)
 * [Creación de instancia ejecutadas sobre volúmenes](instancias_volumen)
+* [Copias de seguridad de volumes](backup)
 
 ###Cinder con CLI
 
