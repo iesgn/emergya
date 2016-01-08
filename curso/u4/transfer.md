@@ -7,7 +7,7 @@ menu:
 
 ##Transferencias de volúmenes
 
-Esta operación nos permite transferir un volumen de un usuario propietario a otro.
+Esta operación nos permite transferir un volumen de un proyecto a otro.
 
 ###Crear una transferencia
 
