@@ -83,9 +83,9 @@ Para la configuraci ́on inicial de KVM hay que crear un pool de almacenamiento 
 5. Comprobamos:
 
 		# virsh pool-list --all
-		Nombre         Estado  		Inicio automático
+		Nombre 			Estado 			Inicio automático
 		-----------------------------------------
-		default        activo       si
+		default 		activo 			si
 
 6. El fichero de creaci ́on del pool se encuentra en: */etc/libvirt/storage/default.xml*
 
@@ -107,11 +107,12 @@ Para la configuración de la red seguimos los siguientes pasos:
 3. Listamos la configuración de red disponible.
 
 		# virsh net-list
-		Nombre 	       Estado        Inicio automático
+		Nombre 		Estado 		Inicio automático
 		-----------------------------------------
-		default        activo        si
+		default 	activo 		si
 
 Las características de la red por defecto (default):
+
 * La VMs reciben una IP por DHCP.
 * El anfitrión hace NAT para la conexión de los invitados.
 * El fichero de configuración se encuentra en: */etc/libvirt/qemu/networks/default.xml*
@@ -128,3 +129,60 @@ El contenido del fichero es:
 		</ip>
 	</network>
 
+### Servicio libvirt
+
+Siempre que hagamos cualquier cambio de configuración podemos reiniciar el sistema libvirt a través de:
+
+	# service libvirt-bin restart
+
+También podemos gestionar el servicio con:
+
+	# service libvirt-bin start
+	# service libvirt-bin stop
+	# service libvirt-bin status
+
+###Creación de máuinas virtuales
+
+Hay varias utilidades que permiten la creación de máquinas virtuales sobre KVM. Destacamos las siguientes:
+* Comando **virt-install**.
+* Comando **vmbuilder** (antes ubuntu-vm-builder).
+* Aplicación gráfica **virt-manager**.
+* Directamente usando QEMU/KVM (comando **qemu/kvm**).
+
+Vamos a estudiar la herramienta **virt-install**. virt-install es un comando que permite el aprovisionamiento de nuevas máquinas virtuales, es una herramienta en línea de comandos que permite la creación de máquinas virtuales Xen y KVM utilizando libvirt.
+
+Como características destacamos:
+* Está  basada en libvirt, por lo que puede trabajar sobre varios hipervisores.
+* Permite la instalación de SSOO tanto en modo texto (consola serie) como en modo gráfico (VNC ó SDL).
+* Se pueden crear VM con varios discos, varias interfaces de red, dispositivos de audio, dispositivos USB ó PCI, entre otros.
+* Soporta varios métodos de instalación:
+	* Locales: discos duros, ficheros, unidad CD/DVD, ...
+	* Remotos: NFS, HTTP, FTP, ...
+	* Por red: PXE.
+	* A partir de imágenes existentes.
+
+Básicamente hay que indicar:
+* Nombre de la VM.
+* Cantidad de RAM.
+* Almacenamiento.
+* Método de instalación.
+
+Por lo que las opciones obligatorias son son: *--name, --ram, --disk*; más las relativas a la instalación como *--cdrom, --location, ...*
+
+**Ejemplo: instalar Ubuntu 12.04 desde una imagen ISO**
+
+	virt-install --connect qemu:///system
+				--virt-type=kvm
+				--name VirtualMachine01
+				--ram 1024
+				--vcpus=2
+				--disk path=/var/lib/libvirt/images/VirtualMachine01.img,size=8
+				--cdrom /var/lib/libvirt/images/ubuntu-12.04-server-amd64.iso
+				--os-type linux
+				--os-variant=ubuntuprecise
+				--graphics vnc,keymap=es
+				--noautoconsole
+				--network network=default
+				--description "Ubuntu 12.04 Server"
+
+				
