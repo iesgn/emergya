@@ -5,7 +5,7 @@ menu:
   - Unidades
 ---
 
-##Intreoducción a KVM
+##Introducción a KVM
 
 <a href="http://www.linux-kvm.org/page/Main_Page">Kernel Based Virtual Machine
 (KVM)</a> es una solución de virtualización completa para linux que funciona
@@ -54,3 +54,34 @@ Podemos asegurarnos de que todo funciona correctamente a través de:
 	# virsh -c qemu:///system list
 	Id Nombre          Estado
 	----------------------------------
+
+###Almacenamiento de las máquinas virtuales
+
+Para la configuraci ́on inicial de KVM hay que crear un pool de almacenamiento para guardar las im ́agenes de las VMs. Seguimos los siguientes pasos:
+
+1. Editamos el fichero /tmp/pool-default.xml con el siguiente contenido:
+		<pool type=’dir’>
+			<name>default</name>
+			<target>
+				<path>/var/lib/libvirt/images</path>
+			</target>
+		</pool>
+
+2. Definimos el pool en libvirt:
+
+		# virsh pool-define /tmp/pool-default.xml
+
+3. Lo iniciamos:
+
+		# virsh pool-start default
+4. Lo configuramos para que si inicie siempre de forma automática:
+
+		# virsh pool-autostart default
+
+5. Comprobamos:
+		# virsh pool-list --all
+		Nombre         Estado  		Inicio automático
+		-----------------------------------------
+		default        activo       si
+
+6. El fichero de creaci ́on del pool se encuentra en: */etc/libvirt/storage/default.xml*
