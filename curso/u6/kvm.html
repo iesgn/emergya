@@ -124,7 +124,7 @@ Linux y KVM se han estandarizado a través de libvirt y libguestfs, usadas como 
 * Almacenamiento
   * KVM puede utilizar cualquier tipo de almacenamiento soportado por Linux para el almacenamiento de las imágenes (discos) de las VMs.
   * Esto incluye: discos locales, NAS ó SAN. 
-  * KVM también soporta el almacenamiento de imágenes en sistemas de ficheros distribuidos como GFS2, OCFS ó GlusterFS, con lo que podemos compartirlas por varios hipervisores.
+  * KVM soporta el almacenamiento de imágenes en sistemas de ficheros distribuidos (GFS2, OCFS ó GlusterFS), con lo que podemos compartirlas por varios hipervisores.
   * Las imágenes de disco soportan aprovisionamiento bajo demanda evitando tener que reservar todo el espacio inicialmente. El formato nativo de KVM es QCOW2, el cual permite la realización de snapshots, compresión y cifrado.
 
 </section>
