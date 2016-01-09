@@ -26,3 +26,5 @@ menu:
 * [Keystone Domains](https://wiki.openstack.org/wiki/Domains)
 * [Hierarchical Projects](https://specs.openstack.org/openstack/keystone-specs/specs/juno/hierarchical_multitenancy.html)
 * [Hierarchical Multitenancy in Keystone](http://raildo.me/hierarchical-multitenancy-in-openstack/)
+* [ReleaseNotes/Liberty](https://wiki.openstack.org/wiki/ReleaseNotes/Liberty)
+* [53 things that are new in OpenStack Liberty](https://www.mirantis.com/blog/53-things-new-openstack-liberty/)
