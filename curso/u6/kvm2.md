@@ -260,3 +260,46 @@ Se utilice la herramienta que se utilice, la configuración de la máquina virtu
 		</devices>
 	</domain>
 
+Para la gestión de las máquinas virtuales se cuenta con dos herramientas:
+
+* **virsh**: herramienta en modo comando.
+* **virt-manager**: herramienta gráfica.
+
+**virsh** es la principal herramienta para la gestión completa de KVM, esta basada en libvirt. Permite iniciar,pausar y apagar máquinas virtuales. Pero también
+permite otras funciones como gestión de la red, de los pool de almacenamiento, de los volúmenes, de las snapshots, etc. Presenta dos modos de funcionamiento, modo comando y modo
+interactivo.
+
+Para conectarnos al hipervisor podemos optar por:
+
+* Conectarnos en local:
+
+	# virsh
+	# virsh -c qemu:///system
+
+* Conectarnos a un hipervisor remoto:
+
+	# virsh -c qemu+ssh://usuario@host:port/system
+
+Entre los comandos genéricos más importantes de virsh destacamos:
+
+* **help** Muestra la ayuda.
+* **exit** Sale del intérprete.
+* **connect** Se (re)conecta al hipervisor.
+* **uri** Muestra la URI del hipervisor al que estamos conectados.
+* **hostname** Muestra el hostname del hipervisor.
+* **list** Muestra un listado de las VMs que están en ejecución.
+* **list --all** Muestra un listado de todas las VMs.
+* **console** Conecta a la consola virtual de una VM.
+* **create** Crea un VM desde su fichero de configuraci ́on XML.
+* **dumpxml** Muestra la configuración de la VM en XML.
+* **edit** Permite editar la configuración XML de una VM.
+* **dominfo** Muestra la información básica de una VM
+* **migrate** Permite migrar una VM de un anfitrión a otro.
+* **start** Inicia una VM.
+* **autostart** Permite configurar una VM para que se inicie de forma automática durante el inicio del anfitrión.
+* **shutdown** Apaga la VM de forma ordenada.
+* **destroy** Termina inmediatamente una VM, apagado hardware.
+* **reboot** Reinicia una VM.
+* **reset** Reinicia inmediatamente una VM.
+* **suspend**
+* **resume** Suspende/reinicia una VM. Una VM suspendida sigue en memoria pero no entra en la planificación del hipervisor.
