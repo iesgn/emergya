@@ -34,6 +34,8 @@ tema: white
 * Cuando se carga el módulo KVM, Linux se convierte en un hipervisor "bare-metal" (tipo 1) capaz de ejecutar varias máquinas virtuales (VM) aisladas. KVM hospeda las VMs como procesos, por lo que cada VM puede beneficiarse de todas las características del kernel de Linux, incluyendo todas aquellas referentes al hardware, seguridad, almacenamiento, etc.
 
 </section>
+<section>
+
 <section data-markdown>
 
 ## Arquitectura (1)
@@ -70,14 +72,32 @@ tema: white
 
 </section>
 <section data-markdown>
+
+## Arquitectura (4)
+
 * Seguridad
   * KVM también puede aprovecharse del modelo de seguridad de Linux proporcionado tanto por SELinux como por AppArmor. Ambos proporcionan, básicamente, "sandboxes" donde encerrar los procesos. Si un proceso se ve comprometido, esto no afectará al resto del sistema.
   * La seguridad proporcionada por SELinux y AppArmor aísla a las VM entre sí y a las VM del hipervisor.
 </section>
 <section data-markdown>
 
-## Arquitectura (4)
+## Arquitectura (5)
 
 ![kvm](img/kvm/kvm1.png)
+
+</section>
+</section>
+
+
+<section data-markdown>
+
+## Extensiones nativas para x86
+
+* KVM necesita de forma obligatoria las extensiones de virtualización incluidas por Intel y AMD:
+  * Intel Virtualization Technology (Intel VT-x), codename Vanderpool (2005).
+  * AMD Virtualization (AMD-V), codename Pacifica (2006).
+* Permiten a los hipervisores un rendimiento mayor en modo virtualización completa.
+* De esta forma la virtualización completa es mucho más fácil de implementar y ofrece un mayor rendimiento.
+* Básicamente estas extensiones añaden un nuevo modo de ejecución que permiten la ejecución de SSOO invitados sin modificar de forma eficiente, pero sin dar un control total a ciertos recursos como la memoria y el procesador.
 
 </section>
