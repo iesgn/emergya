@@ -146,14 +146,22 @@ Linux y KVM se han estandarizado a través de libvirt y libguestfs, usadas como 
 * Drivers
   * KVM soporta virtualización híbrida. En los SSOO invitados hay que instalar drivers paravirtualizados que permiten utilizar una interfaz de E/S optimizada en vez de emular estos dispositivos. Estos drivers permiten altos ratios de rendimiento en la E/S para dispositivos de bloques y dispositivos de red.
   * El hipervisor KVM utiliza el estándar VirtIO, desarrollado por IBM y Red Hat con la ayuda de la comunidad Linux.
-  * VirtIO es una interfaz independiente del hipervisor diseñada para el desarrollo de drivers que puedan ser utilizados sobre varios hipervisores. El objetivo principal es conseguir una mayor interoperabilidad con los invitados.
-  * Red Hat ha desarrollado drivers VirtIO optimizados para E/S de red y disco para los SSOO Windows. 
 
 </section>
 
 <section data-markdown>
 
 ##Características principales (6)
+
+* VirtIO
+  * VirtIO es una interfaz independiente del hipervisor diseñada para el desarrollo de drivers que puedan ser utilizados sobre varios hipervisores. El objetivo principal es conseguir una mayor interoperabilidad con los invitados.
+  * Red Hat ha desarrollado drivers VirtIO optimizados para E/S de red y disco para los SSOO Windows. 
+</section>
+
+
+<section data-markdown>
+
+##Características principales (7)
 
 * Rendimiento y escalabilidad
   * KVM posee los mismos rasgos de rendimiento y escalabilidad que caracteriza a Linux.
@@ -167,33 +175,3 @@ Linux y KVM se han estandarizado a través de libvirt y libguestfs, usadas como 
 </section>
 
 
-
-
-
-
-
-
-
-<section data-markdown>
-
-## Arquitectura (2)
-
-* Planificación, control de recursos y gestión de memoria
-  * Bajo KVM en Linux, las VM son simplemente procesos, cualquier mejora de Linux en la gestión de procesos se aplica directamente en la gestión de VM.
-* Almacenamiento
-  * Las imágenes de disco de las VM se tratan como cualquier otro fichero o dispositivo de Linux.
-  * Se puede utilizar para las imágenes cualquier tipo de almacenamiento soportado actualmente por Linux: discos locales, sistemas NAS, iSCSI, SAN, etc.
-  * Cualquier mejora en la pila de almacenamiento será aprovechada por KVM.
-</section>
-
-<section data-markdown>
-
-## Arquitectura (3)
-
-* Soporte de hardware.
-  * KVM hereda todo el ecosistema de dispositivos Linux. KVM podrá acceder a cualquier dispositivo soportado por Linux.
-  * QEMU se utiliza para proporcionar los dispostivos de E/S que las máquinas virtuales "ven".
-  * Las mejoras de Linux en cuanto a número de CPUs/cores y grandes cantidades de RAM, permiten a KVM escalar tal como Linux escala.
-
-
-</section>
