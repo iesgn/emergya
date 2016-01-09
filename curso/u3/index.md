@@ -5,7 +5,7 @@ menu:
   - Unidades
 ---
 
-#Glance
+##Glance
 
 * [Administración de imágenes](imagenes)
 
@@ -22,7 +22,7 @@ menu:
 * [ Image service command-line client](http://docs.openstack.org/cli-reference/content/glanceclient_commands.html)
 
 
-#Nova
+##Nova
 
 * [Conceptos previos](conceptos_previos)
 * [Trabajo con claves ssh](claves_ssh)

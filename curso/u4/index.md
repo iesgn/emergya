@@ -5,7 +5,7 @@ menu:
   - Unidades
 ---
 
-#Cinder
+##Cinder
 
 * [Conceptos previos de volúmenes](conceptos_previos)
 * [Creación de volúmenes, asociación a instancias](volumen)
@@ -19,7 +19,7 @@ menu:
 * [Gestión de volúmenes con nova y cinder CLI](volumen_cli)
 * [Gestión de volúmenes con OpenStack client (OSC)](volumen_osc)
 
-#Swift
+##Swift
 
 * [Presentación Swift](presentacion_objetos)
 * [Gestión de contenedores y objetos con Horizon](swift)

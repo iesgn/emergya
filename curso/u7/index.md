@@ -5,7 +5,7 @@ menu:
   - Unidades
 ---
 
-#OpenStack Cinder por dentro
+##OpenStack Cinder por dentro
 
 * [Introducción a LVM](lvm)
 * [Introducción a iSCSI](iscsi)
