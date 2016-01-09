@@ -180,10 +180,10 @@ Linux y KVM se han estandarizado a través de libvirt y libguestfs, usadas como 
 
 * Para la ejecución de KVM se necesita de un procesador con las extensiones de virtualización x86.
 * Se puede comprobar esto a través del comando:
-
-    # egrep -c '(vmx|svm)' /proc/cpuinfo
-    2
-
+<pre>
+# egrep -c '(vmx|svm)' /proc/cpuinfo
+2
+</pre>
 * 0 : no hay soporte para KVM.
 * 1 ó más: hay soporte de virtualización para KVM. Pero hay que comprobar también que esté activo en BIOS.
 
@@ -195,7 +195,7 @@ Linux y KVM se han estandarizado a través de libvirt y libguestfs, usadas como 
 
 * Instalamos los siguientes paquetes básicos:
   <pre>
-    # apt-get install qemu-kvm libvirt-bin bridge-utils
+# apt-get install qemu-kvm libvirt-bin bridge-utils
   </pre>
   * qemu-kvm: sistema KVM. Incluyendo el módulo del kernel.
   * libvirt-bin: toolkit C para la interacción con el hipervisor.
