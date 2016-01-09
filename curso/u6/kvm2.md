@@ -273,12 +273,12 @@ Para conectarnos al hipervisor podemos optar por:
 
 * Conectarnos en local:
 
-	# virsh
-	# virsh -c qemu:///system
+		# virsh
+		# virsh -c qemu:///system
 
 * Conectarnos a un hipervisor remoto:
 
-	# virsh -c qemu+ssh://usuario@host:port/system
+		# virsh -c qemu+ssh://usuario@host:port/system
 
 Entre los comandos genéricos más importantes de virsh destacamos:
 
