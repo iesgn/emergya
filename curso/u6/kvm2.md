@@ -145,6 +145,7 @@ También podemos gestionar el servicio con:
 ###Creación de máuinas virtuales
 
 Hay varias utilidades que permiten la creación de máquinas virtuales sobre KVM. Destacamos las siguientes:
+
 * Comando **virt-install**.
 * Comando **vmbuilder** (antes ubuntu-vm-builder).
 * Aplicación gráfica **virt-manager**.
@@ -153,6 +154,7 @@ Hay varias utilidades que permiten la creación de máquinas virtuales sobre KVM
 Vamos a estudiar la herramienta **virt-install**. virt-install es un comando que permite el aprovisionamiento de nuevas máquinas virtuales, es una herramienta en línea de comandos que permite la creación de máquinas virtuales Xen y KVM utilizando libvirt.
 
 Como características destacamos:
+
 * Está  basada en libvirt, por lo que puede trabajar sobre varios hipervisores.
 * Permite la instalación de SSOO tanto en modo texto (consola serie) como en modo gráfico (VNC ó SDL).
 * Se pueden crear VM con varios discos, varias interfaces de red, dispositivos de audio, dispositivos USB ó PCI, entre otros.
@@ -163,6 +165,7 @@ Como características destacamos:
 	* A partir de imágenes existentes.
 
 Básicamente hay que indicar:
+
 * Nombre de la VM.
 * Cantidad de RAM.
 * Almacenamiento.
