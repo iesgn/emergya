@@ -98,6 +98,28 @@ tema: white
   * AMD Virtualization (AMD-V), codename Pacifica (2006).
 * Permiten a los hipervisores un rendimiento mayor en modo virtualización completa.
 * De esta forma la virtualización completa es mucho más fácil de implementar y ofrece un mayor rendimiento.
-* Básicamente estas extensiones añaden un nuevo modo de ejecución que permiten la ejecución de SSOO invitados sin modificar de forma eficiente, pero sin dar un control total a ciertos recursos como la memoria y el procesador.
+
+</section>
+
+<section>
+
+<section data-markdown>
+
+##KVM y libvirt (1)
+
+Linux y KVM se han estandarizado a través de libvirt y libguestfs, usadas como APIs base para la gestión de las máquinas virtuales y de las imágenes.
+* Además, **libvirt** es capaz de gestionar no solo a KVM, sino a otros hipervisores como Xen, VMware, OpenVZ, MS Hyper-V, VirtualBox, etc.
+* Muchas de las herramientas utilizadas de alto nivel como **virsh** o **virt-manager** han sido construidas sobre la librería base libvirt.
+
+</section>
+
+<section data-markdown>
+
+##KVM y libvirt (2)
+
+![kvm](img/kvm/kvm2.png)
+
+</section>
+
 
 </section>
