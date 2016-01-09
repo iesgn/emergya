@@ -176,16 +176,87 @@ Por lo que las opciones obligatorias son son: *--name, --ram, --disk*; más las 
 **Ejemplo: instalar Ubuntu 12.04 desde una imagen ISO**
 
 	virt-install --connect qemu:///system
-				--virt-type=kvm
-				--name VirtualMachine01
-				--ram 1024
-				--vcpus=2
-				--disk path=/var/lib/libvirt/images/VirtualMachine01.img,size=8
-				--cdrom /var/lib/libvirt/images/ubuntu-12.04-server-amd64.iso
-				--os-type linux
-				--os-variant=ubuntuprecise
-				--graphics vnc,keymap=es
-				--noautoconsole
-				--network network=default
-				--description "Ubuntu 12.04 Server"
+		--virt-type=kvm
+		--name VirtualMachine01
+		--ram 1024
+		--vcpus=2
+		--disk path=/var/lib/libvirt/images/VirtualMachine01.img,size=8
+		--cdrom /var/lib/libvirt/images/ubuntu-12.04-server-amd64.iso
+		--os-type linux
+		--os-variant=ubuntuprecise
+		--graphics vnc,keymap=es
+		--noautoconsole
+		--network network=default
+		--description "Ubuntu 12.04 Server"
+
+Nos podemos conectar a la consola para ver el proceso de instalación a travñes del protocolo VNC, de varias formas:
+
+	# virt-viewer -c qemu:///system VirtualMachine01
+	# vinagre localhost:0
+	# vncviewer localhost:0
+
+###Gestión de máquinas virtuales
+
+Se utilice la herramienta que se utilice, la configuración de la máquina virtual reside en un fichero XML como éste:
+
+	<domain type=’kvm’>
+		<name>Ubuntu01</name>
+		<uuid>18dbd172-97f7-242f-ebc8-c8b377b8ec71</uuid>
+		<description>Ubuntu 12.04 Server</description>
+		<memory>524288</memory>
+		<currentMemory>524288</currentMemory>
+		<vcpu>2</vcpu>
+		<os>
+			<type arch=’x86_64’ machine=’pc-1.0’>hvm</type>
+			<boot dev=’hd’/>
+		</os>
+		<features>
+			<acpi/>
+			<apic/>
+			<pae/>
+		</features>
+		<clock offset=’utc’/>
+		<on_poweroff>destroy</on_poweroff>
+		<on_reboot>restart</on_reboot>
+		<on_crash>restart</on_crash>
+		<devices>
+			<emulator>/usr/bin/kvm</emulator>
+			<disk type=’file’ device=’disk’>
+				<driver name=’qemu’ type=’raw’/>
+				<source file=’/var/VirtualMachines/libvirt/Ubuntu01.img’/>
+				<target dev=’vda’ bus=’virtio’/>
+				<address type=’pci’ domain=’0x0000’ bus=’0x00’ slot=’0x04’ function=’0x0’/>
+			</disk>
+			<disk type=’block’ device=’cdrom’>
+				<driver name=’qemu’ type=’raw’/>
+				<target dev=’hdc’ bus=’ide’/>
+				<readonly/>
+				<address type=’drive’ controller=’0’ bus=’1’ unit=’0’/>
+			</disk>
+			<controller type=’ide’ index=’0’>
+				<address type=’pci’ domain=’0x0000’ bus=’0x00’ slot=’0x01’ function=’0x1’/>
+			</controller>
+			<interface type=’network’>
+				<mac address=’52:54:00:75:cc:68’/>
+				<source network=’default’/>
+				<model type=’virtio’/>
+				<address type=’pci’ domain=’0x0000’ bus=’0x00’ slot=’0x03’ function=’0x0’/>
+			</interface>
+			<serial type=’pty’>
+				<target port=’0’/>
+			</serial>
+			<console type=’pty’>
+				<target type=’serial’ port=’0’/>
+			</console>
+			<input type=’mouse’ bus=’ps2’/>
+			<graphics type=’vnc’ port=’-1’ autoport=’yes’ keymap=’es’/>
+			<video>
+				<model type=’cirrus’ vram=’9216’ heads=’1’/>
+				<address type=’pci’ domain=’0x0000’ bus=’0x00’ slot=’0x02’ function=’0x0’/>
+			</video>
+			<memballoon model=’virtio’>
+				<address type=’pci’ domain=’0x0000’ bus=’0x00’ slot=’0x05’ function=’0x0’/>
+			</memballoon>
+		</devices>
+	</domain>
 
