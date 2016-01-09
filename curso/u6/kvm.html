@@ -104,26 +104,34 @@ Linux y KVM se han estandarizado a través de libvirt y libguestfs, usadas como 
 * Seguridad
   * Bajo KVM, cada máquina virtual se implementa como un proceso.
   * KVM se aprovecha del modelo de seguridad de Linux proporcionado tanto por SELinux como por AppArmor. Ambos proporcionan, básicamente, "sandboxes" donde encerrar los procesos. Si un proceso se ve comprometido, esto no afectará al resto del sistema.
-* Gestión de memoria
-  * KVM hereda las características de gestión de memoria de Linux. La memoria utilizada por una VM se gestionará de la misma forma que la de otro proceso, podrá ser guardada en disco (swapped), utilizada en páginas grandes (large pages). El soporte NUMA de Linux, permite también el uso a las VMs de grandes cantidades de memoria.
-  * La compartición de páginas de memoria se consigue a través de la características añadida a Linux llamada KSM (Kernel Same-page Merging)
 
 </section>
+
 <section data-markdown>
 
 ##Características principales (2)
 
-* Almacenamiento
-  * KVM puede utilizar cualquier tipo de almacenamiento soportado por Linux para el almacenamiento de las imágenes (discos) de las VMs.
-  * Esto incluye: discos locales (IDE/SCSI/SATA), NAS (Network Attached Storage: NFS, SAMBA/CIFS, etc) ó SAN (iSCSI y Fibre Channel). 
-  * KVM también soporta el almacenamiento de imágenes en sistemas de ficheros distribuidos como GFS2, OCFS ó GlusterFS. De esta forma las imágenes de las máquinas virtuales pueden ser compartidas por varios hipervisores.
-  * Las imágenes de disco soportan aprovisionamiento bajo demanda evitando tener que reservar todo el espacio inicialmente. El formato nativo de KVM es QCOW2, el cual permite la realización de snapshots, compresión y cifrado.
+* Gestión de memoria
+  * KVM hereda las características de gestión de memoria de Linux. La memoria utilizada por una VM se gestionará de la misma forma que la de otro proceso, podrá ser guardada en disco (swapped), utilizada en páginas grandes (large pages). El soporte NUMA de Linux, permite también el uso a las VMs de grandes cantidades de memoria.
+  * La compartición de páginas de memoria se consigue a través de la características añadida a Linux llamada KSM (Kernel Same-page Merging)
 
 </section>
 
 <section data-markdown>
 
 ##Características principales (3)
+
+* Almacenamiento
+  * KVM puede utilizar cualquier tipo de almacenamiento soportado por Linux para el almacenamiento de las imágenes (discos) de las VMs.
+  * Esto incluye: discos locales, NAS ó SAN. 
+  * KVM también soporta el almacenamiento de imágenes en sistemas de ficheros distribuidos como GFS2, OCFS ó GlusterFS, con lo que podemos compartirlas por varios hipervisores.
+  * Las imágenes de disco soportan aprovisionamiento bajo demanda evitando tener que reservar todo el espacio inicialmente. El formato nativo de KVM es QCOW2, el cual permite la realización de snapshots, compresión y cifrado.
+
+</section>
+
+<section data-markdown>
+
+##Características principales (4)
 
 * Live migrations
   * KVM permite migraciones en caliente (live migrations), esta característica permite mover una VM en ejecución entre servidores físicos (hipervisores) sin interrupción del servicio.
@@ -134,7 +142,7 @@ Linux y KVM se han estandarizado a través de libvirt y libguestfs, usadas como 
 
 <section data-markdown>
 
-##Características principales (4)
+##Características principales (5)
 
 * Drivers
   * KVM soporta virtualización híbrida. En los SSOO invitados hay que instalar drivers paravirtualizados que permiten utilizar una interfaz de E/S optimizada en vez de emular estos dispositivos. Estos drivers permiten altos ratios de rendimiento en la E/S para dispositivos de bloques y dispositivos de red.
@@ -147,7 +155,7 @@ Linux y KVM se han estandarizado a través de libvirt y libguestfs, usadas como 
 
 <section data-markdown>
 
-##Características principales (5)
+##Características principales (6)
 
 * Rendimiento y escalabilidad
   * KVM posee los mismos rasgos de rendimiento y escalabilidad que caracteriza a Linux.
