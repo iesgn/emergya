@@ -7,8 +7,10 @@ menu:
 
 ###OpenStack Glance y Nova por dentro
 
+* [Virtualización de Servidores con KVM](kvm)
+* [Introducción a KVM](kvm2)
 * Formato de imágenes
-* Introducción a KVM
+
 * [Proceso de instanciación paso a paso](instancia)
 
 ### Enlaces interesantes
