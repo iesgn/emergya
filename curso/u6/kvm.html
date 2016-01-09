@@ -52,37 +52,6 @@ tema: white
 
 ## Arquitectura (2)
 
-* Planificación, control de recursos y gestión de memoria
-  * Bajo KVM en Linux, las VM son simplemente procesos, cualquier mejora de Linux en la gestión de procesos se aplica directamente en la gestión de VM.
-* Almacenamiento
-  * Las imágenes de disco de las VM se tratan como cualquier otro fichero o dispositivo de Linux.
-  * Se puede utilizar para las imágenes cualquier tipo de almacenamiento soportado actualmente por Linux: discos locales, sistemas NAS, iSCSI, SAN, etc.
-  * Cualquier mejora en la pila de almacenamiento será aprovechada por KVM.
-</section>
-
-<section data-markdown>
-
-## Arquitectura (3)
-
-* Soporte de hardware.
-  * KVM hereda todo el ecosistema de dispositivos Linux. KVM podrá acceder a cualquier dispositivo soportado por Linux.
-  * QEMU se utiliza para proporcionar los dispostivos de E/S que las máquinas virtuales "ven".
-  * Las mejoras de Linux en cuanto a número de CPUs/cores y grandes cantidades de RAM, permiten a KVM escalar tal como Linux escala.
-
-
-</section>
-<section data-markdown>
-
-## Arquitectura (4)
-
-* Seguridad
-  * KVM también puede aprovecharse del modelo de seguridad de Linux proporcionado tanto por SELinux como por AppArmor. Ambos proporcionan, básicamente, "sandboxes" donde encerrar los procesos. Si un proceso se ve comprometido, esto no afectará al resto del sistema.
-  * La seguridad proporcionada por SELinux y AppArmor aísla a las VM entre sí y a las VM del hipervisor.
-</section>
-<section data-markdown>
-
-## Arquitectura (5)
-
 ![kvm](img/kvm/kvm1.png)
 
 </section>
@@ -120,6 +89,104 @@ Linux y KVM se han estandarizado a través de libvirt y libguestfs, usadas como 
 ![kvm](img/kvm/kvm2.png)
 
 </section>
+
+
+</section>
+
+
+<section>
+
+<section data-markdown>
+
+##Características principales (1)
+
+* Seguridad
+  * Bajo KVM, cada máquina virtual se implementa como un proceso.
+  * KVM se aprovecha del modelo de seguridad de Linux proporcionado tanto por SELinux como por AppArmor. Ambos proporcionan, básicamente, "sandboxes" donde encerrar los procesos. Si un proceso se ve comprometido, esto no afectará al resto del sistema.
+* Gestión de memoria
+  * KVM hereda las características de gestión de memoria de Linux. La memoria utilizada por una VM se gestionará de la misma forma que la de otro proceso, podrá ser guardada en disco (swapped), utilizada en páginas grandes (large pages). El soporte NUMA de Linux, permite también el uso a las VMs de grandes cantidades de memoria.
+  * La compartición de páginas de memoria se consigue a través de la características añadida a Linux llamada KSM (Kernel Same-page Merging)
+
+</section>
+<section data-markdown>
+
+##Características principales (2)
+
+* Almacenamiento
+  * KVM puede utilizar cualquier tipo de almacenamiento soportado por Linux para el almacenamiento de las imágenes (discos) de las VMs.
+  * Esto incluye: discos locales (IDE/SCSI/SATA), NAS (Network Attached Storage: NFS, SAMBA/CIFS, etc) ó SAN (iSCSI y Fibre Channel). 
+  * KVM también soporta el almacenamiento de imágenes en sistemas de ficheros distribuidos como GFS2, OCFS ó GlusterFS. De esta forma las imágenes de las máquinas virtuales pueden ser compartidas por varios hipervisores.
+  * Las imágenes de disco soportan aprovisionamiento bajo demanda evitando tener que reservar todo el espacio inicialmente. El formato nativo de KVM es QCOW2, el cual permite la realización de snapshots, compresión y cifrado.
+
+</section>
+
+<section data-markdown>
+
+##Características principales (3)
+
+* Live migrations
+  * KVM permite migraciones en caliente (live migrations), esta característica permite mover una VM en ejecución entre servidores físicos (hipervisores) sin interrupción del servicio.
+  * Estas migraciones son transparentes al usuario, la VM permanece encendida, las conexiones de red activas y las aplicaciones en ejecución mientras que la máquina se realoja en un nuevo servidor físico.
+  * KVM también permite almacenar el estado de una VM a disco para permitir su almacenamiento y posterior reanudación.
+
+</section>
+
+<section data-markdown>
+
+##Características principales (4)
+
+* Drivers
+  * KVM soporta virtualización híbrida. En los SSOO invitados hay que instalar drivers paravirtualizados que permiten utilizar una interfaz de E/S optimizada en vez de emular estos dispositivos. Estos drivers permiten altos ratios de rendimiento en la E/S para dispositivos de bloques y dispositivos de red.
+  * El hipervisor KVM utiliza el estándar VirtIO, desarrollado por IBM y Red Hat con la ayuda de la comunidad Linux.
+  * VirtIO es una interfaz independiente del hipervisor diseñada para el desarrollo de drivers que puedan ser utilizados sobre varios hipervisores. El objetivo principal es conseguir una mayor interoperabilidad con los invitados.
+  * Están incluidos en todos los kernel modernos de Linux (a partir de la versión 2.6.25).
+  * Red Hat ha desarrollado drivers VirtIO optimizados para E/S de red y disco para los SSOO Windows. 
+
+</section>
+
+<section data-markdown>
+
+##Características principales (5)
+
+* Rendimiento y escalabilidad
+  * KVM posee los mismos rasgos de rendimiento y escalabilidad que caracteriza a Linux.
+  * KVM soporta VM de hasta 16 CPUs virtuales y 256 GB de RAM.
+  * El rendimiento de aplicaciones como SGBD Oracle, SAP, LAMP, MS Exchange sobre KVM puede oscilar entre el 95 % y el 135 % comparado con su ejecución en servidores físicos.
+  * Se han conseguido ratios de hasta 600 máquinas virtuales en un solo servidor físico.
+
+</section>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<section data-markdown>
+
+## Arquitectura (2)
+
+* Planificación, control de recursos y gestión de memoria
+  * Bajo KVM en Linux, las VM son simplemente procesos, cualquier mejora de Linux en la gestión de procesos se aplica directamente en la gestión de VM.
+* Almacenamiento
+  * Las imágenes de disco de las VM se tratan como cualquier otro fichero o dispositivo de Linux.
+  * Se puede utilizar para las imágenes cualquier tipo de almacenamiento soportado actualmente por Linux: discos locales, sistemas NAS, iSCSI, SAN, etc.
+  * Cualquier mejora en la pila de almacenamiento será aprovechada por KVM.
+</section>
+
+<section data-markdown>
+
+## Arquitectura (3)
+
+* Soporte de hardware.
+  * KVM hereda todo el ecosistema de dispositivos Linux. KVM podrá acceder a cualquier dispositivo soportado por Linux.
+  * QEMU se utiliza para proporcionar los dispostivos de E/S que las máquinas virtuales "ven".
+  * Las mejoras de Linux en cuanto a número de CPUs/cores y grandes cantidades de RAM, permiten a KVM escalar tal como Linux escala.
 
 
 </section>
