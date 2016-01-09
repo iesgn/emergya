@@ -258,8 +258,8 @@ componentes de OpenStack este problema no hace más que acrecentarse por lo que
 el proyecto decidió desarrollar un cliente unificado que denominó
 OpenStackClient (OSC).
 
-La versión de OSC disponible en OpenStack Kilo es la 1.7.1, que puede instalarse
+La versión de OSC disponible en OpenStack Kilo es la 1.0.3, que puede instalarse
 directamente desde repositorio si se dispone o a través de pypi como en los
 casos anteriores.
 
-    (Openstack)usuario@oslo:~$ pip install python-openstackclient==1.7.1
+    (Openstack)usuario@oslo:~$ pip install python-openstackclient==1.0.3
