@@ -9,7 +9,7 @@ menu:
 
 * [Virtualización de Servidores con KVM](kvm)
 * [Introducción a KVM](kvm2)
-* [Formato de imágenes](imagenes)
+* [Formato de imágenes](imagen)
 * [Proceso de instanciación paso a paso](instancia)
 
 ### Enlaces interesantes
