@@ -24,6 +24,14 @@ tema: white
 * KVM, Kernel-based Virtual Machine, es uno de los últimos hipervisores en hacer su entrada en el mercado, ya abarrotado, de la virtualización.
 * Como otros hipervidores tipo 1, se integra en un sistema operativo existente, principalmente Linux, aunque también se ha portado a FreeBSD y Illumos (antes OpenSolaris).
 * Originariamente solo en arquitecturas x86, portado actualmente a S/390, PowerPC, IA-64 y en progreso a ARM.
-* KVM presenta ciertas peculiaridades únicas en su arquitectura.
+
+</section>
+<section data-markdown>
+
+## ¿Qué es KVM?
+
+**KVM** (Kernel-based Virtual Machine) es un hipervisor tipo 1 que proporciona una solución completa de virtualización para el SO Linux en arquitecturas x86 que cuenten con las extensiones de virtualización Intel VT/AMD-V.
+
+Cuando se carga el módulo KVM, Linux se convierte en un hipervisor "bare-metal" (tipo 1) capaz de ejecutar varias máquinas virtuales (VM) aisladas. KVM hospeda las VMs como procesos, por lo que cada VM puede beneficiarse de todas las características del kernel de Linux, incluyendo todas aquellas referentes al hardware, seguridad, almacenamiento, etc.
 
 </section>
