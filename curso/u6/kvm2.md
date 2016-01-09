@@ -118,6 +118,7 @@ Las características de la red por defecto (default):
 * El fichero de configuración se encuentra en: */etc/libvirt/qemu/networks/default.xml*
 
 El contenido del fichero es:
+
 	<network>
 		<name>default</name>
 		<bridge name="virbr0" />
@@ -185,4 +186,3 @@ Por lo que las opciones obligatorias son son: *--name, --ram, --disk*; más las 
 				--network network=default
 				--description "Ubuntu 12.04 Server"
 
-				
