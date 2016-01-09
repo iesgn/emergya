@@ -55,7 +55,7 @@ tema: white
   * Bajo KVM en Linux, las VM son simplemente procesos, cualquier mejora de Linux en la gestión de procesos se aplica directamente en la gestión de VM.
 * Almacenamiento
   * Las imágenes de disco de las VM se tratan como cualquier otro fichero o dispositivo de Linux.
-  * Se puede utilizar para las imágenes cualquier tipo de almacenamiento soportado actualmente por Linux: discos locales, una gran variedad de sistemas de ficheros, sistemas NAS, iSCSI, SAN, etc.
+  * Se puede utilizar para las imágenes cualquier tipo de almacenamiento soportado actualmente por Linux: discos locales, sistemas NAS, iSCSI, SAN, etc.
   * Cualquier mejora en la pila de almacenamiento será aprovechada por KVM.
 </section>
 
@@ -67,12 +67,14 @@ tema: white
   * KVM hereda todo el ecosistema de dispositivos Linux. KVM podrá acceder a cualquier dispositivo soportado por Linux.
   * QEMU se utiliza para proporcionar los dispostivos de E/S que las máquinas virtuales "ven".
   * Las mejoras de Linux en cuanto a número de CPUs/cores y grandes cantidades de RAM, permiten a KVM escalar tal como Linux escala.
+
+
+</section>
+<section data-markdown>
 * Seguridad
   * KVM también puede aprovecharse del modelo de seguridad de Linux proporcionado tanto por SELinux como por AppArmor. Ambos proporcionan, básicamente, "sandboxes" donde encerrar los procesos. Si un proceso se ve comprometido, esto no afectará al resto del sistema.
   * La seguridad proporcionada por SELinux y AppArmor aísla a las VM entre sí y a las VM del hipervisor.
-
 </section>
-
 <section data-markdown>
 
 ## Arquitectura (4)
