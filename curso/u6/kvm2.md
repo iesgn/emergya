@@ -60,6 +60,7 @@ Podemos asegurarnos de que todo funciona correctamente a través de:
 Para la configuraci ́on inicial de KVM hay que crear un pool de almacenamiento para guardar las im ́agenes de las VMs. Seguimos los siguientes pasos:
 
 1. Editamos el fichero /tmp/pool-default.xml con el siguiente contenido:
+
 		<pool type=’dir’>
 			<name>default</name>
 			<target>
@@ -74,14 +75,56 @@ Para la configuraci ́on inicial de KVM hay que crear un pool de almacenamiento 
 3. Lo iniciamos:
 
 		# virsh pool-start default
+
 4. Lo configuramos para que si inicie siempre de forma automática:
 
 		# virsh pool-autostart default
 
 5. Comprobamos:
+
 		# virsh pool-list --all
 		Nombre         Estado  		Inicio automático
 		-----------------------------------------
 		default        activo       si
 
 6. El fichero de creaci ́on del pool se encuentra en: */etc/libvirt/storage/default.xml*
+
+Por defecto se utiliza un pool de almacenamiento basado en directorio, por defecto es */var/lib/libvirt/images*. Este directorio puede ser una partición aparte, un volumen lógico
+LVM o cualquier otro tipo de almacenamiento. Se pueden crear mucho más pools y de diferentes tipos.
+
+### Introducción a las redes en KVM
+
+Para la configuración de la red seguimos los siguientes pasos:
+
+1. Iniciamos la red por defecto:
+
+		# virsh net-start default
+
+2. Configuramos para que se inicie siempre de forma automática:
+
+		# virsh net-autostart default
+
+3. Listamos la configuración de red disponible.
+
+		# virsh net-list
+		Nombre 	       Estado        Inicio automático
+		-----------------------------------------
+		default        activo        si
+
+Las características de la red por defecto (default):
+* La VMs reciben una IP por DHCP.
+* El anfitrión hace NAT para la conexión de los invitados.
+* El fichero de configuración se encuentra en: */etc/libvirt/qemu/networks/default.xml*
+
+El contenido del fichero es:
+	<network>
+		<name>default</name>
+		<bridge name="virbr0" />
+		<forward/>
+		<ip address="192.168.122.1" netmask="255.255.255.0">
+			<dhcp>
+				<range start="192.168.122.2" end="192.168.122.254" />
+			</dhcp>
+		</ip>
+	</network>
+
