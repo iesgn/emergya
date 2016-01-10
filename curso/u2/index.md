@@ -27,4 +27,5 @@ menu:
 * [Hierarchical Projects](https://specs.openstack.org/openstack/keystone-specs/specs/juno/hierarchical_multitenancy.html)
 * [Hierarchical Multitenancy in Keystone](http://raildo.me/hierarchical-multitenancy-in-openstack/)
 * [ReleaseNotes/Liberty](https://wiki.openstack.org/wiki/ReleaseNotes/Liberty)
+* [Configuración de los servicios de OpenStack para utilizar la API de Keystone V3](https://www-01.ibm.com/support/knowledgecenter/SS4KMC_2.5.0/com.ibm.sco.doc_2.5/t_reconfig_openstack_svcs.html)
 * [53 things that are new in OpenStack Liberty](https://www.mirantis.com/blog/53-things-new-openstack-liberty/)
