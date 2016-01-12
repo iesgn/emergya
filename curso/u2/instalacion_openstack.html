@@ -17,7 +17,7 @@ tema: white
 </section>
 
 <section>
-  <h3>Escenario de instalación</h3>
+<!--  <h3>Escenario de instalación</h3>
   
   <ul>
     <li>Vamos a usar vagrant para crear una máquina virtual con sistema operativo Debian Jessie, con las siguientes características:
@@ -28,35 +28,44 @@ tema: white
     </ul>
     <li><a href="https://github.com/iesgn/openstack-debian-ansible">https://github.com/iesgn/openstack-debian-ansible</a></li>
   </ul>
-</section>
+</section> -->
 <section>
-  <h3>Preliminares</h3>
+  <h3>Preliminares (1)</h3>
   <ul>
+    <li>Instalamos el paquete (software-properties-common): comando add-apt-repository</li>
+    <li>Instalamos paquete ubuntu-cloud-keyring</li>
+    <li>Añadimos repositorio OpenStack Kilo de ubuntu</li>
     <li>Actualizamos los respositorios de paquetes</li>
     <li>Instalamos ntp</li>
+  </ul>
+</section>
+<section>
+  <h3>Preliminares (2)</h3>
+  <ul>
     <li>Instalamos mysql</li>
     <li>Creamos un usuario y una base de datos por cada uno de los componentes de OpenStack que vamos a instalar (keystone, glance, nova, neutron, ...)</li>
     <li>Instalamos rabbitmq</li>
+    <li>Instalamos el cliente de linea de comandos (OpenStack Client)</li>
   </ul>
 </section>
 <section>
   <h3>Keystone</h3>
   <ul>
-    <li>Instalamos los paquetes: keystone, python-keystone, python-keystoneclient</li>
-    <li>Borramos la base de datos sqlite, el catálogo lo vamos a guardar en mysql</li>
+    <li>Instalamos los paquetes: keystone, python-keystone, python-keystoneclient, python-oslo.db</li>
+    <li>Borramos la base de datos sqlite que se crea por defecto</li>
     <li>Copiamos el fichero de configuración</li>
     <li>Generamos las tablas en la base de datos (db_sync)</li>
     <li>Creamos los datos de keystone (usuarios, roles, tenants, servicios, endpoints, ...). </li>
+    <li>Se crean los ficheros de credenciales: admin_openrc_2.0.sh (API 2.0), admin_openrc.sh (API 3.0), demo_openrc.sh</li>
   </ul>
 </section>
 <section>
   <h3>Glance</h3>
   <ul>
-    <li>Instalamos los paquetes: glance, glance-api, glance-registry, python-glanceclient</li>
+    <li>Instalamos los paquetes: glance, glance-api, glance-registry, python-glanceclient, glance-common</li>
     <li>Borramos la base de datos sqlite</li>
     <li>Configuramos el servicio</li>
     <li>Generamos las tablas en la base de datos (db_sync)</li>
-    <li>Subimos una imagen CirrOs</li>
   </ul>
 </section>
 <section>
