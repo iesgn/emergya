@@ -263,3 +263,15 @@ directamente desde repositorio si se dispone o a través de pypi como en los
 casos anteriores.
 
     (Openstack)usuario@oslo:~$ pip install python-openstackclient==1.0.3
+
+## Shade
+Shade es una biblioteca desarrollada inicialmente por ansible y que permite interactuar con OpenStack de forma muy sencilla. Shade proporciona sólo parte de la funcionalidad de OSC u otros clientes, pero lo hace centrándose en los usos más habituales y la facilidad de uso.
+
+Los nuevos módulos OpenStack de ansible 2 dependen de shade:
+
+[Ansible: Módulos de
+OpenStack](http://docs.ansible.com/ansible/list_of_cloud_modules.html#openstack)
+
+Más información:
+
+* [Welcome to shade’s documentation!](http://docs.openstack.org/infra/shade/)
