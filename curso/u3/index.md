@@ -16,11 +16,9 @@ menu:
 
 ###Enlaces interesantes
 
-* [OpenStackclient](http://docs.openstack.org/developer/python-openstackclient/)
 * [Get images - Openstack](http://docs.openstack.org/image-guide/content/ch_obtaining_images.html)
 * [OpenStack Virtual Machine Image Guide](http://docs.openstack.org/image-guide/content/)
 * [ Image service command-line client](http://docs.openstack.org/cli-reference/content/glanceclient_commands.html)
-
 
 ##Nova
 
