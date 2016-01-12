@@ -23,6 +23,7 @@ menu:
 
 ###Enlaces interesantes
 
+* [Customize the dashboard](http://docs.openstack.org/kilo/config-reference/content/dashboard-custom-brand.html)
 * [Keystone Domains](https://wiki.openstack.org/wiki/Domains)
 * [Hierarchical Projects](https://specs.openstack.org/openstack/keystone-specs/specs/juno/hierarchical_multitenancy.html)
 * [Hierarchical Multitenancy in Keystone](http://raildo.me/hierarchical-multitenancy-in-openstack/)
