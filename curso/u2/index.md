@@ -23,6 +23,7 @@ menu:
 
 ###Enlaces interesantes
 
+* [Introducción a ansible](ansible)
 * [OpenStackclient](http://docs.openstack.org/developer/python-openstackclient/)
 * [Customize the dashboard](http://docs.openstack.org/kilo/config-reference/content/dashboard-custom-brand.html)
 * [Keystone Domains](https://wiki.openstack.org/wiki/Domains)
