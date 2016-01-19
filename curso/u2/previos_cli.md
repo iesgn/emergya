@@ -180,7 +180,7 @@ Virtual Environments</a>:
 Instalamos los paquetes python-virtualenv y python-dev con un usuario
 privilegiado del sistema:
 
-    sudo apt-get install python-dev python-virtualenv
+    sudo apt-get install python-dev python-virtualenv libssl-dev libffi-dev
 
 Creamos un entorno virtual para instalar los clientes de
 OpenStack con un usuario con privilegios normales:
@@ -231,6 +231,17 @@ Una vez dentro del entorno virtual utilizamos la instrucción pip para
 instalar los paquetes python necesarios directamente desde pypi:
 
     (Openstack)usuario@oslo:~$ pip install requests python-novaclient==2.22.0 python-neutronclient==2.3.11
+
+En algunas ocasiones, como por ejemplo nos ha ocurrido con kilo, las
+dependencias que se instalan automáticamente con pip no son las
+versiones adecuadas (existe una modificación en alguna versión de una
+dependencia que hace que no funcione apropiadamente la aplicación), lo
+que exige una instalación más detallada de las versiones de las
+dependencias y es más conveniente utilizar un fichero [requirements.txt](requirements.txt)
+con las versiones específicas de estas dependencias. En ese caso el
+entorno se instala de forma más sencilla aún con:
+
+    (Openstack)usuario@oslo:~$ pip install -r requirements.txt
 
 ## OpenStack Endpoints
 OpenStack denomina *endpoint* a las URLs de las APIs de sus diferentes
