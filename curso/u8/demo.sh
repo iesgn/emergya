@@ -1,6 +1,6 @@
 #!/bin/bash
 
-IMAGEN='44288012-b805-455f-a21f-74ab36c46362'
+IMAGEN='50f3fd39-fe73-4cfe-a7a1-ae77852a8b7f'
 
 # Creamos tres redes
 
@@ -54,20 +54,20 @@ chmod 600 clave_demo.pem
 
 ## Creamos tres instancias ubuntu conectadas a cada una de las redes#
 
-nova boot --flavor ssd.XXXXS --image $IMAGEN \
+nova boot --flavor m1.small --image $IMAGEN \
             --security-groups default\
-	    --key-name clave_demo \
+            --key-name clave_demo \
             --nic net-id=$NET_ID1 \
             pc1
 
-nova boot --flavor ssd.XXXXS --image $IMAGEN \
+nova boot --flavor m1.small --image $IMAGEN \
             --security-groups default\
          --key-name clave_demo \
             --nic net-id=$NET_ID2 \
             pc2
 
 
-nova boot --flavor ssd.XXXXS --image $IMAGEN \
+nova boot --flavor m1.small --image $IMAGEN \
             --security-groups default\
          --key-name clave_demo \
             --nic net-id=$NET_ID3 \
@@ -77,7 +77,7 @@ nova boot --flavor ssd.XXXXS --image $IMAGEN \
 
 ## Asignamos una IP flotante a pc1#
 
-IP=$(nova floating-ip-create ext-net|awk 'NR==4'|awk '{print $2}')
+IP=$(nova floating-ip-create ext-net|awk 'NR==4'|awk '{print $4}')
 echo 'IP flotante asignada '$IP
 nova floating-ip-associate pc1 $IP
 
@@ -88,12 +88,24 @@ neutron router-update r3 --routes type=dict list=true destination=192.168.10.0/2
 
 echo ""
 echo "###############################################################################"
-echo "# Pasados unos instantes estará creado el escenario completo y podrás acceder #"
-echo "# a pc1 con:                                                                  #"
-echo "#                                                                             #"
-echo "# ssh -i clave_demo $IP                                                       #"
-echo "#                                                                             #"
-echo "# Hay que tener un poco de paciencia porque al crear redes nuevas las         #"
-echo "# instancias tardan un poco más en iniciarse                                  #"
+echo "  Pasados unos instantes estará creado el escenario completo y podrás acceder "
+echo "  a pc1 con:                                                                  "
+echo "                                                                              "
+echo "  ssh -i clave_demo $IP                                                       "
+echo "                                                                              "
+echo "  Hay que tener un poco de paciencia porque al crear redes nuevas las         "
+echo "  instancias tardan un poco más en iniciarse                                  "
 echo "###############################################################################"
 echo ""
+
+
+
+
+
+
+
+
+
+
+
+

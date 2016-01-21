@@ -57,3 +57,7 @@ nova keypair-delete clave_demo
 
 nova floating-ip-delete $IP_FLOTANTE
 
+
+
+
+
