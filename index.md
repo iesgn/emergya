@@ -4,7 +4,7 @@ tittle: Curso OpenStack
 menu:
   - Unidades
 ---
-Curso impartido por [José Domingo Muñoz](http://www.pledin.org) y
+Curso impartido por [José Domingo Muñoz](http://www.josedomingo.org) y
 [Alberto Molina](http://albertomolina.wordpress.com) en Enero de 2016
 en [Emergya](http://www.emergya.es/) con el siguiente índice de
 contenidos.
